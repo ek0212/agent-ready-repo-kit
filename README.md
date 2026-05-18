@@ -9,7 +9,7 @@ This is not a prompt dump. It is a small operating system for repo context:
 - Mermaid and Excalidraw workflows for diagram-first repo understanding.
 - MCP and Composio guidance for tool use without guesswork.
 - Static text hygiene rules so agent docs do not rot.
-- Lightweight security review skills for secrets, auth, prompt injection, and risky tool access.
+- Lightweight safety review for secrets, auth, MCP boundaries, and risky tool access.
 
 ## Why This Exists
 
@@ -65,6 +65,7 @@ Docs and diagrams:
 
 Tools and prompts:
 
+- `skill-authoring` - creates new modular skills only when a real procedural know-how gap exists.
 - `mcp-composio-workflow` - documents and safely uses MCP or Composio tool access.
 - `prompt-library-maintenance` - curates reusable prompt libraries and suffixes.
 - `claude-code-workflow` - converts practical Claude Code lessons into repo rules.
@@ -72,7 +73,6 @@ Tools and prompts:
 Security-adjacent:
 
 - `secrets-and-env-review` - reviews `.env`, config, and build output risk.
-- `ai-app-prompt-injection-review` - reviews LLM apps for prompt injection and unsafe tool use.
 
 ## Positioning
 

@@ -33,14 +33,19 @@ For AI apps and tools:
 
 - `skill-router`
 - `mcp-composio-workflow`
-- `ai-app-prompt-injection-review`
 - `secrets-and-env-review`
 
 For prompt and Claude Code workflows:
 
 - `skill-router`
+- `skill-authoring`
 - `prompt-library-maintenance`
 - `claude-code-workflow`
+
+For creating new skills:
+
+- `skill-router`
+- `skill-authoring`
 
 ## Naming Rule
 

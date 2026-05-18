@@ -30,10 +30,11 @@ Prevent context overload. Do not load the whole kit. Route the task to the small
 | Make a diagram | `mermaid-architecture-map` | `excalidraw-system-sketch` |
 | Sketch fuzzy product/system flow | `excalidraw-system-sketch` | none |
 | Write a repo report with receipts | `docs-grounded-recon-report` | `repo-readiness-audit` |
-| Configure MCP or Composio | `mcp-composio-workflow` | `ai-app-prompt-injection-review` |
+| Configure MCP or Composio | `mcp-composio-workflow` | `secrets-and-env-review` |
 | Review secrets or env vars | `secrets-and-env-review` | none |
-| Review an LLM app | `ai-app-prompt-injection-review` | `mcp-composio-workflow` |
+| Review an LLM app with tools | `mcp-composio-workflow` | `secrets-and-env-review` |
 | Maintain prompt library | `prompt-library-maintenance` | `claude-code-workflow` |
+| Create a new skill | `skill-authoring` | `static-text-hygiene` |
 | Run a coding session | `agent-session-playbook` | task-specific skill |
 
 ## Default Bundles
@@ -52,9 +53,17 @@ Stop after these. Create follow-up tasks for diagrams, MCP, or security review.
 
 Use:
 
-- `ai-app-prompt-injection-review`
 - `mcp-composio-workflow`
 - `secrets-and-env-review`
+
+Focus on tool boundaries, secrets, confirmation rules, and untrusted tool-returned content.
+
+### Skill Creation
+
+Use:
+
+- `skill-authoring`
+- `static-text-hygiene` only if the new skill includes lots of static documentation rules
 
 ### Documentation Cleanup
 
@@ -90,4 +99,3 @@ Using: <skill names>
 Skipping: <obvious but unnecessary skills>
 Reason: <one sentence>
 ```
-

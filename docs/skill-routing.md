@@ -38,7 +38,6 @@ Defer:
 
 - diagrams
 - MCP
-- prompt injection
 - prompt-library work
 
 ### "Review this AI app before I connect Gmail through Composio"
@@ -46,7 +45,6 @@ Defer:
 Use:
 
 - `mcp-composio-workflow`
-- `ai-app-prompt-injection-review`
 - `secrets-and-env-review`
 
 Defer:
@@ -54,6 +52,16 @@ Defer:
 - Excalidraw
 - prompt library maintenance
 - broad architecture grilling
+
+### "Create a new skill for this repeated workflow"
+
+Use:
+
+- `skill-authoring`
+
+Add only if needed:
+
+- `static-text-hygiene` when the skill is about docs, comments, or durable written context
 
 ### "Make a diagram of this repo"
 
@@ -76,4 +84,3 @@ Start with the smallest useful context:
 4. Relevant code/docs
 
 Only then add another skill if the work has a distinct second mode.
-
