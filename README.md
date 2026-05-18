@@ -27,11 +27,12 @@ Most repos either have no agent context or have a giant stale instruction file. 
 
 ## Quick Start
 
-1. Copy one template from `templates/` into a target repo.
-2. Run the `skills/grill-the-repo` workflow to sharpen it.
-3. Add `CONTEXT.md` only if the repo has domain-specific language.
-4. Add ADRs only for decisions that are hard to reverse, surprising without context, and trade-off driven.
-5. Add diagrams when prose hides boundaries or flow.
+1. Start with `skills/skill-router`.
+2. Copy one template from `templates/` into a target repo.
+3. Run the smallest useful skill set, usually `skills/grill-the-repo` plus `skills/static-text-hygiene`.
+4. Add `CONTEXT.md` only if the repo has domain-specific language.
+5. Add ADRs only for decisions that are hard to reverse, surprising without context, and trade-off driven.
+6. Add diagrams when prose hides boundaries or flow.
 
 Recommended first files for a repo:
 
@@ -43,6 +44,10 @@ docs/adr/0001-example-decision.md
 ```
 
 ## Skill Index
+
+Routing:
+
+- `skill-router` - selects the smallest useful skill set and prevents context overload.
 
 Core setup:
 
@@ -86,10 +91,11 @@ The public gist `EXEMPLARY-CLAUDE.md` is included under `references/` as the gui
 ## Principles
 
 - Keep instructions short enough to be read.
+- Do not load the whole skill kit for every task.
+- Default to one skill and use at most three skills per pass.
 - Store stable constraints, not stale implementation facts.
 - Prefer code inspection over user memory when the code can answer.
 - Make diagrams when relationships matter.
 - Use ADRs sparingly.
 - Verify changes with repo-specific commands.
 - Treat MCP and connector tools as capabilities with boundaries, not magic.
-

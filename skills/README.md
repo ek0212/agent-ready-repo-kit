@@ -2,10 +2,20 @@
 
 Each folder contains a standalone `SKILL.md` that can be copied into a Codex, Claude, or local skills setup.
 
+## Routing Guardrail
+
+Use `skill-router` before loading other skills.
+
+- Default to one skill.
+- Use at most three skills per pass.
+- Summarize before adding another skill.
+- Prefer inspecting the repo over loading more instructions.
+
 ## Suggested Bundles
 
 For a new repo:
 
+- `skill-router`
 - `grill-the-repo`
 - `static-text-hygiene`
 - `repo-readiness-audit`
@@ -13,6 +23,7 @@ For a new repo:
 
 For architecture work:
 
+- `skill-router`
 - `grill-the-architecture`
 - `mermaid-architecture-map`
 - `excalidraw-system-sketch`
@@ -20,12 +31,14 @@ For architecture work:
 
 For AI apps and tools:
 
+- `skill-router`
 - `mcp-composio-workflow`
 - `ai-app-prompt-injection-review`
 - `secrets-and-env-review`
 
 For prompt and Claude Code workflows:
 
+- `skill-router`
 - `prompt-library-maintenance`
 - `claude-code-workflow`
 
@@ -44,4 +57,3 @@ Less good:
 - `my-claude-prompt`
 - `cool-agent-helper`
 - `general-ai-thing`
-

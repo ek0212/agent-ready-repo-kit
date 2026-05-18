@@ -7,6 +7,8 @@ This repo contains templates and skills for making other repositories easier for
 - Keep examples practical and copy-pasteable.
 - Favor durable constraints over volatile implementation summaries.
 - Do not create giant instruction files. Short files that agents read beat comprehensive files they skim.
+- Do not load every skill for every task. Use `skills/skill-router/SKILL.md` to choose the smallest useful skill set.
+- Default to one skill and use at most three skills in a single pass.
 - Use plain Markdown for skills and templates.
 - Keep file names lowercase with hyphens except conventional files such as `AGENTS.md`, `CONTEXT.md`, and `README.md`.
 - When adding a skill, create a folder under `skills/<skill-name>/SKILL.md`.
@@ -60,4 +62,3 @@ This repo is documentation-only for now. Verification means:
 - Markdown headings are coherent
 - templates are internally consistent
 - no template encourages hardcoding secrets or skipping verification
-
