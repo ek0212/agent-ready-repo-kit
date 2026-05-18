@@ -1,0 +1,16 @@
+flowchart TD
+  Repo[Target repo] --> Grill[grill-the-repo]
+  Grill --> Agents[AGENTS.md]
+  Grill --> Context[CONTEXT.md]
+  Grill --> ADR[docs/adr]
+  Grill --> Diagrams[docs/diagrams]
+
+  Agents --> Session[agent-session-playbook]
+  Context --> Session
+  Diagrams --> Session
+  ADR --> Session
+
+  Session --> Code[Scoped code changes]
+  Session --> Verify[Verification commands]
+  Verify --> Report[Final report]
+
