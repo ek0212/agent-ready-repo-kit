@@ -1,25 +1,28 @@
 ---
 name: skill-router
-description: Select the smallest useful skill set for a repository task and prevent context overload.
-when_to_use: Invoke before loading other skills, when several skills might apply, or when deciding whether one, two, or three skills are enough.
+description: Route agent guidance into AGENTS.md, CLAUDE.md, path-scoped rules, skills, hooks, settings, or repo docs while minimizing context load.
 ---
 
 # Skill Router
 
 ## Purpose
 
-Prevent context overload. Do not load the whole kit. Route the task to the smallest useful skill set.
+Decide where guidance belongs. Keep always-loaded context small and avoid turning `AGENTS.md` into a stale repo wiki.
 
-## Routing Rules
+## Placement Rules
 
-- Default to one skill.
-- Use two skills when one handles the main task and one handles a clear risk.
-- Use three skills only for broad or multi-mode work.
-- Never load more than three skills in one pass.
-- Summarize what was learned before loading another skill.
-- Prefer code and docs inspection over loading more instructions.
+| Need | Put It In |
+|---|---|
+| Every agent should always know it | `AGENTS.md` |
+| Claude Code needs a tiny wrapper or import | `CLAUDE.md` |
+| Applies only to certain paths or file types | `.claude/rules/<topic>.md` with `paths:` |
+| Repeatable procedure, checklist, examples, or scripts | `.claude/skills/<name>/SKILL.md` |
+| Must be enforced regardless of model judgment | Hook, settings, CI, tests, or permissions |
+| Human-readable architecture or product context | Repo docs |
 
-## Fast Route Table
+## Daily Task Routing
+
+Default to no skill for tiny tasks and one skill for normal tasks. Add another skill only when the task has a distinct second mode.
 
 | User Need | Primary Skill | Optional Add-On |
 |---|---|---|
@@ -28,50 +31,21 @@ Prevent context overload. Do not load the whole kit. Route the task to the small
 | Review code quality | `coding-workflow` | `static-text-hygiene` |
 | Clean up comments, docstrings, or docs | `static-text-hygiene` | `writing-style` |
 | Apply Eve's prose rules | `writing-style` | none |
-| Organize imports, module layout, or tests | `coding-workflow` | none |
-| Add experimental or debug behavior | `coding-workflow` | `secrets-and-env-review` |
-| Validate a user-facing change | `coding-workflow` | none |
+| Write a design doc or architecture plan | `design-doc` | `mermaid-architecture-map` |
+| Improve a prompt or agent instruction | `prompt-crafting` | `skill-authoring` |
 | Make a Mermaid diagram | `mermaid-architecture-map` | none |
 | Make an Excalidraw sketch | `excalidraw-system-sketch` | none |
 | Review secrets or env vars | `secrets-and-env-review` | `static-text-hygiene` |
 | Create a new skill | `skill-authoring` | `static-text-hygiene` |
 
-## Default Bundles
+## Budget Rules
 
-### Small Code Change
-
-Use:
-
-- `coding-workflow`
-
-### Feature Work
-
-Use:
-
-- `coding-workflow`
-- `secrets-and-env-review` only when auth, env vars, provider keys, or deployment config are touched.
-- `static-text-hygiene` only when comments, docstrings, or docs are changed.
-
-### Prose Or Docs
-
-Use:
-
-- `writing-style`
-- `static-text-hygiene`
-
-### Repo Diagram
-
-Use one:
-
-- `mermaid-architecture-map`
-- `excalidraw-system-sketch`
-
-### Skill Creation
-
-Use:
-
-- `skill-authoring`
-- `static-text-hygiene` only if the new skill is documentation-heavy.
+- Do not load the whole kit.
+- Use at most three skills in one pass.
+- Prefer current repo inspection over more instructions.
+- Summarize what was learned before adding another skill.
+- Remove or path-scope rules that do not justify always-on context.
+- Split broad skills when their subprocedures trigger in different tasks.
 
 ## Stop Conditions
 
@@ -84,10 +58,13 @@ Stop routing and start working when:
 
 ## Output
 
-Before starting work, state:
+When routing configuration, return:
 
 ```text
-Using: <skill names>
-Skipping: <obvious but unnecessary skills>
-Reason: <one sentence>
+AGENTS.md:
+Rules:
+Skills:
+Hooks/settings/CI:
+Repo docs:
+Remove:
 ```

@@ -2,20 +2,29 @@
 
 Each folder contains one standalone `SKILL.md`.
 
-## Routing Guardrail
+Copy only the skills a target repo needs. Skill descriptions are the always-visible part, while the body should load only when the skill is invoked or selected by the agent.
 
-Use `skill-router` before loading other skills.
+## Context Guardrail
 
-- Default to one skill.
+- Default to no skill for tiny tasks.
+- Use one skill for normal tasks.
 - Use at most three skills per pass.
 - Summarize before adding another skill.
 - Prefer inspecting the repo over loading more instructions.
 
-## Core Skills
+## Configuration Skills
 
 - `skill-router`
 - `skill-authoring`
+- `prompt-crafting`
+
+## Coding And Planning
+
 - `coding-workflow`
+- `design-doc`
+
+## Writing And Hygiene
+
 - `static-text-hygiene`
 - `writing-style`
 

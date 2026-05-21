@@ -2,11 +2,12 @@
 
 Use this as a thin `AGENTS.md` for prose-heavy repos, docs folders, READMEs, or writing projects.
 
-## Skill Routing
+## Instruction Budget
 
-- Use `writing-style` for prose edits.
-- Use `static-text-hygiene` for comments, docstrings, Markdown docs, and durable repo instructions.
-- Use at most three skills per pass.
+- Keep stable writing constraints here.
+- Put path-specific docs rules in `.claude/rules/`.
+- Put repeatable editing workflows in `.claude/skills/`.
+- Prefer editing the current file over loading more instructions.
 
 ## Writing Style
 
@@ -24,4 +25,3 @@ Use this as a thin `AGENTS.md` for prose-heavy repos, docs folders, READMEs, or 
 - Keep contracts, traps, constraints, and decision rationale.
 - Remove volatile metrics, temporal qualifiers, code restatements, and stale references.
 - Prefer relative paths.
-

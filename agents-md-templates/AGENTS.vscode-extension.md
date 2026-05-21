@@ -2,6 +2,8 @@
 
 Use this template for VS Code extensions.
 
+Prefer path-scoped rules when available. Use this `AGENTS.md` template when the whole repo is a VS Code extension or the tool only supports an always-loaded file.
+
 ## Stable Constraints
 
 - Follow VS Code extension activation best practices.
@@ -33,4 +35,3 @@ Adjust commands to match the repo.
 - Do not store tokens in plain project files.
 - Do not assume workspace trust.
 - Do not rewrite user files without an explicit command or confirmation.
-

@@ -2,6 +2,8 @@
 
 Use this template for React, Next.js, Vite, Astro, Remix, or similar web apps.
 
+Prefer copying [rules-templates/web-app.md](../rules-templates/web-app.md) into `.claude/rules/` when the agent supports path-scoped rules. Use this `AGENTS.md` template when the whole repo is a web app or the tool only supports an always-loaded file.
+
 ## Stable Constraints
 
 - UI must work on desktop and basic mobile widths.
@@ -35,4 +37,3 @@ Adjust commands to match the repo.
 - Do not put secrets or private keys into `NEXT_PUBLIC_*`, Vite public env vars, static JSON, or generated HTML.
 - Do not create giant landing pages when the user asked for a tool or app.
 - Do not rely on screenshots, generated assets, or remote images without checking they render.
-

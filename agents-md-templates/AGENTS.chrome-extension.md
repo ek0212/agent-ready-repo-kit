@@ -2,6 +2,8 @@
 
 Use this template for Manifest V3 browser extensions.
 
+Prefer path-scoped rules when available. Use this `AGENTS.md` template when the whole repo is a Chrome extension or the tool only supports an always-loaded file.
+
 ## Stable Constraints
 
 - Keep permissions minimal.
@@ -33,4 +35,3 @@ Adjust commands to match the repo.
 - Do not inject remote scripts.
 - Do not assume popup state persists.
 - Do not put user data into logs.
-

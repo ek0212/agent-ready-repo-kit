@@ -1,7 +1,6 @@
 ---
 name: skill-authoring
-description: Create or revise modular agent skills using the Agent Skills format and Claude Code skill conventions. Use when a repeated workflow should become a SKILL.md instead of more AGENTS.md text.
-when_to_use: Invoke when creating a new skill, splitting a broad skill, converting repeated prompt text into a reusable workflow, or deciding whether guidance belongs in AGENTS.md, a knowledge doc, or a skill.
+description: Create, revise, split, or evaluate modular agent skills and decide when guidance belongs in AGENTS.md, rules, skills, hooks, settings, or docs.
 ---
 
 # Skill Authoring
@@ -34,22 +33,32 @@ Create a skill when:
 Do not create a skill when:
 
 - One sentence in `AGENTS.md` would solve it.
-- The content is declarative knowledge, not procedure.
+- The content is a path-specific constraint better handled by `.claude/rules/`.
+- The content is declarative knowledge that belongs in docs.
 - The workflow is a one-off.
 - The guidance is mostly volatile project state.
 
-### Step 2: Choose The Skill Type
+### Step 2: Choose The Right Layer
 
-Classify the skill before writing it:
+| Layer | Use For |
+|---|---|
+| `AGENTS.md` | Always-loaded constraints, core commands, stable "ask before" rules |
+| `CLAUDE.md` | Claude-specific wrapper, often importing `AGENTS.md` |
+| `.claude/rules/` | File-type or directory-specific constraints with `paths:` frontmatter |
+| Skill | Repeatable procedures, optional reference material, examples, scripts |
+| Hook, settings, CI | Enforced behavior that must not rely on model compliance |
+| Repo docs | Human-readable architecture, product, or process documentation |
+
+### Step 3: Choose The Skill Type
 
 | Type | Use For | Invocation |
 |---|---|---|
-| Reference | Conventions, style guides, domain rules | Claude can auto-invoke |
+| Reference | Conventions, style guides, domain rules | Agent can auto-invoke |
 | Task | Deploy, commit, release, run a checklist | Consider manual-only |
 | Tool-aided | Needs scripts, dynamic context, or shell output | Keep commands explicit |
-| Forked | Research or isolated analysis | Use `context: fork` only with a complete task |
+| Forked | Research or isolated analysis | Use only with a complete standalone task |
 
-### Step 3: Define The Boundary
+### Step 4: Define The Boundary
 
 Answer:
 
@@ -61,7 +70,7 @@ Answer:
 
 Keep the boundary tight. A broad skill is easy to invoke and hard to follow.
 
-### Step 4: Write Concise Frontmatter
+### Step 5: Write Concise Frontmatter
 
 Use this template:
 
@@ -69,21 +78,18 @@ Use this template:
 ---
 name: kebab-case-name
 description: Key use case first. Say what the skill does and when it applies.
-when_to_use: Optional extra triggers, kept short.
 ---
 ```
 
 Rules:
 
 - Put the most important trigger words in `description`.
-- Keep `description` and `when_to_use` concise because skill listings have a context budget.
+- Keep `description` concise because skill listings have a context budget.
 - Add `disable-model-invocation: true` for workflows the user should trigger manually, such as deploy, publish, commit, or send.
-- Add `user-invocable: false` only for background knowledge that should not appear as a slash command.
-- Avoid `allowed-tools` unless the skill is trusted and tool access should be pre-approved.
-- Use `context: fork` only when the skill contains a full standalone task for a subagent.
-- Use `argument-hint` and `arguments` when the skill is command-like and expects user input.
+- Avoid tool pre-approval unless the skill is trusted and the tool access is necessary.
+- Use arguments when the skill is command-like and expects a target.
 
-### Step 5: Write Procedural Body Content
+### Step 6: Write Procedural Body Content
 
 Use concrete action verbs:
 
@@ -97,7 +103,7 @@ Use concrete action verbs:
 
 Each step should include decision criteria. Avoid generic instructions like "be careful" or "think deeply".
 
-### Step 6: Keep SKILL.md Small
+### Step 7: Keep SKILL.md Small
 
 Once a skill loads, its content stays in context for the session. Keep `SKILL.md` focused.
 
@@ -114,23 +120,11 @@ skill-name/
 
 Reference supporting files from `SKILL.md` and explain when to load or run them.
 
-### Step 7: Use Dynamic Context Only When It Pays For Itself
+### Step 8: Use Dynamic Context Only When It Pays For Itself
 
-Claude Code supports shell injection such as:
+Use dynamic context for live state such as diffs or environment checks. Do not use it for facts the agent can cheaply inspect during normal work. Avoid dynamic commands with side effects.
 
-```markdown
-!`git diff HEAD`
-```
-
-Use dynamic context for live state, such as diffs or environment checks. Do not use it for facts the agent can cheaply inspect during normal work. Avoid dynamic commands with side effects.
-
-For command-like skills, use `$ARGUMENTS` or named arguments when the user needs to pass a target:
-
-```markdown
-Review $ARGUMENTS using the procedure below.
-```
-
-### Step 8: Place The Skill
+### Step 9: Place The Skill
 
 Common locations:
 
@@ -146,7 +140,7 @@ For this repo, use:
 skills/<skill-name>/SKILL.md
 ```
 
-### Step 9: Validate
+### Step 10: Validate
 
 Check:
 
@@ -163,8 +157,4 @@ Check:
 
 - A new or revised `SKILL.md`.
 - Optional supporting files in the same skill directory.
-- A short note explaining why this belongs in a skill instead of `AGENTS.md` or a knowledge doc.
-
-## Why This Matters
-
-Skills keep procedural know-how out of always-loaded repo instructions. Good skills load only when useful, stay concise once loaded, and preserve the expert judgment generic agents tend to miss.
+- A short note explaining why this belongs in a skill instead of `AGENTS.md`, rules, hooks, settings, or repo docs.
