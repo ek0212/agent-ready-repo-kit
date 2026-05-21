@@ -41,7 +41,3 @@ Run the narrowest relevant check available. If no check exists, explain the manu
 - A scoped code change.
 - Verification result or clear verification gap.
 - Short note describing why the change is the smallest reasonable one.
-
-## Why This Matters
-
-Agents often turn small tasks into architecture exercises. This skill keeps the agent anchored on working, correct code that fits the repo.

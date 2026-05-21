@@ -53,7 +53,3 @@ For UI changes, check desktop and basic mobile sizes. Text should not overflow o
 - Code that matches repo standards.
 - Notes about any standards intentionally not applied.
 - UI verification notes when UI changed.
-
-## Why This Matters
-
-Agents often produce code that works in isolation but weakens naming, structure, and UI coherence. This skill keeps implementation quality tied to existing project conventions.

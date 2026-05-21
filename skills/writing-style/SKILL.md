@@ -51,7 +51,3 @@ The final text should sound clear, useful, and grounded, not inflated.
 
 - Cleaned prose.
 - Notes on any claims that still need sources.
-
-## Why This Matters
-
-Agents tend to write with generic contrast formulas, rhetorical filler, and fake certainty. This skill makes generated text sound more like a sharp human collaborator.

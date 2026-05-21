@@ -56,7 +56,3 @@ Run the relevant test file first, then broader tests if the change affects share
 - Tests that match repo style.
 - Clear test names.
 - Verification command and result.
-
-## Why This Matters
-
-Tests that merely execute code can make agents falsely confident. Test names, structure, and mocks should encode the behavior being protected.

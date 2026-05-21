@@ -46,7 +46,3 @@ Run the most relevant test, lint, build, or manual check.
 - Incremental implementation.
 - Tests or explanation for why tests were not added.
 - Verification result.
-
-## Why This Matters
-
-Incremental work gives agents fewer places to drift and gives humans clearer review points.

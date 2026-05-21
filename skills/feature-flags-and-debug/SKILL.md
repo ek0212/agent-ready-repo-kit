@@ -50,7 +50,3 @@ Check that production builds do not rely on debug flags being enabled.
 - Flagged experimental or debug behavior.
 - Updated flag documentation.
 - Verification that production defaults are safe.
-
-## Why This Matters
-
-Agents often add debug paths that work locally but leak into production. Flags keep unfinished behavior explicit, reversible, and reviewable.

@@ -43,7 +43,3 @@ If a verification step cannot be run, state why and what risk remains.
 - Manual or end-to-end test notes.
 - UI size checks when applicable.
 - Residual verification gaps.
-
-## Why This Matters
-
-Passing unit tests is not the same as proving a user flow works. This skill keeps final answers tied to actual build and behavior checks.

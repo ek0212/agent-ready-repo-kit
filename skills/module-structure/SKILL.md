@@ -53,7 +53,3 @@ Run the repo formatter, linter, or import sorter if available.
 
 - Predictably structured module.
 - Verification result or note that no formatter/linter was available.
-
-## Why This Matters
-
-Predictable structure helps humans and agents find the right place to edit without inventing local one-off organization.
