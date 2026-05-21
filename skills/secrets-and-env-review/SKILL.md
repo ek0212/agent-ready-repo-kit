@@ -1,6 +1,6 @@
 ---
 name: secrets-and-env-review
-description: Reviews environment variables, secret handling, config files, and build outputs for accidental exposure. Use for web apps, extensions, AI apps, and MCP-enabled repos.
+description: Reviews environment variables, secret handling, config files, and build outputs for accidental exposure. Use for web apps, extensions, AI apps, and deployment-sensitive repos.
 ---
 
 # Secrets And Env Review
@@ -37,10 +37,12 @@ description: Reviews environment variables, secret handling, config files, and b
 ## Rules
 
 - Never hardcode secrets.
+- Use `.env` files that are gitignored, or server/runtime environment variables only.
 - Public env vars are public.
 - Do not log tokens, prompts with private data, auth headers, or raw provider responses.
 - `.env.example` should show names, not real values.
 - Build artifacts should not contain provider keys.
+- After auth or data changes, check build outputs for accidental exposure.
 
 ## Output
 
@@ -59,4 +61,3 @@ Return findings ordered by risk:
 ```
 
 If no issues are found, say so and list what was checked.
-

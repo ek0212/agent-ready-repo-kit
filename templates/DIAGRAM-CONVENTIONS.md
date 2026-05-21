@@ -31,7 +31,6 @@ Pair Excalidraw with a short Markdown summary so future agents can understand th
 ```text
 docs/diagrams/architecture.mmd
 docs/diagrams/data-flow.mmd
-docs/diagrams/mcp-boundaries.mmd
 docs/diagrams/system-sketch.excalidraw
 docs/diagrams/system-sketch.md
 ```
@@ -42,4 +41,3 @@ docs/diagrams/system-sketch.md
 - Label trust boundaries and external services.
 - Label where secrets enter or leave the system.
 - Avoid implementation details that change weekly.
-

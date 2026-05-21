@@ -34,7 +34,7 @@ If a fact changes more often than the repo's conventions, do not put it in `AGEN
 |---|---|
 | current TODO | issue tracker or project board |
 | exact implementation status | code |
-| domain term | `CONTEXT.md` |
+| domain term | dedicated glossary doc in the target repo, if needed |
 | hard architectural decision | ADR |
 | flow or boundary | diagram |
 | repeated agent mistake | `AGENTS.md` |
@@ -53,4 +53,3 @@ The current implementation has files A, B, C, D, and E, and file C currently doe
 ```
 
 That may be true today. It will become fossil dust tomorrow.
-

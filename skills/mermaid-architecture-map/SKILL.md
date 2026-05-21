@@ -10,7 +10,7 @@ description: Creates concise Mermaid diagrams for architecture, data flow, tool 
 - A system has multiple components or external services.
 - A flow is hard to understand in prose.
 - A repo needs diagrams that render in GitHub Markdown.
-- A tool or MCP boundary needs to be explicit.
+- A tool, trust, or system boundary needs to be explicit.
 
 ## Diagram Types
 
@@ -47,4 +47,3 @@ Check that the Mermaid syntax is valid enough for GitHub rendering:
 - balanced brackets and quotes
 - no unsupported Markdown inside labels
 - readable node names
-

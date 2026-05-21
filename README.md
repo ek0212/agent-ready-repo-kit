@@ -1,101 +1,61 @@
 # Agent-Ready Repo Kit
 
-Make a repo easier for Claude Code, Codex, Cursor, and other coding agents to understand, edit, verify, and avoid damaging.
+Small, modular skills and thin `AGENTS.md` templates for making coding agents behave better in real repositories.
 
-This is not a prompt dump. It is a small operating system for repo context:
+The repo is intentionally not its own agent-configured project. There is no root `AGENTS.md`. Copy a template from `templates/` into the repo you want to configure.
 
-- `AGENTS.md` templates for durable coding-agent behavior.
-- Skills that interview the user, inspect the codebase, and write useful context.
-- Mermaid and Excalidraw workflows for diagram-first repo understanding.
-- MCP and Composio guidance for tool use without guesswork.
-- Static text hygiene rules so agent docs do not rot.
-- Lightweight safety review for secrets, auth, MCP boundaries, and risky tool access.
+## What This Contains
 
-## Why This Exists
-
-Coding agents work much better when the repo tells them:
-
-- what conventions are stable
-- what commands verify work
-- what mistakes have happened before
-- what domain terms mean
-- what diagrams explain the system shape
-- what tools are allowed
-- what context is too volatile to memorialize
-
-Most repos either have no agent context or have a giant stale instruction file. This kit aims for the middle: short, durable, practical context that agents can actually follow.
+- Thin `AGENTS.md` templates.
+- Focused `SKILL.md` workflows.
+- Mermaid and Excalidraw diagram skills.
+- Static text hygiene for comments, docstrings, and Markdown.
+- Eve's writing rules as a reusable skill and AGENTS template.
 
 ## Quick Start
 
-1. Start with `skills/skill-router`.
-2. Copy one template from `templates/` into a target repo.
-3. Run the smallest useful skill set, usually `skills/grill-the-repo` plus `skills/static-text-hygiene`.
-4. Add `CONTEXT.md` only if the repo has domain-specific language.
-5. Add ADRs only for decisions that are hard to reverse, surprising without context, and trade-off driven.
-6. Add diagrams when prose hides boundaries or flow.
+1. Copy [templates/AGENTS.base.md](templates/AGENTS.base.md) into a target repo as `AGENTS.md`.
+2. Use [skills/skill-router](skills/skill-router/SKILL.md) to choose the smallest useful skill set.
+3. Use at most three skills per pass.
+4. Keep project-specific facts in the target repo, not this kit.
 
-Recommended first files for a repo:
+## Kept Skills
 
-```text
-AGENTS.md
-CONTEXT.md
-docs/diagrams/architecture.mmd
-docs/adr/0001-example-decision.md
-```
+Routing and authoring:
 
-## Skill Index
+- [skill-router](skills/skill-router/SKILL.md)
+- [skill-authoring](skills/skill-authoring/SKILL.md)
 
-Routing:
+Writing and static text:
 
-- `skill-router` - selects the smallest useful skill set and prevents context overload.
+- [writing-style](skills/writing-style/SKILL.md)
+- [static-text-hygiene](skills/static-text-hygiene/SKILL.md)
 
-Core setup:
+Coding workflow:
 
-- `grill-the-repo` - interrogates a repo and creates or improves agent context.
-- `static-text-hygiene` - keeps agent docs durable by stripping volatile details.
-- `repo-readiness-audit` - checks whether a repo is ready for coding-agent work.
-- `agent-session-playbook` - runs a clean agent session from context gathering to verification.
+- [working-code-first](skills/working-code-first/SKILL.md)
+- [development-flow](skills/development-flow/SKILL.md)
+- [code-standards](skills/code-standards/SKILL.md)
+- [module-structure](skills/module-structure/SKILL.md)
+- [testing-standards](skills/testing-standards/SKILL.md)
+- [feature-flags-and-debug](skills/feature-flags-and-debug/SKILL.md)
+- [end-to-end-validation](skills/end-to-end-validation/SKILL.md)
 
-Docs and diagrams:
+Diagrams and safety:
 
-- `grill-the-architecture` - stress-tests architectural language and creates diagrams or ADRs.
-- `mermaid-architecture-map` - produces concise Mermaid diagrams.
-- `excalidraw-system-sketch` - plans Excalidraw sketches for fuzzy system thinking.
-- `docs-grounded-recon-report` - creates a report with receipts, inspired by dataset-scout style output.
+- [mermaid-architecture-map](skills/mermaid-architecture-map/SKILL.md)
+- [excalidraw-system-sketch](skills/excalidraw-system-sketch/SKILL.md)
+- [secrets-and-env-review](skills/secrets-and-env-review/SKILL.md)
 
-Tools and prompts:
+## Templates
 
-- `skill-authoring` - creates new modular skills only when a real procedural know-how gap exists.
-- `mcp-composio-workflow` - documents and safely uses MCP or Composio tool access.
-- `prompt-library-maintenance` - curates reusable prompt libraries and suffixes.
-- `claude-code-workflow` - converts practical Claude Code lessons into repo rules.
+- [AGENTS.base.md](templates/AGENTS.base.md) - thin wrapper with writing rules and skill routing.
+- [AGENTS.writing-style.md](templates/AGENTS.writing-style.md) - minimal AGENTS template for prose-heavy repos.
+- [AGENTS.web-app.md](templates/AGENTS.web-app.md)
+- [AGENTS.python-cli.md](templates/AGENTS.python-cli.md)
+- [AGENTS.chrome-extension.md](templates/AGENTS.chrome-extension.md)
+- [AGENTS.vscode-extension.md](templates/AGENTS.vscode-extension.md)
 
-Security-adjacent:
+## Guardrail
 
-- `secrets-and-env-review` - reviews `.env`, config, and build output risk.
-
-## Positioning
-
-The simplest public framing:
-
-> Turn any repo into a workspace coding agents can actually work in.
-
-The more technical framing:
-
-> Durable AGENTS.md files, context docs, diagrams, and MCP workflows for agent-assisted engineering.
-
-## Relationship To Exemplary Claude
-
-The public gist `EXEMPLARY-CLAUDE.md` is included under `references/` as the guiding baseline. This kit generalizes that idea into reusable repo templates and skills.
-
-## Principles
-
-- Keep instructions short enough to be read.
-- Do not load the whole skill kit for every task.
-- Default to one skill and use at most three skills per pass.
-- Store stable constraints, not stale implementation facts.
-- Prefer code inspection over user memory when the code can answer.
-- Make diagrams when relationships matter.
-- Use ADRs sparingly.
-- Verify changes with repo-specific commands.
-- Treat MCP and connector tools as capabilities with boundaries, not magic.
+Do not load every skill. Use `skill-router`, choose one primary skill, and add at most two more only when the task has a distinct second or third mode.

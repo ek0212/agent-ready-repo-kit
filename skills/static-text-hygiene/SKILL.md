@@ -11,7 +11,7 @@ description: Multi-step procedure for auditing and fixing comments, docstrings, 
 - When reviewing a file and noticing comments that describe "what" rather than "why".
 - When a knowledge-base doc references specific metrics, row counts, timing data, or temporary status.
 - After any behavioral change to code that has associated docstrings or Markdown references.
-- When `AGENTS.md`, `CLAUDE.md`, `CONTEXT.md`, or docs have become noisy or stale.
+- When `AGENTS.md`, `CLAUDE.md`, comments, docstrings, or docs have become noisy or stale.
 
 ## Inputs
 

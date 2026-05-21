@@ -14,7 +14,7 @@ description: Plans Excalidraw sketches for architecture or product flows and wri
 
 ## Workflow
 
-1. Identify the sketch purpose: architecture, user flow, agent workflow, MCP boundary, or before/after design.
+1. Identify the sketch purpose: architecture, user flow, agent workflow, system boundary, or before/after design.
 2. List the boxes, groups, arrows, and annotations.
 3. Decide what belongs inside or outside the trust boundary.
 4. Create or update an `.excalidraw` file if tooling is available.
@@ -42,4 +42,3 @@ description: Plans Excalidraw sketches for architecture or product flows and wri
 - Keep labels short.
 - Use color meaningfully if colors are used.
 - Prefer one sketch per concept.
-

@@ -1,16 +1,8 @@
 # Project Agent Instructions
 
-## Project Shape
+This file is a thin wrapper. Keep procedural detail in skills, not here.
 
-Briefly describe what this repo is for in 1-3 sentences.
-
-## Stable Constraints
-
-- List constraints that are unlikely to change.
-- Include product, platform, privacy, compatibility, deployment, or performance constraints.
-- Do not include current feature status or temporary TODOs.
-
-## Development Commands
+## Project Commands
 
 ```bash
 # Install
@@ -24,35 +16,39 @@ Briefly describe what this repo is for in 1-3 sentences.
 # Build
 ```
 
-## Code Conventions
+## Skill Routing
 
-- Match surrounding code before introducing new patterns.
-- Keep changes scoped to the requested behavior.
-- Prefer existing helpers, components, and utilities.
-- Add abstractions only when they remove real duplication or clarify boundaries.
+- Start with `skill-router`.
+- Default to one skill.
+- Use at most three skills per pass.
+- Prefer reading code and docs over loading more instructions.
 
-## Agent Workflow
+## Default Coding Rules
 
-1. Read relevant files before editing.
-2. State assumptions when behavior is unclear.
-3. Make the smallest reasonable change.
-4. Run the most relevant verification command.
-5. Report what changed and what was not verified.
+- Prioritize working, correct code over perfect process.
+- Make the smallest reasonable changes.
+- Match the style of surrounding code.
+- Understand requirements before coding.
+- Implement incrementally.
+- Add tests for new critical logic or bug fixes.
+- Verify with the most relevant command before reporting completion.
 
-## Mistakes To Avoid
+## Writing Style
 
-- Do not rewrite unrelated files.
-- Do not introduce a second pattern when one already exists.
-- Do not hardcode secrets, tokens, API keys, user data, or environment-specific values.
-- Do not update docs with volatile implementation facts that will rot.
+- Be direct and concise. State assumptions and limitations clearly.
+- Use plain English.
+- No "This isn't X. It's Y." contrast patterns.
+- No self-answering rhetorical questions.
+- No em-dashes, use commas instead.
+- No three-part alliterative phrases.
+- No vague inspirational pivots.
+- No unsourced claims or unverified quotes.
 
-## When To Ask
+## Ask Before
 
-Ask before:
-
-- changing public APIs
-- changing auth, permissions, billing, or data deletion behavior
-- adding new dependencies
-- running destructive commands
-- making broad refactors
+- Changing public APIs.
+- Changing auth, permissions, billing, or data deletion behavior.
+- Adding new dependencies.
+- Running destructive commands.
+- Making broad refactors.
 

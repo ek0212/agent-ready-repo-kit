@@ -13,7 +13,7 @@ Prevent context overload. Do not load the whole kit. Route the task to the small
 
 - Default to one skill.
 - Use two skills when one handles the main task and one handles a clear risk.
-- Use three skills only for broad repo onboarding or multi-part audits.
+- Use three skills only for broad or multi-mode work.
 - Never load more than three skills in one pass.
 - Summarize what was learned before loading another skill.
 - Prefer code and docs inspection over loading more instructions.
@@ -22,64 +22,57 @@ Prevent context overload. Do not load the whole kit. Route the task to the small
 
 | User Need | Primary Skill | Optional Add-On |
 |---|---|---|
-| Make this repo agent-ready | `grill-the-repo` | `static-text-hygiene` |
-| Audit whether agents can work here | `repo-readiness-audit` | `secrets-and-env-review` |
-| Clean up AGENTS.md or CLAUDE.md | `static-text-hygiene` | `claude-code-workflow` |
-| Create better Claude/Codex rules | `claude-code-workflow` | `static-text-hygiene` |
-| Understand architecture | `grill-the-architecture` | `mermaid-architecture-map` |
-| Make a diagram | `mermaid-architecture-map` | `excalidraw-system-sketch` |
-| Sketch fuzzy product/system flow | `excalidraw-system-sketch` | none |
-| Write a repo report with receipts | `docs-grounded-recon-report` | `repo-readiness-audit` |
-| Configure MCP or Composio | `mcp-composio-workflow` | `secrets-and-env-review` |
-| Review secrets or env vars | `secrets-and-env-review` | none |
-| Review an LLM app with tools | `mcp-composio-workflow` | `secrets-and-env-review` |
-| Maintain prompt library | `prompt-library-maintenance` | `claude-code-workflow` |
+| Make a small code change | `working-code-first` | `end-to-end-validation` |
+| Implement a non-trivial feature | `development-flow` | `working-code-first` |
+| Review code quality | `code-standards` | `module-structure` |
+| Clean up comments, docstrings, or docs | `static-text-hygiene` | `writing-style` |
+| Apply Eve's prose rules | `writing-style` | none |
+| Organize imports or module layout | `module-structure` | `code-standards` |
+| Add or review tests | `testing-standards` | `end-to-end-validation` |
+| Add experimental or debug behavior | `feature-flags-and-debug` | `end-to-end-validation` |
+| Validate a user-facing change | `end-to-end-validation` | none |
+| Make a Mermaid diagram | `mermaid-architecture-map` | none |
+| Make an Excalidraw sketch | `excalidraw-system-sketch` | none |
+| Review secrets or env vars | `secrets-and-env-review` | `static-text-hygiene` |
 | Create a new skill | `skill-authoring` | `static-text-hygiene` |
-| Run a coding session | `agent-session-playbook` | task-specific skill |
 
 ## Default Bundles
 
-### New Repo Onboarding
+### Small Code Change
 
 Use:
 
-- `grill-the-repo`
+- `working-code-first`
+- `end-to-end-validation`
+
+### Feature Work
+
+Use:
+
+- `development-flow`
+- `working-code-first`
+- `testing-standards`
+
+### Prose Or Docs
+
+Use:
+
+- `writing-style`
 - `static-text-hygiene`
-- `repo-readiness-audit`
 
-Stop after these. Create follow-up tasks for diagrams, MCP, or security review.
+### Repo Diagram
 
-### AI App With Tools
+Use one:
 
-Use:
-
-- `mcp-composio-workflow`
-- `secrets-and-env-review`
-
-Focus on tool boundaries, secrets, confirmation rules, and untrusted tool-returned content.
+- `mermaid-architecture-map`
+- `excalidraw-system-sketch`
 
 ### Skill Creation
 
 Use:
 
 - `skill-authoring`
-- `static-text-hygiene` only if the new skill includes lots of static documentation rules
-
-### Documentation Cleanup
-
-Use:
-
-- `static-text-hygiene`
-- `docs-grounded-recon-report` only if claims need source receipts
-
-### Architecture Pass
-
-Use:
-
-- `grill-the-architecture`
-- `mermaid-architecture-map`
-
-Add `excalidraw-system-sketch` only if the user wants a rough spatial sketch.
+- `static-text-hygiene` only if the new skill is documentation-heavy.
 
 ## Stop Conditions
 
@@ -99,3 +92,4 @@ Using: <skill names>
 Skipping: <obvious but unnecessary skills>
 Reason: <one sentence>
 ```
+
