@@ -1,7 +1,6 @@
 ---
 name: static-text-hygiene
 description: Audit and fix comments, docstrings, Markdown docs, and AGENTS instructions so static text stays accurate as code changes.
-when_to_use: Invoke before merging docs/comments/docstrings, after behavioral changes with linked documentation, or when text contains metrics, timestamps, code restatements, or stale references.
 ---
 
 # Static Text Hygiene

@@ -1,7 +1,6 @@
 ---
 name: writing-style
 description: Apply Eve's concise writing rules to docs, comments, READMEs, PR summaries, reports, and agent-authored prose.
-when_to_use: Invoke when writing or editing prose, AGENTS templates, public explanations, summaries, comments, docs, or claims that need source discipline.
 ---
 
 # Writing Style

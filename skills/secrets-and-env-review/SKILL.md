@@ -1,7 +1,6 @@
 ---
 name: secrets-and-env-review
-description: Review secrets, environment variables, config files, client bundles, and build outputs for accidental exposure.
-when_to_use: Invoke when a repo uses API keys, OAuth, tokens, .env files, cloud credentials, extension manifests, deployment config, or provider keys.
+description: Review API keys, OAuth secrets, tokens, .env files, config, client bundles, manifests, workflows, and build outputs for accidental exposure.
 ---
 
 # Secrets And Env Review

@@ -1,7 +1,6 @@
 ---
 name: mermaid-architecture-map
-description: Create concise Mermaid diagrams for architecture, data flow, sequences, state, or system boundaries in Markdown.
-when_to_use: Invoke when prose hides flow or ownership, a repo needs a GitHub-renderable diagram, or a boundary should be explicit.
+description: Create concise Mermaid diagrams for architecture, data flow, sequences, state, dependencies, ownership, or system boundaries in Markdown.
 ---
 
 # Mermaid Architecture Map

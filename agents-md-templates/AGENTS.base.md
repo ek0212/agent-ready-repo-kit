@@ -1,6 +1,13 @@
 # Project Agent Instructions
 
-This file is a thin wrapper. Keep procedural detail in skills, not here.
+This file is an always-loaded contract. Keep it short. Do not use it as a repo summary.
+
+## Instruction Budget
+
+- Keep stable constraints and core commands here.
+- Put path-specific guidance in `.claude/rules/`.
+- Put repeatable procedures, checklists, examples, and reference material in `.claude/skills/`.
+- Inspect current code and docs before relying on any summary.
 
 ## Project Commands
 
@@ -16,13 +23,6 @@ This file is a thin wrapper. Keep procedural detail in skills, not here.
 # Build
 ```
 
-## Skill Routing
-
-- Start with `skill-router`.
-- Default to one skill.
-- Use at most three skills per pass.
-- Prefer reading code and docs over loading more instructions.
-
 ## Default Coding Rules
 
 - Prioritize working, correct code over perfect process.
@@ -32,6 +32,7 @@ This file is a thin wrapper. Keep procedural detail in skills, not here.
 - Implement incrementally.
 - Add tests for new critical logic or bug fixes.
 - Verify with the most relevant command before reporting completion.
+- Do not load extra skills or docs when direct repo inspection is enough.
 
 ## Writing Style
 
@@ -51,4 +52,3 @@ This file is a thin wrapper. Keep procedural detail in skills, not here.
 - Adding new dependencies.
 - Running destructive commands.
 - Making broad refactors.
-

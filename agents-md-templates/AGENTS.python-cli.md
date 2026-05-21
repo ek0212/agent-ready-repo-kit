@@ -2,6 +2,8 @@
 
 Use this template for Python command-line tools, data pipelines, and local automation.
 
+Prefer copying [rules-templates/python-cli.md](../rules-templates/python-cli.md) into `.claude/rules/` when the agent supports path-scoped rules. Use this `AGENTS.md` template when the whole repo is a Python CLI or the tool only supports an always-loaded file.
+
 ## Stable Constraints
 
 - Keep command output deterministic where practical.
@@ -33,4 +35,3 @@ Adjust commands to match the repo.
 - Do not log secrets or raw private data.
 - Do not turn a deterministic operation into an LLM call.
 - Do not add global mutable state unless the repo already uses it deliberately.
-
