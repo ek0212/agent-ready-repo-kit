@@ -1,6 +1,7 @@
 ---
 name: static-text-hygiene
-description: Multi-step procedure for auditing and fixing comments, docstrings, and markdown docs so they stay accurate as the codebase changes and do not mislead LLM agents.
+description: Audit and fix comments, docstrings, Markdown docs, and AGENTS instructions so static text stays accurate as code changes.
+when_to_use: Invoke before merging docs/comments/docstrings, after behavioral changes with linked documentation, or when text contains metrics, timestamps, code restatements, or stale references.
 ---
 
 # Static Text Hygiene

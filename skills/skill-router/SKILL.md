@@ -1,6 +1,7 @@
 ---
 name: skill-router
-description: Selects the smallest useful set of skills for a repository task. Use before loading other skills from this kit.
+description: Select the smallest useful skill set for a repository task and prevent context overload.
+when_to_use: Invoke before loading other skills, when several skills might apply, or when deciding whether one, two, or three skills are enough.
 ---
 
 # Skill Router
@@ -92,4 +93,3 @@ Using: <skill names>
 Skipping: <obvious but unnecessary skills>
 Reason: <one sentence>
 ```
-

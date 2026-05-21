@@ -1,6 +1,7 @@
 ---
 name: testing-standards
-description: Applies test naming, layout, docstring, and mocking standards for Python-style test suites while respecting local repo conventions.
+description: Apply test naming, layout, docstring, and mocking standards while respecting local test conventions.
+when_to_use: Invoke when adding tests, fixing regressions, reviewing test quality, naming test files, or mocking interfaces.
 ---
 
 # Testing Standards
@@ -59,4 +60,3 @@ Run the relevant test file first, then broader tests if the change affects share
 ## Why This Matters
 
 Tests that merely execute code can make agents falsely confident. Test names, structure, and mocks should encode the behavior being protected.
-

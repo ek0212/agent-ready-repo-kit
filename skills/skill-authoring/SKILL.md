@@ -1,22 +1,16 @@
 ---
 name: skill-authoring
-description: Procedure for creating new agent skills that are modular, procedural, and domain-specific, following the AISP skill format.
+description: Create or revise modular agent skills using the Agent Skills format and Claude Code skill conventions. Use when a repeated workflow should become a SKILL.md instead of more AGENTS.md text.
+when_to_use: Invoke when creating a new skill, splitting a broad skill, converting repeated prompt text into a reusable workflow, or deciding whether guidance belongs in AGENTS.md, a knowledge doc, or a skill.
 ---
 
 # Skill Authoring
 
-## When To Invoke This Skill
-
-- When a recurring multi-step workflow is identified that agents repeatedly get wrong or leave incomplete.
-- When domain judgment is needed beyond what a generic prompt can reliably provide.
-- When the user asks to create a new skill.
-- When an existing skill is too broad and should be split.
-
 ## Inputs
 
-- The domain problem or workflow to encode.
+- The workflow, checklist, or prompt to encode.
 - Examples of correct and incorrect execution, if available.
-- Existing skills in `.agents/skills/` or `skills/` for format reference.
+- Existing skills for style reference.
 
 ## Procedure
 
@@ -28,118 +22,149 @@ Ask:
 What does an expert do here that a generic agent gets wrong?
 ```
 
-A skill is warranted when:
+Create a skill when:
 
-- The task requires multi-step reasoning with domain-specific decision points.
-- Agents repeatedly make the same mistake without explicit guidance.
-- The knowledge is procedural, meaning how to do something, not just what something is.
+- The workflow is repeated across sessions or repos.
+- The task has multiple steps with judgment points.
+- The user keeps pasting the same instructions into chat.
+- A section of `AGENTS.md` has become a procedure instead of a stable fact.
+- A custom command needs supporting files, frontmatter, or better invocation control.
+- The body should load only when relevant, not in every session.
 
-A skill is not warranted when:
+Do not create a skill when:
 
-- A single sentence in `AGENTS.md` would suffice.
-- The task is a one-off with no reuse.
-- The guidance is just a list of facts. Use a knowledge-base doc instead.
+- One sentence in `AGENTS.md` would solve it.
+- The content is declarative knowledge, not procedure.
+- The workflow is a one-off.
+- The guidance is mostly volatile project state.
 
-### Step 2: Define The Skill Boundary
+### Step 2: Choose The Skill Type
 
-| Element | Question To Answer |
-|---|---|
-| Name | What is the verb or action? Use kebab-case. |
-| Trigger | When should an agent invoke this? Be specific. |
-| Inputs | What does the skill need to start? |
-| Outputs | What does the skill produce when done? |
-| Scope | What is explicitly out of scope? |
+Classify the skill before writing it:
 
-Keep the boundary tight. A skill that tries to cover too much will be invoked when irrelevant and will dilute context.
+| Type | Use For | Invocation |
+|---|---|---|
+| Reference | Conventions, style guides, domain rules | Claude can auto-invoke |
+| Task | Deploy, commit, release, run a checklist | Consider manual-only |
+| Tool-aided | Needs scripts, dynamic context, or shell output | Keep commands explicit |
+| Forked | Research or isolated analysis | Use `context: fork` only with a complete task |
 
-### Step 3: Write The Procedure
+### Step 3: Define The Boundary
 
-Structure as numbered steps. Each step should include:
+Answer:
 
-1. A clear action verb, such as classify, search, delete, rewrite, compare, verify, or update.
-2. Decision criteria embedded in the step.
-3. Domain judgment for places where the agent must choose.
+- Name: What is the verb or job? Use lowercase kebab-case.
+- Trigger: What user request should activate it?
+- Inputs: What must be known before starting?
+- Outputs: What does it produce?
+- Scope: What is explicitly out of scope?
 
-Rules:
+Keep the boundary tight. A broad skill is easy to invoke and hard to follow.
 
-- Each step should be independently verifiable.
-- Avoid rigid scripts that break on edge cases.
-- Include concrete examples for categories or decision points.
-- If a step needs sub-steps, keep to one level of nesting.
-
-### Step 4: Write `SKILL.md`
+### Step 4: Write Concise Frontmatter
 
 Use this template:
 
 ```markdown
 ---
 name: kebab-case-name
-description: One sentence. What the skill does and when it applies.
+description: Key use case first. Say what the skill does and when it applies.
+when_to_use: Optional extra triggers, kept short.
 ---
-
-# Skill Name
-
-## When To Invoke This Skill
-
-- Specific trigger conditions.
-
-## Inputs
-
-- What the skill needs to start.
-
-## Procedure
-
-### Step 1: Action Verb
-
-Steps with embedded decision criteria.
-
-### Step N: Verify
-
-How to confirm the skill was applied correctly.
-
-## Outputs
-
-- What the skill produces when done.
-
-## Why This Matters
-
-One paragraph explaining what goes wrong without this skill.
 ```
 
-### Step 5: Validate The Skill
+Rules:
 
-Check:
+- Put the most important trigger words in `description`.
+- Keep `description` and `when_to_use` concise because skill listings have a context budget.
+- Add `disable-model-invocation: true` for workflows the user should trigger manually, such as deploy, publish, commit, or send.
+- Add `user-invocable: false` only for background knowledge that should not appear as a slash command.
+- Avoid `allowed-tools` unless the skill is trusted and tool access should be pre-approved.
+- Use `context: fork` only when the skill contains a full standalone task for a subagent.
+- Use `argument-hint` and `arguments` when the skill is command-like and expects user input.
 
-- Modular: can be invoked independently.
-- Procedural: encodes multi-step reasoning, not just facts.
-- Scoped: clear trigger conditions prevent irrelevant invocation.
-- Durable: no timestamps, metrics, or volatile state.
-- Actionable: every step has a concrete verb.
-- Testable: each step can be verified as done or not done.
-- Self-contained: an agent reading only this file can execute the skill.
+### Step 5: Write Procedural Body Content
 
-### Step 6: Place The File
+Use concrete action verbs:
 
-Create one skill per directory:
+- classify
+- search
+- compare
+- rewrite
+- delete
+- verify
+- update
+
+Each step should include decision criteria. Avoid generic instructions like "be careful" or "think deeply".
+
+### Step 6: Keep SKILL.md Small
+
+Once a skill loads, its content stays in context for the session. Keep `SKILL.md` focused.
+
+Move bulky material into supporting files in the same directory:
 
 ```text
-.agents/skills/{skill-name}/SKILL.md
+skill-name/
+  SKILL.md
+  reference.md
+  examples.md
+  scripts/
+    helper.sh
+```
+
+Reference supporting files from `SKILL.md` and explain when to load or run them.
+
+### Step 7: Use Dynamic Context Only When It Pays For Itself
+
+Claude Code supports shell injection such as:
+
+```markdown
+!`git diff HEAD`
+```
+
+Use dynamic context for live state, such as diffs or environment checks. Do not use it for facts the agent can cheaply inspect during normal work. Avoid dynamic commands with side effects.
+
+For command-like skills, use `$ARGUMENTS` or named arguments when the user needs to pass a target:
+
+```markdown
+Review $ARGUMENTS using the procedure below.
+```
+
+### Step 8: Place The Skill
+
+Common locations:
+
+```text
+~/.claude/skills/<skill-name>/SKILL.md
+.claude/skills/<skill-name>/SKILL.md
+skills/<skill-name>/SKILL.md
 ```
 
 For this repo, use:
 
 ```text
-skills/{skill-name}/SKILL.md
+skills/<skill-name>/SKILL.md
 ```
 
-Add supporting scripts or resources in the same directory if needed.
+### Step 9: Validate
+
+Check:
+
+- Modular: works independently.
+- Procedural: encodes how to do the task.
+- Scoped: specific trigger conditions.
+- Durable: no volatile project state.
+- Actionable: steps use concrete verbs.
+- Testable: the result can be checked.
+- Concise: does not load reference material unnecessarily.
+- Safe: manual-only for side-effect-heavy workflows.
 
 ## Outputs
 
-- A new `SKILL.md` file.
-- Optional supporting resources in the same directory.
-- A short note explaining why this should be a skill instead of an `AGENTS.md` rule or knowledge-base doc.
+- A new or revised `SKILL.md`.
+- Optional supporting files in the same skill directory.
+- A short note explaining why this belongs in a skill instead of `AGENTS.md` or a knowledge doc.
 
 ## Why This Matters
 
-Generic prompts fragment as instruction sets grow, causing attention competition and reduced performance. Skills decouple procedural know-how from execution context, loading only the relevant workflow when needed. A poorly written skill is worse than no skill because it adds context load without adding judgment.
+Skills keep procedural know-how out of always-loaded repo instructions. Good skills load only when useful, stay concise once loaded, and preserve the expert judgment generic agents tend to miss.

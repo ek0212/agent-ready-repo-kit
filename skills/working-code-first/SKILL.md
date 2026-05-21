@@ -1,6 +1,7 @@
 ---
 name: working-code-first
-description: Applies the core rule set for making small, correct, style-matching code changes before optimizing process or polish.
+description: Make the smallest correct style-matching code change before optimizing process, polish, or architecture.
+when_to_use: Invoke before practical implementation, bug fixes, small improvements, or any moment where the agent may over-plan or over-refactor.
 ---
 
 # Working Code First
@@ -44,4 +45,3 @@ Run the narrowest relevant check available. If no check exists, explain the manu
 ## Why This Matters
 
 Agents often turn small tasks into architecture exercises. This skill keeps the agent anchored on working, correct code that fits the repo.
-

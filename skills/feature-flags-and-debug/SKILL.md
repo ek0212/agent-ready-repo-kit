@@ -1,6 +1,7 @@
 ---
 name: feature-flags-and-debug
-description: Handles experimental, debug, or incomplete work behind feature flags and prevents debug code from leaking into production behavior.
+description: Gate experimental, debug, or incomplete work behind feature flags and prevent debug behavior from leaking into production.
+when_to_use: Invoke when adding debug UI, verbose logs, diagnostics, incomplete features, risky rollout behavior, or feature flag documentation.
 ---
 
 # Feature Flags And Debug
@@ -53,4 +54,3 @@ Check that production builds do not rely on debug flags being enabled.
 ## Why This Matters
 
 Agents often add debug paths that work locally but leak into production. Flags keep unfinished behavior explicit, reversible, and reviewable.
-

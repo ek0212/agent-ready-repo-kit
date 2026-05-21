@@ -1,6 +1,7 @@
 ---
 name: end-to-end-validation
-description: Verifies changed functionality by building, manually testing affected flows, and checking UI on desktop and basic mobile sizes when applicable.
+description: Verify changed functionality with build, manual flow checks, and desktop/mobile UI checks when applicable.
+when_to_use: Invoke before calling user-visible changes complete, especially after UI, auth, routing, data, integration, or behavior changes.
 ---
 
 # End-To-End Validation
@@ -46,4 +47,3 @@ If a verification step cannot be run, state why and what risk remains.
 ## Why This Matters
 
 Passing unit tests is not the same as proving a user flow works. This skill keeps final answers tied to actual build and behavior checks.
-

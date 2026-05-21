@@ -1,6 +1,7 @@
 ---
 name: module-structure
-description: Enforces predictable file organization and import grouping for code modules.
+description: Enforce predictable file organization and import grouping when creating or editing code modules.
+when_to_use: Invoke when creating a source file, moving code between modules, changing imports, or cleaning up file order.
 ---
 
 # Module Structure
@@ -56,4 +57,3 @@ Run the repo formatter, linter, or import sorter if available.
 ## Why This Matters
 
 Predictable structure helps humans and agents find the right place to edit without inventing local one-off organization.
-

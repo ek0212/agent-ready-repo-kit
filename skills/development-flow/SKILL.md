@@ -1,6 +1,7 @@
 ---
 name: development-flow
-description: Guides incremental implementation for non-trivial coding tasks, from requirements understanding through tests or verification.
+description: Guide non-trivial feature work through requirements, a short plan, incremental implementation, tests, and verification.
+when_to_use: Invoke when a task touches multiple files, has ambiguous requirements, adds a feature, or needs an implementation plan before coding.
 ---
 
 # Development Flow
@@ -49,4 +50,3 @@ Run the most relevant test, lint, build, or manual check.
 ## Why This Matters
 
 Incremental work gives agents fewer places to drift and gives humans clearer review points.
-

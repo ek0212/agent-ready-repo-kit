@@ -1,6 +1,7 @@
 ---
 name: code-standards
-description: Applies code quality standards for small functions, domain-specific names, constants, simple refactors, type hints, docstrings, and coherent UI behavior.
+description: Apply code quality standards while editing or reviewing code. Use for function size, names, constants, simple refactors, type hints, docstrings, and UI coherence.
+when_to_use: Invoke when adding code, reviewing maintainability, introducing names or constants, changing typed APIs, or touching UI that must remain coherent.
 ---
 
 # Code Standards
@@ -56,4 +57,3 @@ For UI changes, check desktop and basic mobile sizes. Text should not overflow o
 ## Why This Matters
 
 Agents often produce code that works in isolation but weakens naming, structure, and UI coherence. This skill keeps implementation quality tied to existing project conventions.
-

@@ -1,6 +1,7 @@
 ---
 name: excalidraw-system-sketch
-description: Plans Excalidraw sketches for architecture or product flows and writes a companion Markdown summary. Use when the system is too fuzzy or spatial for Mermaid alone.
+description: Plan Excalidraw sketches for fuzzy architecture, product flows, or system maps and write a companion Markdown summary.
+when_to_use: Invoke when Mermaid is too rigid, the user thinks visually, or the system needs grouping, swimlanes, rough sketching, or before/after layout.
 ---
 
 # Excalidraw System Sketch
