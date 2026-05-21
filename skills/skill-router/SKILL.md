@@ -23,15 +23,14 @@ Prevent context overload. Do not load the whole kit. Route the task to the small
 
 | User Need | Primary Skill | Optional Add-On |
 |---|---|---|
-| Make a small code change | `working-code-first` | `end-to-end-validation` |
-| Implement a non-trivial feature | `development-flow` | `working-code-first` |
-| Review code quality | `code-standards` | `module-structure` |
+| Make a code change | `coding-workflow` | `static-text-hygiene` |
+| Implement a non-trivial feature | `coding-workflow` | `secrets-and-env-review` |
+| Review code quality | `coding-workflow` | `static-text-hygiene` |
 | Clean up comments, docstrings, or docs | `static-text-hygiene` | `writing-style` |
 | Apply Eve's prose rules | `writing-style` | none |
-| Organize imports or module layout | `module-structure` | `code-standards` |
-| Add or review tests | `testing-standards` | `end-to-end-validation` |
-| Add experimental or debug behavior | `feature-flags-and-debug` | `end-to-end-validation` |
-| Validate a user-facing change | `end-to-end-validation` | none |
+| Organize imports, module layout, or tests | `coding-workflow` | none |
+| Add experimental or debug behavior | `coding-workflow` | `secrets-and-env-review` |
+| Validate a user-facing change | `coding-workflow` | none |
 | Make a Mermaid diagram | `mermaid-architecture-map` | none |
 | Make an Excalidraw sketch | `excalidraw-system-sketch` | none |
 | Review secrets or env vars | `secrets-and-env-review` | `static-text-hygiene` |
@@ -43,16 +42,15 @@ Prevent context overload. Do not load the whole kit. Route the task to the small
 
 Use:
 
-- `working-code-first`
-- `end-to-end-validation`
+- `coding-workflow`
 
 ### Feature Work
 
 Use:
 
-- `development-flow`
-- `working-code-first`
-- `testing-standards`
+- `coding-workflow`
+- `secrets-and-env-review` only when auth, env vars, provider keys, or deployment config are touched.
+- `static-text-hygiene` only when comments, docstrings, or docs are changed.
 
 ### Prose Or Docs
 

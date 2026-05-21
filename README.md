@@ -33,13 +33,7 @@ Writing and static text:
 
 Coding workflow:
 
-- [working-code-first](skills/working-code-first/SKILL.md)
-- [development-flow](skills/development-flow/SKILL.md)
-- [code-standards](skills/code-standards/SKILL.md)
-- [module-structure](skills/module-structure/SKILL.md)
-- [testing-standards](skills/testing-standards/SKILL.md)
-- [feature-flags-and-debug](skills/feature-flags-and-debug/SKILL.md)
-- [end-to-end-validation](skills/end-to-end-validation/SKILL.md)
+- [coding-workflow](skills/coding-workflow/SKILL.md)
 
 Diagrams and safety:
 
