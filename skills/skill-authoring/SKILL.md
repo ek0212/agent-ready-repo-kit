@@ -6,6 +6,12 @@ when_to_use: Invoke when creating a new skill, splitting a broad skill, converti
 
 # Skill Authoring
 
+## Rules To Apply
+
+- `rules/writing-constraints.md`
+- `rules/static-text-constraints.md`
+- `rules/structure-constraints.md`
+
 ## Inputs
 
 - The workflow, checklist, or prompt to encode.

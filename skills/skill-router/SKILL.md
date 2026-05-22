@@ -23,14 +23,14 @@ Prevent context overload. Do not load the whole kit. Route the task to the small
 
 | User Need | Primary Skill | Optional Add-On |
 |---|---|---|
-| Make a code change | `coding-workflow` | `static-text-hygiene` |
-| Implement a non-trivial feature | `coding-workflow` | `secrets-and-env-review` |
-| Review code quality | `coding-workflow` | `static-text-hygiene` |
-| Clean up comments, docstrings, or docs | `static-text-hygiene` | `writing-style` |
-| Apply Eve's prose rules | `writing-style` | none |
-| Organize imports, module layout, or tests | `coding-workflow` | none |
-| Add experimental or debug behavior | `coding-workflow` | `secrets-and-env-review` |
-| Validate a user-facing change | `coding-workflow` | none |
+| Make a code change | `coding-process` | `static-text-hygiene` |
+| Implement a non-trivial feature | `coding-process` | `secrets-and-env-review` |
+| Review code quality | `coding-process` | `static-text-hygiene` |
+| Clean up comments, docstrings, or docs | `static-text-hygiene` | `writing-process` |
+| Apply Eve's prose rules | `writing-process` | none |
+| Organize imports, module layout, or tests | `coding-process` | none |
+| Add experimental or debug behavior | `coding-process` | `secrets-and-env-review` |
+| Validate a user-facing change | `coding-process` | none |
 | Make a Mermaid diagram | `mermaid-architecture-map` | none |
 | Make an Excalidraw sketch | `excalidraw-system-sketch` | none |
 | Review secrets or env vars | `secrets-and-env-review` | `static-text-hygiene` |
@@ -42,13 +42,13 @@ Prevent context overload. Do not load the whole kit. Route the task to the small
 
 Use:
 
-- `coding-workflow`
+- `coding-process`
 
 ### Feature Work
 
 Use:
 
-- `coding-workflow`
+- `coding-process`
 - `secrets-and-env-review` only when auth, env vars, provider keys, or deployment config are touched.
 - `static-text-hygiene` only when comments, docstrings, or docs are changed.
 
@@ -56,7 +56,7 @@ Use:
 
 Use:
 
-- `writing-style`
+- `writing-process`
 - `static-text-hygiene`
 
 ### Repo Diagram

@@ -15,9 +15,9 @@ Use `skill-router` before loading other skills.
 
 - `skill-router`
 - `skill-authoring`
-- `coding-workflow`
+- `coding-process`
+- `writing-process`
 - `static-text-hygiene`
-- `writing-style`
 
 ## Diagram And Safety Skills
 

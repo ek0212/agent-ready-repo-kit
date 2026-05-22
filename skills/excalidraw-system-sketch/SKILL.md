@@ -6,6 +6,11 @@ when_to_use: Invoke when Mermaid is too rigid, the user thinks visually, or the 
 
 # Excalidraw System Sketch
 
+## Rules To Apply
+
+- `rules/structure-constraints.md`
+- `rules/security-constraints.md` when secrets, trust boundaries, or user data appear.
+
 ## Use When
 
 - The user thinks visually.

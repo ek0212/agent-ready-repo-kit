@@ -6,6 +6,11 @@ when_to_use: Invoke when prose hides flow or ownership, a repo needs a GitHub-re
 
 # Mermaid Architecture Map
 
+## Rules To Apply
+
+- `rules/structure-constraints.md`
+- `rules/security-constraints.md` when secrets, trust boundaries, or user data appear.
+
 ## Use When
 
 - A system has multiple components or external services.

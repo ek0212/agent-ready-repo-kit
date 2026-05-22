@@ -6,6 +6,11 @@ when_to_use: Invoke when a repo uses API keys, OAuth, tokens, .env files, cloud 
 
 # Secrets And Env Review
 
+## Rules To Apply
+
+- `rules/security-constraints.md`
+- `rules/change-safety-constraints.md`
+
 ## Use When
 
 - A repo uses API keys, OAuth, tokens, `.env`, or cloud credentials.

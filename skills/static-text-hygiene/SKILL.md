@@ -6,6 +6,12 @@ when_to_use: Invoke before merging docs/comments/docstrings, after behavioral ch
 
 # Static Text Hygiene
 
+## Rules To Apply
+
+- `rules/static-text-constraints.md`
+- `rules/structure-constraints.md`
+- `rules/writing-constraints.md`
+
 ## When To Invoke This Skill
 
 - Before merging any PR that adds or modifies Markdown docs, docstrings, or inline comments.
@@ -101,12 +107,13 @@ For each remaining piece of static text, confirm:
 - It uses relative paths only.
 - It does not include "currently", "as of", or temporary status language.
 
+## Gotchas
+
+- Do not keep a volatile detail just because it sounds specific.
+- Do not duplicate the same guidance in many docs. Link to one source instead.
+
 ## Outputs
 
 - Cleaned files with only durable static text remaining.
 - List of stale references found and fixed, if any.
 - List of volatile claims removed or rewritten.
-
-## Why This Matters
-
-Stale static text is unusually dangerous for LLM agents because agents often trust comments and docs over code. A wrong comment, stale docstring, or obsolete Markdown section can become a future bad edit. Durable docs should preserve contracts, traps, constraints, and decision rationale, not fossilized implementation state.
