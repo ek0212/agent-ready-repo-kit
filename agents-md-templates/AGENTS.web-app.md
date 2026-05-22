@@ -1,6 +1,6 @@
 # Web App Agent Instructions
 
-Use this template for React, Next.js, Vite, Astro, Remix, or similar web apps.
+Append this to `AGENTS.base.md` for React, Next.js, Vite, Astro, Remix, or similar web apps.
 
 ## Stable Constraints
 
@@ -35,4 +35,3 @@ Adjust commands to match the repo.
 - Do not put secrets or private keys into `NEXT_PUBLIC_*`, Vite public env vars, static JSON, or generated HTML.
 - Do not create giant landing pages when the user asked for a tool or app.
 - Do not rely on screenshots, generated assets, or remote images without checking they render.
-

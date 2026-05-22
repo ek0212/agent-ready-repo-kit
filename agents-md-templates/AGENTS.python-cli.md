@@ -1,6 +1,6 @@
 # Python CLI Agent Instructions
 
-Use this template for Python command-line tools, data pipelines, and local automation.
+Append this to `AGENTS.base.md` for Python command-line tools, data pipelines, and local automation.
 
 ## Stable Constraints
 
@@ -33,4 +33,3 @@ Adjust commands to match the repo.
 - Do not log secrets or raw private data.
 - Do not turn a deterministic operation into an LLM call.
 - Do not add global mutable state unless the repo already uses it deliberately.
-

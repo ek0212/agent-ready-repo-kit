@@ -25,3 +25,8 @@ Use this as a thin `AGENTS.md` for prose-heavy repos, docs folders, READMEs, or 
 - Remove volatile metrics, temporal qualifiers, code restatements, and stale references.
 - Prefer relative paths.
 
+## Structure
+
+- Use MECE structure for categories, outlines, plans, and option sets.
+- Make buckets non-overlapping and collectively cover the relevant cases.
+- If the structure has unknowns, label them directly instead of hiding gaps.

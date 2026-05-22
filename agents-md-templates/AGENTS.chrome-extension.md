@@ -1,6 +1,6 @@
 # Chrome Extension Agent Instructions
 
-Use this template for Manifest V3 browser extensions.
+Append this to `AGENTS.base.md` for Manifest V3 browser extensions.
 
 ## Stable Constraints
 
@@ -33,4 +33,3 @@ Adjust commands to match the repo.
 - Do not inject remote scripts.
 - Do not assume popup state persists.
 - Do not put user data into logs.
-

@@ -1,6 +1,6 @@
 # VS Code Extension Agent Instructions
 
-Use this template for VS Code extensions.
+Append this to `AGENTS.base.md` for VS Code extensions.
 
 ## Stable Constraints
 
@@ -33,4 +33,3 @@ Adjust commands to match the repo.
 - Do not store tokens in plain project files.
 - Do not assume workspace trust.
 - Do not rewrite user files without an explicit command or confirmation.
-
