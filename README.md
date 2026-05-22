@@ -16,7 +16,7 @@ The repo is intentionally not its own agent-configured project. There is no root
 
 ## Quick Start
 
-1. Copy [agents-md-templates/AGENTS.md](agents-md-templates/AGENTS.md) into a target repo as `AGENTS.md`.
+1. Copy [agents-md-templates/AGENTS.md](AGENTS.md) into a target repo as `AGENTS.md`.
 2. Copy [rules/](rules/) into the target repo and keep only the optional path-scoped rules that apply.
 3. Use [skills/skill-router](skills/skill-router/SKILL.md) to choose the smallest useful skill set.
 4. Use at most three skills per pass.
@@ -82,7 +82,7 @@ Diagrams and safety:
 
 ## AGENTS.md Template
 
-- [AGENTS.md](agents-md-templates/AGENTS.md) - the only reusable AGENTS template. It imports always-on rules and lists the available skills.
+- [AGENTS.md](AGENTS.md) - the only reusable AGENTS template. It imports always-on rules and lists the available skills.
 
 ## Rules
 

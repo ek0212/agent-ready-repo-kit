@@ -1,9 +1,9 @@
 # Project Agent Instructions
 
-This is the only reusable `AGENTS.md` template in this kit. Keep it under 200 lines. Put standards in `rules/` and procedures in `skills/`.
+Keep this file under 200 lines. Put standards in `rules/` and procedures in `skills/`.
 
 ## Project Commands
-
+Fill this out once you've settled on the project standards:
 ```bash
 # Install
 
@@ -44,7 +44,3 @@ Keep only the optional rule files that match this repo:
 - Use `secrets-and-env-review` for keys, tokens, env vars, auth config, and bundled output checks.
 - Use `mermaid-architecture-map` or `excalidraw-system-sketch` for diagrams.
 - Use `skill-authoring` when creating or revising a skill.
-
-## Local Notes
-
-Use `AGENTS.local.md` for personal or machine-specific notes. Keep it out of git.
