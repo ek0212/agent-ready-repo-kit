@@ -37,6 +37,14 @@ Prevent context overload. Do not load the whole kit. Route the task to the small
 | Review secrets or env vars | `secrets-and-env-review` | `static-text-hygiene` |
 | Create a new skill | `skill-authoring` | `static-text-hygiene` |
 
+## Local Routes
+
+Consumers of this kit add their own primary + optional pairings here. Keep one row per user need so the table stays scannable.
+
+| User Need | Primary Skill | Optional Add-On |
+|---|---|---|
+| <!-- example: Deploy to staging --> | <!-- your-deploy-skill --> | <!-- secrets-and-env-review --> |
+
 ## Default Bundles
 
 ### Small Code Change

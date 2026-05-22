@@ -16,7 +16,7 @@ Fill this out once you've settled on the project standards:
 # Build
 ```
 
-## Always-On Rules
+## Kit Rules (sync from agent-ready-repo-kit, do not edit)
 
 @rules/skill-routing-constraints.md
 @rules/coding-constraints.md
@@ -25,6 +25,10 @@ Fill this out once you've settled on the project standards:
 @rules/structure-constraints.md
 @rules/change-safety-constraints.md
 @rules/security-constraints.md
+
+## Local Rules (add your own rule imports here)
+
+<!-- Add @rules/<your-rule>.md lines below. These survive kit updates. -->
 
 ## Optional Path-Scoped Rules
 
@@ -35,7 +39,7 @@ Keep only the optional rule files that match this repo:
 - `rules/chrome-extension-constraints.md`
 - `rules/vscode-extension-constraints.md`
 
-## Skills
+## Kit Skills (sync from agent-ready-repo-kit, do not edit)
 
 - Use `skill-router` before loading other skills.
 - Use `coding-process` for implementation, refactors, tests, and verification.
@@ -45,3 +49,8 @@ Keep only the optional rule files that match this repo:
 - Use `secrets-and-env-review` for keys, tokens, env vars, auth config, and bundled output checks.
 - Use `mermaid-architecture-map` or `excalidraw-system-sketch` for diagrams.
 - Use `skill-authoring` when creating or revising a skill.
+
+## Local Skills (add your own skill bullets here)
+
+<!-- Add `- Use <your-skill> for ...` bullets below. These survive kit updates. -->
+

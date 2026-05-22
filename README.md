@@ -109,6 +109,17 @@ Path-scoped:
 
 Do not load every skill. Use `skill-router`, choose one primary skill, and add at most two more only when the task has a distinct second or third mode.
 
+## Extending The Kit
+
+When you copy this kit into a target repo and want to add your own rules or skills alongside the kit's:
+
+1. Drop your rule into `rules/your-rule.md` and add `@rules/your-rule.md` under the `## Local Rules` section of `AGENTS.md`. Do not edit the `## Kit Rules` block, so future syncs from this kit stay conflict-free.
+2. Drop your skill into `skills/your-skill/SKILL.md` and add a `- Use your-skill for ...` bullet under the `## Local Skills` section of `AGENTS.md`.
+3. Add a routing row for your skill under `## Local Routes` in `skills/skill-router/SKILL.md`.
+4. Re-syncing this kit later overwrites only the `Kit` blocks, so your `Local` additions persist.
+
+Skills auto-list at runtime, so a new `skills/your-skill/SKILL.md` is discoverable even without the bullet, but the bullet and routing row tell the agent when to reach for it.
+
 ## File Size
 
 Keep every `AGENTS.md`, rule file, and `SKILL.md` under 200 lines.
