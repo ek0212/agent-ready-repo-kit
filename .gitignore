@@ -11,3 +11,4 @@ AGENTS.local.md
 dist/
 build/
 coverage/
+.obsidian*
