@@ -39,6 +39,7 @@ Keep only the optional rule files that match this repo:
 
 - Use `skill-router` before loading other skills.
 - Use `coding-process` for implementation, refactors, tests, and verification.
+- Use `frontend-design` for building distinctive web components, pages, or applications.
 - Use `writing-process` for prose, docs, summaries, and public explanations.
 - Use `static-text-hygiene` for deeper stale comment, docstring, and Markdown cleanup.
 - Use `secrets-and-env-review` for keys, tokens, env vars, auth config, and bundled output checks.

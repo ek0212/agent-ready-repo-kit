@@ -26,6 +26,7 @@ Prevent context overload. Do not load the whole kit. Route the task to the small
 | Make a code change | `coding-process` | `static-text-hygiene` |
 | Implement a non-trivial feature | `coding-process` | `secrets-and-env-review` |
 | Review code quality | `coding-process` | `static-text-hygiene` |
+| Build a web component, page, or UI | `frontend-design` | `coding-process` |
 | Clean up comments, docstrings, or docs | `static-text-hygiene` | `writing-process` |
 | Apply Eve's prose rules | `writing-process` | none |
 | Organize imports, module layout, or tests | `coding-process` | none |

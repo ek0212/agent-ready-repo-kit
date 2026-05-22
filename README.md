@@ -2,7 +2,7 @@
 
 Small, modular rules and skills for making coding agents behave better in real repositories.
 
-The repo is intentionally not its own agent-configured project. There is no root `AGENTS.md`. Copy the template from `agents-md-templates/` into the repo you want to configure.
+The root `AGENTS.md` is the reusable template. Copy it, along with the `rules/` and `skills/` you want, into the target repo.
 
 ## What This Contains
 
@@ -16,7 +16,7 @@ The repo is intentionally not its own agent-configured project. There is no root
 
 ## Quick Start
 
-1. Copy [agents-md-templates/AGENTS.md](AGENTS.md) into a target repo as `AGENTS.md`.
+1. Copy [AGENTS.md](AGENTS.md) into the target repo as `AGENTS.md`.
 2. Copy [rules/](rules/) into the target repo and keep only the optional path-scoped rules that apply.
 3. Use [skills/skill-router](skills/skill-router/SKILL.md) to choose the smallest useful skill set.
 4. Use at most three skills per pass.
@@ -24,7 +24,7 @@ The repo is intentionally not its own agent-configured project. There is no root
 
 ## Layers
 
-- `agents-md-templates/`: one `AGENTS.md` entrypoint and rule manifest.
+- `AGENTS.md`: the entrypoint and rule manifest at the repo root.
 - `rules/`: standards and constraints. Some files are path-scoped.
 - `skills/`: on-demand procedures that point back to rules.
 
@@ -54,6 +54,7 @@ AGENTS.md
         |-- secrets-and-env-review
         |-- mermaid-architecture-map
         |-- excalidraw-system-sketch
+        |-- frontend-design
         |-- skill-authoring
         `-- skill-router
 ```
@@ -73,6 +74,7 @@ Writing and static text:
 Coding process:
 
 - [coding-process](skills/coding-process/SKILL.md)
+- [frontend-design](skills/frontend-design/SKILL.md)
 
 Diagrams and safety:
 

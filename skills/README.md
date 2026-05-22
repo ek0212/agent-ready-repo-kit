@@ -16,6 +16,7 @@ Use `skill-router` before loading other skills.
 - `skill-router`
 - `skill-authoring`
 - `coding-process`
+- `frontend-design`
 - `writing-process`
 - `static-text-hygiene`
 
