@@ -59,9 +59,10 @@ Use for: bug fixes, feature work, refactors, test updates, verification.
 
 1. **Pin down behavior.** Restate the request and assumptions. Ask only when missing info would make implementation risky.
 2. **Inspect before editing.** Read nearby code, tests, docs, config. Prefer local conventions.
-3. **Smallest correct change.** One coherent change at a time. No broad rewrites or speculative abstractions.
-4. **Update tests and static text.** Add tests for critical logic. Update comments/docstrings only when they preserve durable contracts.
-5. **Verify.** Run the narrowest relevant command. For UI changes, check desktop and basic mobile.
+3. **Scope the change.** List the variants the affected code must handle (deploy modes, lifecycle states, entry points, platforms). Verify your planned change works across all of them. If it only covers some, widen the fix or state which variants are out of scope. If multiple variants need ad-hoc handling, that signals a missing abstraction.
+4. **Smallest correct change.** One coherent change at a time. No broad rewrites or speculative abstractions.
+5. **Update tests and static text.** Add tests for critical logic. Update comments/docstrings only when they preserve durable contracts.
+6. **Verify.** Run the narrowest relevant command. For UI changes, check desktop and basic mobile.
 
 Gotchas: do not turn deterministic operations into LLM calls, do not create duplicate config/flag/routing systems, do not ship behavior that relies on debug flags.
 
