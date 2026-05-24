@@ -42,7 +42,7 @@ Ask before: changing public APIs, changing auth/permissions/billing/data-deletio
 - Keep comments, docstrings, docs, and repo instructions durable.
 - Preserve contracts, traps, constraints, and decision rationale.
 - Remove volatile metrics, temporal qualifiers, stale references, code restatements, and narrative history.
-- Prefer relative paths in durable docs. Prefer no comment over a wrong one.
+- Prefer relative paths in durable docs. Prefer no comment, or only absolutely necessary comments, over wrong ones.
 
 ### Structure
 
