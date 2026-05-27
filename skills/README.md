@@ -2,26 +2,17 @@
 
 Each folder contains one standalone `SKILL.md`.
 
-## Routing Guardrail
+## Available Skills
 
-Use `skill-router` before loading other skills.
+| Skill | Use when |
+|---|---|
+| `skill-authoring` | Creating a new skill, splitting a broad skill, or deciding whether guidance belongs in AGENTS.md vs a skill. |
+| `frontend-design` | Building distinctive web components, pages, or applications where design quality matters. |
+| `mermaid-architecture-map` | Repo needs a GitHub-renderable diagram or a system boundary should be explicit. |
+| `excalidraw-system-sketch` | Mermaid is too rigid, or the system needs grouping, swimlanes, or rough sketching. |
 
-- Default to one skill.
-- Use at most three skills per pass.
-- Summarize before adding another skill.
-- Prefer inspecting the repo over loading more instructions.
+## Loading Rules
 
-## Core Skills
-
-- `skill-router`
-- `skill-authoring`
-- `coding-process`
-- `frontend-design`
-- `writing-process`
-- `static-text-hygiene`
-
-## Diagram And Safety Skills
-
-- `mermaid-architecture-map`
-- `excalidraw-system-sketch`
-- `secrets-and-env-review`
+- Default to zero skills. The procedures in `AGENTS.md` cover most tasks.
+- Load at most one skill per pass unless the task spans multiple domains.
+- Prefer reading code and docs over loading more instructions.
