@@ -139,6 +139,7 @@ Load from `skills/<name>/SKILL.md` only when the task matches.
 | `frontend-design` | Building distinctive web components, pages, or applications where design quality and creative aesthetics matter. |
 | `mermaid-architecture-map` | Prose hides flow or ownership, repo needs a GitHub-renderable diagram, or a system boundary should be explicit. |
 | `excalidraw-system-sketch` | Mermaid is too rigid, the user thinks visually, or the system needs grouping, swimlanes, or rough sketching. |
+| `creative-writing` | Drafting, structuring, or editing nonfiction writing (blog posts, articles, profiles, essays) where narrative craft and reader engagement matter. |
 
 ### Skill Loading Rules
 
