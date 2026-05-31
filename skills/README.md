@@ -10,6 +10,8 @@ Each folder contains one standalone `SKILL.md`.
 | `frontend-design` | Building distinctive web components, pages, or applications where design quality matters. |
 | `mermaid-architecture-map` | Repo needs a GitHub-renderable diagram or a system boundary should be explicit. |
 | `excalidraw-system-sketch` | Mermaid is too rigid, or the system needs grouping, swimlanes, or rough sketching. |
+| `creative-writing` | Drafting, structuring, or editing nonfiction writing where narrative craft and reader engagement matter. |
+| `dataset-triage` | Running first-pass sanity checks on any tabular dataset before analysis, joins, or modeling. |
 
 ## Loading Rules
 
