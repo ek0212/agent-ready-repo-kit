@@ -1,176 +1,152 @@
 ---
 name: skill-authoring
-description: Create or revise modular agent skills using the Agent Skills format and Claude Code skill conventions. Use when a repeated workflow should become a SKILL.md instead of more AGENTS.md text.
-when_to_use: Invoke when creating a new skill, splitting a broad skill, converting repeated prompt text into a reusable workflow, or deciding whether guidance belongs in AGENTS.md, a knowledge doc, or a skill.
+description: Create or revise agent skills using the Agent Skills format. Use when user says "create a skill", "build a skill", "write a SKILL.md", "split this skill", "convert this to a skill", or when deciding whether guidance belongs in AGENTS.md vs a skill.
+license: MIT
 ---
 
-# Skill Authoring
+Create well-structured, effective skills that follow the Agent Skills specification.
 
-## Rules To Apply
+## Workflow
 
-- `rules/writing-constraints.md`
-- `rules/static-text-constraints.md`
-- `rules/structure-constraints.md`
-
-## Inputs
-
-- The workflow, checklist, or prompt to encode.
-- Examples of correct and incorrect execution, if available.
-- Existing skills for style reference.
-
-## Procedure
-
-### Step 1: Identify The Know-How Gap
-
-Ask:
-
-```text
-What does an expert do here that a generic agent gets wrong?
-```
+### Step 1: Decide If a Skill Is Needed
 
 Create a skill when:
-
 - The workflow is repeated across sessions or repos.
 - The task has multiple steps with judgment points.
 - The user keeps pasting the same instructions into chat.
-- A section of `AGENTS.md` has become a procedure instead of a stable fact.
-- A custom command needs supporting files, frontmatter, or better invocation control.
-- The body should load only when relevant, not in every session.
+- A section of AGENTS.md has grown into a procedure.
+- The body should load only when relevant, not every session.
 
-Do not create a skill when:
-
-- One sentence in `AGENTS.md` would solve it.
+Do NOT create a skill when:
+- One sentence in AGENTS.md would solve it.
 - The content is declarative knowledge, not procedure.
 - The workflow is a one-off.
 - The guidance is mostly volatile project state.
 
-### Step 2: Choose The Skill Type
+### Step 2: Classify the Skill Category
 
-Classify the skill before writing it:
-
-| Type | Use For | Invocation |
+| Category | Use For | Example |
 |---|---|---|
-| Reference | Conventions, style guides, domain rules | Claude can auto-invoke |
-| Task | Deploy, commit, release, run a checklist | Consider manual-only |
-| Tool-aided | Needs scripts, dynamic context, or shell output | Keep commands explicit |
-| Forked | Research or isolated analysis | Use `context: fork` only with a complete task |
+| Document & Asset Creation | Consistent output: docs, designs, code, presentations | frontend-design |
+| Workflow Automation | Multi-step processes with consistent methodology | skill-creator |
+| MCP Enhancement | Workflow guidance on top of MCP tool access | sentry-code-review |
 
-### Step 3: Define The Boundary
+### Step 3: Define the Boundary
 
-Answer:
+Answer before writing:
+- **Name**: The verb or job. Lowercase kebab-case.
+- **Trigger**: What user request should activate it?
+- **Inputs**: What must be known before starting?
+- **Outputs**: What does it produce?
+- **Scope**: What is explicitly out of scope?
 
-- Name: What is the verb or job? Use lowercase kebab-case.
-- Trigger: What user request should activate it?
-- Inputs: What must be known before starting?
-- Outputs: What does it produce?
-- Scope: What is explicitly out of scope?
+A broad skill is easy to invoke and hard to follow. Keep boundaries tight.
 
-Keep the boundary tight. A broad skill is easy to invoke and hard to follow.
+### Step 4: Write Frontmatter
 
-### Step 4: Write Concise Frontmatter
+Required fields:
 
-Use this template:
-
-```markdown
+```yaml
 ---
 name: kebab-case-name
-description: Key use case first. Say what the skill does and when it applies.
-when_to_use: Optional extra triggers, kept short.
+description: What it does. Use when user says "trigger phrase", "another phrase", or asks to [action]. Mention relevant file types if applicable.
 ---
+```
+
+Optional fields:
+
+```yaml
+license: MIT
+allowed-tools: "Bash(python:*) WebFetch"
+compatibility: Requires Node 18+
+metadata:
+  author: Your Name
+  version: 1.0.0
+  mcp-server: server-name
 ```
 
 Rules:
+- `name`: kebab-case, no spaces or capitals, must match folder name.
+- `description`: MUST include WHAT it does AND WHEN to use it. Under 1024 chars. Include specific trigger phrases users would say. No XML angle brackets.
+- Do not use "claude" or "anthropic" in skill names (reserved).
 
-- Put the most important trigger words in `description`.
-- Keep `description` and `when_to_use` concise because skill listings have a context budget.
-- Add `disable-model-invocation: true` for workflows the user should trigger manually, such as deploy, publish, commit, or send.
-- Add `user-invocable: false` only for background knowledge that should not appear as a slash command.
-- Avoid `allowed-tools` unless the skill is trusted and tool access should be pre-approved.
-- Use `context: fork` only when the skill contains a full standalone task for a subagent.
-- Use `argument-hint` and `arguments` when the skill is command-like and expects user input.
+### Step 5: Write the Skill Body
 
-### Step 5: Write Procedural Body Content
+Structure the body with clear steps using concrete action verbs (classify, search, compare, rewrite, delete, verify, update). Each step should include decision criteria.
 
-Use concrete action verbs:
+Recommended structure:
 
-- classify
-- search
-- compare
-- rewrite
-- delete
-- verify
-- update
+```markdown
+[Brief statement of what the skill does]
 
-Each step should include decision criteria. Avoid generic instructions like "be careful" or "think deeply".
+## Workflow
 
-### Step 6: Keep SKILL.md Small
+### Step 1: [First Major Step]
+Clear explanation with decision criteria.
 
-Once a skill loads, its content stays in context for the session. Keep `SKILL.md` focused.
+### Step 2: [Next Step]
+...
 
-Move bulky material into supporting files in the same directory:
+## Examples (optional)
+Example 1: [common scenario]
 
-```text
+## Troubleshooting (optional)
+Error: [common error]
+Solution: [how to fix]
+```
+
+Avoid generic instructions like "be careful" or "think deeply".
+
+### Step 6: Apply Progressive Disclosure
+
+Skills use a three-level system to minimize token usage:
+
+1. **Frontmatter** (always loaded): Enough for Claude to know WHEN to use the skill.
+2. **SKILL.md body** (loaded when relevant): Full instructions and guidance.
+3. **Linked files** (loaded on demand): Reference docs, examples, scripts.
+
+Keep SKILL.md focused and under 5,000 words. Move bulky material into supporting files:
+
+```
 skill-name/
-  SKILL.md
-  reference.md
-  examples.md
-  scripts/
-    helper.sh
+  SKILL.md          # Required — main instructions
+  scripts/          # Optional — executable code
+  references/       # Optional — docs loaded as needed
+  assets/           # Optional — templates, fonts, icons
 ```
 
-Reference supporting files from `SKILL.md` and explain when to load or run them.
+Reference supporting files from SKILL.md and explain when to load them.
 
-### Step 7: Use Dynamic Context Only When It Pays For Itself
+Do NOT include a README.md inside the skill folder.
 
-Claude Code supports shell injection such as:
-
-```markdown
-!`git diff HEAD`
-```
-
-Use dynamic context for live state, such as diffs or environment checks. Do not use it for facts the agent can cheaply inspect during normal work. Avoid dynamic commands with side effects.
-
-For command-like skills, use `$ARGUMENTS` or named arguments when the user needs to pass a target:
-
-```markdown
-Review $ARGUMENTS using the procedure below.
-```
-
-### Step 8: Place The Skill
+### Step 7: Place the Skill
 
 Common locations:
 
-```text
-~/.claude/skills/<skill-name>/SKILL.md
-.claude/skills/<skill-name>/SKILL.md
-skills/<skill-name>/SKILL.md
+```
+~/.claude/skills/<skill-name>/SKILL.md    # User-global
+.claude/skills/<skill-name>/SKILL.md      # Project-local
+skills/<skill-name>/SKILL.md              # Repo skills directory
 ```
 
-For this repo, use:
+For this repo, use `skills/<skill-name>/SKILL.md`.
 
-```text
-skills/<skill-name>/SKILL.md
-```
-
-### Step 9: Validate
+### Step 8: Validate
 
 Check:
+- **Triggers correctly**: Loads on obvious tasks AND paraphrased requests, does NOT load on unrelated queries.
+- **Modular**: Works independently alongside other skills.
+- **Procedural**: Encodes how to do the task with decision criteria.
+- **Scoped**: Specific trigger conditions in description.
+- **Durable**: No volatile project state or stale references.
+- **Actionable**: Steps use concrete verbs.
+- **Concise**: Does not load reference material unnecessarily.
+- **Portable**: Works across Claude.ai, Claude Code, and API.
 
-- Modular: works independently.
-- Procedural: encodes how to do the task.
-- Scoped: specific trigger conditions.
-- Durable: no volatile project state.
-- Actionable: steps use concrete verbs.
-- Testable: the result can be checked.
-- Concise: does not load reference material unnecessarily.
-- Safe: manual-only for side-effect-heavy workflows.
+If the skill undertriggers, add more trigger phrases and keywords to the description. If it overtriggers, be more specific or add negative triggers.
 
 ## Outputs
 
-- A new or revised `SKILL.md`.
+- A new or revised SKILL.md.
 - Optional supporting files in the same skill directory.
-- A short note explaining why this belongs in a skill instead of `AGENTS.md` or a knowledge doc.
-
-## Why This Matters
-
-Skills keep procedural know-how out of always-loaded repo instructions. Good skills load only when useful, stay concise once loaded, and preserve the expert judgment generic agents tend to miss.
+- Updated AGENTS.md skill table entry if applicable.
