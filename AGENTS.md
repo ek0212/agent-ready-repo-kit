@@ -140,6 +140,7 @@ Load from `skills/<name>/SKILL.md` only when the task matches.
 | `mermaid-architecture-map` | Prose hides flow or ownership, repo needs a GitHub-renderable diagram, or a system boundary should be explicit. |
 | `excalidraw-system-sketch` | Mermaid is too rigid, the user thinks visually, or the system needs grouping, swimlanes, or rough sketching. |
 | `creative-writing` | Drafting, structuring, or editing nonfiction writing (blog posts, articles, profiles, essays) where narrative craft and reader engagement matter. |
+| `dataset-triage` | Running first-pass sanity checks on any tabular dataset (CSV, Excel, SQL, Kusto, pandas) before analysis, joins, or modeling. |
 
 ### Skill Loading Rules
 
