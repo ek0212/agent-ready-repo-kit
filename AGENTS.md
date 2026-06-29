@@ -28,6 +28,9 @@ Ask before: changing public APIs, changing auth/permissions/billing/data-deletio
 - Use gitignored `.env` files or server/runtime environment variables for secrets.
 - Treat public env vars as public.
 - Do not log tokens, auth headers, raw private data, or provider responses containing private data.
+- Turn on row-level security for client-accessible database tables before launch.
+- Set explicit least-privilege database policies for each role and operation.
+- Keep service-role and admin database keys server-only. Never expose them to client bundles, browser env, logs, or generated examples.
 - Keep `.env.example` values fake.
 - Check generated bundles and static output after auth, env, or provider-key changes.
 
@@ -92,7 +95,8 @@ Use for: repos with API keys, OAuth, tokens, .env, cloud credentials, extension 
 
 1. **Check files:** `.env`, `.env.example`, config files, build output, static assets, CI workflows, manifests, deployment config.
 2. **Check code:** client-side env access, server-only secrets, logging, error messages, API proxy routes, OAuth callbacks.
-3. **Report findings** ordered by risk (high/medium/low) with fixes and verification steps.
+3. **Check database access:** row-level security enabled, explicit policies scoped by role, public keys limited, service-role keys server-only.
+4. **Report findings** ordered by risk (high/medium/low) with fixes and verification steps.
 
 ## Path-Scoped Rules
 
