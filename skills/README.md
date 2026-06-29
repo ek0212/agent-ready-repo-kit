@@ -12,6 +12,7 @@ Each folder contains one standalone `SKILL.md`.
 | `excalidraw-system-sketch` | Mermaid is too rigid, or the system needs grouping, swimlanes, or rough sketching. |
 | `creative-writing` | Drafting, structuring, or editing nonfiction writing where narrative craft and reader engagement matter. |
 | `dataset-triage` | Running first-pass sanity checks on any tabular dataset before analysis, joins, or modeling. |
+| `stanford-research` | Synthesizing multiple academic papers into claims, contradictions, gaps, methods, assumptions, knowledge maps, and non-expert takeaways. |
 
 ## Loading Rules
 

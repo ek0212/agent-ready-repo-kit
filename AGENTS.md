@@ -141,6 +141,7 @@ Load from `skills/<name>/SKILL.md` only when the task matches.
 | `excalidraw-system-sketch` | Mermaid is too rigid, the user thinks visually, or the system needs grouping, swimlanes, or rough sketching. |
 | `creative-writing` | Drafting, structuring, or editing nonfiction writing (blog posts, articles, profiles, essays) where narrative craft and reader engagement matter. |
 | `dataset-triage` | Running first-pass sanity checks on any tabular dataset (CSV, Excel, SQL, Kusto, pandas) before analysis, joins, or modeling. |
+| `stanford-research` | Synthesizing multiple academic papers into claims, contradictions, gaps, methods, assumptions, knowledge maps, and non-expert takeaways. |
 
 ### Skill Loading Rules
 
