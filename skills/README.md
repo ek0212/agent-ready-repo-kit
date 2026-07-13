@@ -1,21 +1,21 @@
 # Skills
 
-Each folder contains one standalone `SKILL.md`.
+Each folder has one standalone `SKILL.md`.
 
 ## Available Skills
 
 | Skill | Use when |
 |---|---|
-| `skill-authoring` | Creating a new skill, splitting a broad skill, or deciding whether guidance belongs in AGENTS.md vs a skill. |
-| `frontend-design` | Building distinctive web components, pages, or applications where design quality matters. |
-| `mermaid-architecture-map` | Repo needs a GitHub-renderable diagram or a system boundary should be explicit. |
-| `excalidraw-system-sketch` | Mermaid is too rigid, or the system needs grouping, swimlanes, or rough sketching. |
-| `creative-writing` | Drafting, structuring, or editing nonfiction writing where narrative craft and reader engagement matter. |
-| `dataset-triage` | Running first-pass sanity checks on any tabular dataset before analysis, joins, or modeling. |
-| `stanford-research` | Synthesizing multiple academic papers into claims, contradictions, gaps, methods, assumptions, knowledge maps, and non-expert takeaways. |
+| `skill-authoring` | Create, split, or route skills. |
+| `frontend-design` | Build web UI where design quality matters. |
+| `mermaid-architecture-map` | Need GitHub diagrams or explicit boundaries. |
+| `excalidraw-system-sketch` | Need grouping, swimlanes, rough visual thinking. |
+| `creative-writing` | Draft/edit nonfiction with narrative craft. |
+| `dataset-triage` | Check tabular data before analysis/modeling. |
+| `stanford-research` | Synthesize research papers. |
 
 ## Loading Rules
 
-- Default to zero skills. The procedures in `AGENTS.md` cover most tasks.
-- Load at most one skill per pass unless the task spans multiple domains.
-- Prefer reading code and docs over loading more instructions.
+- Default zero skills.
+- Load at most one skill per pass unless task spans domains.
+- Prefer code/docs over more instructions.

@@ -1,146 +1,144 @@
 ---
 name: stanford-research
-description: Analyze a set of academic or research papers as a rigorous literature synthesis. Use when the user says "stanford research", asks for a research protocol, literature synthesis, paper intake, contradiction finder, citation chain, gap scanner, methodology audit, assumption killer, knowledge map, or "so what" summary across multiple uploaded papers.
+description: Analyze academic or research papers as rigorous literature synthesis. Use when user says "stanford research", asks for research protocol, literature synthesis, paper intake, contradiction finder, citation chain, gap scanner, methodology audit, assumption killer, knowledge map, or "so what" summary across uploaded papers.
 license: MIT
 ---
 
 # Stanford Research
 
-Use this skill to synthesize a body of uploaded research papers into claims, disagreements, methods, gaps, assumptions, and practical meaning. Use only the uploaded papers unless the user explicitly authorizes outside sources.
+Synthesize uploaded papers into claims, disputes, methods, gaps, assumptions, meaning. Use only uploaded papers unless user authorizes outside sources.
 
 ## Workflow
 
 ### Step 1: Intake Protocol
 
-Before answering substantive questions, build the map of the paper set.
+Before substance, map set.
 
-1. List every paper in a table with columns: author(s), year, core claim, and one-sentence thesis of 20 words or fewer. If a paper has no explicit thesis, infer the central argument from its conclusions.
-2. Group the papers into 2-5 clusters based on shared theoretical assumptions or frameworks. Name each cluster and explain in 1-2 sentences what unites the papers in it.
-3. Flag direct contradictions where two or more authors make mutually exclusive claims about the same phenomenon. Format each as: `Paper A vs. Paper B: contested claim`.
+1. Table every paper: author(s), year, core claim, thesis in 20 words or fewer. If thesis absent, infer from conclusions.
+2. Group into 2-5 clusters by shared assumptions/frameworks. Name cluster. Explain basis in 1-2 sentences.
+3. Flag direct contradictions as `Paper A vs. Paper B: contested claim`.
 
-Do not summarize each paper individually. Focus on the table, clusters, and contradictions.
+Do not summarize paper-by-paper. Focus table, clusters, contradictions.
 
 ### Step 2: Contradiction Finder
 
-Across all uploaded papers, identify the most significant genuine contradictions. Include only mutually exclusive claims about the same issue. Exclude differences that are only emphasis, scope, framing, or terminology.
+Find genuine mutually exclusive claims about same issue. Exclude emphasis, scope, framing, terminology differences.
 
-Present findings as a table with columns:
+Table columns:
 
 - Contested claim
 - Position A, paper and year
 - Position B, paper and year
 - Root cause of disagreement
 
-For root cause, choose from methodology, dataset, time period, definition of terms, or other. If using other, explain it. Aim for 5-10 contradictions. If fewer exist, list all genuine contradictions found.
+Root cause: methodology, dataset, time period, term definition, or other. Explain other. Aim 5-10 contradictions. If fewer, list all.
 
 ### Step 3: Citation Chain
 
-Identify the 3 concepts that appear most frequently across multiple papers, referenced by name, debated, or built upon.
+Find 3 recurring/debated/built-upon concepts.
 
-For each concept, trace its intellectual history using only evidence in the uploaded papers:
+For each:
 
 - Concept name
-- Origin: who first introduced or defined it within this set
-- Challenge: which paper or papers questioned or challenged it, and how
-- Refinement: which paper or papers modified or extended it, and how
-- Current status: settled, contested, or still evolving based on this literature
+- Origin: first introduction/definition in set
+- Challenge: papers questioning it and how
+- Refinement: papers modifying/extending it and how
+- Current status: settled, contested, evolving
 
-Present each concept as a structured outline. If a concept lacks a clear challenge or refinement in these papers, state that explicitly rather than guessing.
+Use structured outline. If no challenge/refinement, state it.
 
 ### Step 4: Gap Scanner
 
-Identify the 5 most significant research gaps the papers collectively acknowledge, imply, or fail to address.
+Find 5 major gaps papers acknowledge, imply, or miss.
 
-For each gap:
+For each:
 
-- Gap: state the unanswered question in 1-2 sentences. Explain why it exists. Choose from methodological barrier, lack of data, topic too niche, assumed but untested, or ethical/logistical constraint. Explain briefly.
-- Closest paper: name the uploaded paper that came closest to addressing it and where it fell short.
-- Path to resolution: state what would be needed to close the gap, such as methodology, data, resources, or other requirements.
+- **Gap:** unanswered question in 1-2 sentences. Cause: methodology barrier, missing data, niche topic, assumed but untested, ethical/logistical constraint.
+- **Closest paper:** closest paper plus shortfall.
+- **Path to resolution:** method, data, resources, or other need.
 
-Rank the 5 gaps from most to least significant, and briefly explain the ranking criterion, such as theoretical importance, practical impact, or feasibility of resolution. If fewer than 5 genuine gaps exist, list all identified gaps and explain why the set is limited.
+Rank most to least significant. State criterion: theory, practical impact, feasibility, or other. If fewer than 5, list all and explain limit.
 
 ### Step 5: Methodology Audit
 
-Compare the research methodologies used across all uploaded papers.
+Compare methods.
 
-First, create a classification table with columns:
+First table:
 
 - Paper, author and year
 - Methodology type
 - Data source
 - Sample size, if stated
-- Key limitation noted by the authors
+- Key limitation noted by authors
 
-Use the methodology type that best fits each paper. Do not force papers into preset categories. Add new categories as needed. Suggested types include survey, experiment, randomized controlled trial, quasi-experiment, simulation, meta-analysis, case study, computational or machine learning, literature review, ethnography, and secondary data analysis.
+Use best-fit type. Add categories as needed. Suggested: survey, experiment, randomized controlled trial, quasi-experiment, simulation, meta-analysis, case study, computational or machine learning, literature review, ethnography, secondary data analysis.
 
 Then synthesize:
 
-- Which methodology type appears most frequently?
-- Why, based on the papers' stated rationale?
-- Which methodology is absent or rare despite being relevant to the research questions?
+- Most common method type?
+- Why, from stated rationale?
+- Relevant method absent/rare?
 
-Finally, identify the paper whose methodology is most vulnerable to criticism. Evaluate it using sample size adequacy, control for confounds, replicability, and transparency of reporting. State which criterion it fails most clearly.
+Finally name methodologically weakest paper. Evaluate sample size, confounds, replicability, reporting transparency. State clearest failed criterion.
 
 ### Step 6: Master Synthesis
 
-Using the uploaded papers as the only source, write a synthesis of the body of literature. Do not summarize individual papers. Write across the entire literature.
+Use uploaded papers only. Synthesize across literature. Do not summarize individual papers.
 
-Use this structure:
+Structure:
 
-1. Established consensus, around 100 words: what does this field collectively agree on? Cite at least 2 papers that support each claim made here.
-2. Active debates, around 100 words: what do researchers in this field meaningfully disagree about? Name the disagreeing positions without naming individual papers.
-3. Strongest evidence, around 100 words: what claims are supported by the most consistent, replicated, or methodologically robust evidence?
-4. The key open question, around 80 words: end with the single most important unanswered question in this field, the one whose resolution would most change the others.
+1. Established consensus, about 100 words. Field agreement. Cite at least 2 papers per claim.
+2. Active debates, about 100 words. Meaningful disagreement. Name positions, not individual papers.
+3. Strongest evidence, about 100 words. Most consistent, replicated, robust claims.
+4. Key open question, about 80 words. Unanswered question whose resolution most changes field.
 
-Total length is 400 words maximum. Do not use hedging phrases like "it seems" or "some argue." State clearly. If the papers lack sufficient consensus to populate a section, say so explicitly.
+Max 400 words. No hedging like "it seems" or "some argue." If evidence cannot fill section, say so.
 
 ### Step 7: Assumption Killer
 
-Identify the 5-8 most consequential assumptions that the majority of the papers share but never explicitly test, justify, or acknowledge as assumptions.
+Find 5-8 consequential assumptions shared by most papers but not tested, justified, or named.
 
-Focus on assumptions that are:
+Focus:
 
-- Foundational to the conclusions drawn
-- Plausibly false or context-dependent
+- Foundational to conclusions.
+- Plausibly false or context-dependent.
 
-For each assumption:
+For each:
 
-- Assumption: state it as a declarative claim, such as `X causes Y under all conditions`.
-- Shared by: name 2-3 papers that rely on it most heavily.
-- Risk level: rate it low, medium, or high based on how much of the literature would be undermined if the assumption is false.
-- Consequence: explain what would change, such as conclusions needing revision, key findings becoming invalidated, or the research paradigm collapsing.
+- **Assumption:** declarative claim, e.g. `X causes Y under all conditions`.
+- **Shared by:** 2-3 papers relying on it most.
+- **Risk level:** low, medium, high, based on damage if false.
+- **Consequence:** what changes.
 
-Rank assumptions from most to least consequential.
+Rank most to least consequential.
 
 ### Step 8: Knowledge Map Builder
 
-Create a structured knowledge map of the literature. Present it as a clean outline with no prose paragraphs.
+Clean outline only. No prose paragraphs.
 
-Use this structure:
+Use:
 
-- Central claim: the single proposition that most of the field's work tries to support, challenge, or refine. If no single claim unifies the field, name 2 competing centers instead.
-- Supporting pillars, 3-5: well-established subclaims with strong evidentiary support across multiple papers. For each: `[Claim] supported by [paper 1], [paper 2]`.
-- Contested zones, 2-3: areas of genuine active disagreement. For each: `[Issue]: [Position A] vs. [Position B]`.
-- Frontier questions, 1-2: questions this literature raises but cannot yet answer. State them as explicit questions.
-- Newcomer reading list, 3 papers: for each paper, state `[Author, year]`, why a newcomer should read it first.
+- Central claim: single proposition field supports/challenges/refines. If none, name 2 competing centers.
+- Supporting pillars, 3-5: `[Claim] supported by [paper 1], [paper 2]`.
+- Contested zones, 2-3: `[Issue]: [Position A] vs. [Position B]`.
+- Frontier questions, 1-2: explicit unanswered questions.
+- Newcomer reading list, 3 papers: `[Author, year]`, why read first.
 
-Selection criterion: foundational to understanding the field, not just most cited.
+Select for foundational value, not citation count.
 
-### Step 9: The "So What" Test
+### Step 9: "So What" Test
 
-Summarize the entire body of research for a smart non-expert who has never read any of it. Respond in exactly 3 numbered points. Each point should be 2-3 sentences maximum.
+Explain literature to smart non-expert in exactly 3 numbered points. Each point 2-3 sentences max.
 
-Write as if speaking to an intelligent person with no domain knowledge.
+1. What has been proven: strongest reliable finding. Direct claim, no hedging. Do not use "suggests" or "may indicate."
+2. What remains unknown: biggest unresolved thing, honest.
+3. Why it matters: key real-world implication. If none, biggest theoretical consequence.
 
-1. What has been proven: the strongest, most reliable finding from this literature. State it as a direct claim with no hedging. Do not use "suggests" or "may indicate."
-2. What is still unknown: the most significant thing this field has not yet figured out, stated honestly without minimizing the uncertainty.
-3. Why it matters: the single most important real-world implication. If no direct application exists, state the biggest theoretical consequence instead.
-
-Rules: no jargon, no citations, and no qualifications that weaken the core point. If a statement cannot be made confidently based on the papers, say so. Do not fabricate certainty.
+Rules: no jargon, no citations, no weak qualifications. If confidence unjustified, say so. Do not fabricate certainty.
 
 ## Output Rules
 
-- Default to running all steps when the user asks for the full Stanford research protocol.
-- Run only the requested step when the user asks for a named subtask, such as "contradiction finder" or "so what test."
-- Use tables where requested, concise outlines where requested, and short prose only where requested.
-- Keep every claim traceable to uploaded papers. Mark uncertain or missing evidence explicitly.
+- Full Stanford research protocol runs all steps.
+- Named subtask runs only named step, e.g. "contradiction finder" or "so what test."
+- Use tables where required, outlines where required, short prose only where required.
+- Every claim traceable to uploaded papers. Mark uncertainty/missing evidence.

@@ -1,50 +1,53 @@
 ---
 name: skill-authoring
-description: Create or revise agent skills using the Agent Skills format. Use when user says "create a skill", "build a skill", "write a SKILL.md", "split this skill", "convert this to a skill", or when deciding whether guidance belongs in AGENTS.md vs a skill.
+description: Create or revise agent skills using Agent Skills format. Use when user says "create a skill", "build a skill", "write a SKILL.md", "split this skill", "convert this to a skill", or asks whether guidance belongs in AGENTS.md vs a skill.
 license: MIT
 ---
 
-Create well-structured, effective skills that follow the Agent Skills specification.
+Create focused Agent Skills.
 
 ## Workflow
 
-### Step 1: Decide If a Skill Is Needed
+### Step 1: Need Skill?
 
-Create a skill when:
-- The workflow is repeated across sessions or repos.
-- The task has multiple steps with judgment points.
-- The user keeps pasting the same instructions into chat.
-- A section of AGENTS.md has grown into a procedure.
-- The body should load only when relevant, not every session.
+Create skill when:
 
-Do NOT create a skill when:
-- One sentence in AGENTS.md would solve it.
-- The content is declarative knowledge, not procedure.
-- The workflow is a one-off.
-- The guidance is mostly volatile project state.
+- Workflow repeats across sessions/repos.
+- Task has multiple steps plus judgment.
+- User repeats same prompt text.
+- AGENTS.md section became procedure.
+- Body should load only when relevant.
 
-### Step 2: Classify the Skill Category
+Do not create skill when:
 
-| Category | Use For | Example |
+- One AGENTS.md sentence solves it.
+- Content is declarative knowledge, not procedure.
+- Workflow one-off.
+- Guidance is volatile project state.
+
+### Step 2: Classify
+
+| Category | Use for | Example |
 |---|---|---|
-| Document & Asset Creation | Consistent output: docs, designs, code, presentations | frontend-design |
-| Workflow Automation | Multi-step processes with consistent methodology | skill-creator |
-| MCP Enhancement | Workflow guidance on top of MCP tool access | sentry-code-review |
+| Document & Asset Creation | Repeatable docs, designs, code, decks | frontend-design |
+| Workflow Automation | Multi-step method | skill-creator |
+| MCP Enhancement | Workflow over MCP tools | sentry-code-review |
 
-### Step 3: Define the Boundary
+### Step 3: Bound
 
-Answer before writing:
-- **Name**: The verb or job. Lowercase kebab-case.
-- **Trigger**: What user request should activate it?
-- **Inputs**: What must be known before starting?
-- **Outputs**: What does it produce?
-- **Scope**: What is explicitly out of scope?
+Answer first:
 
-A broad skill is easy to invoke and hard to follow. Keep boundaries tight.
+- **Name:** verb/job, lowercase kebab-case.
+- **Trigger:** user asks that activate it.
+- **Inputs:** facts needed.
+- **Outputs:** files/response produced.
+- **Scope:** excluded work.
 
-### Step 4: Write Frontmatter
+Broad skill easy to trigger, hard to follow. Keep boundary tight.
 
-Required fields:
+### Step 4: Frontmatter
+
+Required:
 
 ```yaml
 ---
@@ -53,7 +56,7 @@ description: What it does. Use when user says "trigger phrase", "another phrase"
 ---
 ```
 
-Optional fields:
+Optional:
 
 ```yaml
 license: MIT
@@ -66,23 +69,24 @@ metadata:
 ```
 
 Rules:
-- `name`: kebab-case, no spaces or capitals, must match folder name.
-- `description`: MUST include WHAT it does AND WHEN to use it. Under 1024 chars. Include specific trigger phrases users would say. No XML angle brackets.
-- Do not use "claude" or "anthropic" in skill names (reserved).
 
-### Step 5: Write the Skill Body
+- `name`: kebab-case, no spaces/caps, matches folder.
+- `description`: what plus when. Under 1024 chars. Include trigger phrases. No XML angle brackets.
+- Do not use "claude" or "anthropic" in skill names.
 
-Structure the body with clear steps using concrete action verbs (classify, search, compare, rewrite, delete, verify, update). Each step should include decision criteria.
+### Step 5: Body
 
-Recommended structure:
+Use concrete verbs: classify, search, compare, rewrite, delete, verify, update. Each step gets decision criteria.
+
+Template:
 
 ```markdown
-[Brief statement of what the skill does]
+[Brief job statement]
 
 ## Workflow
 
-### Step 1: [First Major Step]
-Clear explanation with decision criteria.
+### Step 1: [Major Step]
+Decision criteria and action.
 
 ### Step 2: [Next Step]
 ...
@@ -92,36 +96,36 @@ Example 1: [common scenario]
 
 ## Troubleshooting (optional)
 Error: [common error]
-Solution: [how to fix]
+Solution: [fix]
 ```
 
-Avoid generic instructions like "be careful" or "think deeply".
+Avoid vague guidance like "be careful" or "think deeply".
 
-### Step 6: Apply Progressive Disclosure
+### Step 6: Progressive Disclosure
 
-Skills use a three-level system to minimize token usage:
+Loading levels:
 
-1. **Frontmatter** (always loaded): Enough for Claude to know WHEN to use the skill.
-2. **SKILL.md body** (loaded when relevant): Full instructions and guidance.
-3. **Linked files** (loaded on demand): Reference docs, examples, scripts.
+1. **Frontmatter:** always loaded, tells when.
+2. **SKILL.md body:** loaded when relevant.
+3. **Linked files:** loaded on demand.
 
-Keep SKILL.md focused and under 5,000 words. Move bulky material into supporting files:
+Keep `SKILL.md` focused and under 5,000 words. Move bulk material:
 
 ```
 skill-name/
-  SKILL.md          # Required — main instructions
-  scripts/          # Optional — executable code
-  references/       # Optional — docs loaded as needed
-  assets/           # Optional — templates, fonts, icons
+  SKILL.md          # Required, main instructions
+  scripts/          # Optional executable code
+  references/       # Optional docs loaded as needed
+  assets/           # Optional templates, fonts, icons
 ```
 
-Reference supporting files from SKILL.md and explain when to load them.
+Reference support files and load criteria.
 
-Do NOT include a README.md inside the skill folder.
+No `README.md` inside skill folder.
 
-### Step 7: Place the Skill
+### Step 7: Place
 
-Common locations:
+Common paths:
 
 ```
 ~/.claude/skills/<skill-name>/SKILL.md    # User-global
@@ -129,24 +133,26 @@ Common locations:
 skills/<skill-name>/SKILL.md              # Repo skills directory
 ```
 
-For this repo, use `skills/<skill-name>/SKILL.md`.
+This repo uses `skills/<skill-name>/SKILL.md`.
 
 ### Step 8: Validate
 
 Check:
-- **Triggers correctly**: Loads on obvious tasks AND paraphrased requests, does NOT load on unrelated queries.
-- **Modular**: Works independently alongside other skills.
-- **Procedural**: Encodes how to do the task with decision criteria.
-- **Scoped**: Specific trigger conditions in description.
-- **Durable**: No volatile project state or stale references.
-- **Actionable**: Steps use concrete verbs.
-- **Concise**: Does not load reference material unnecessarily.
-- **Portable**: Works across Claude.ai, Claude Code, and API.
 
-If the skill undertriggers, add more trigger phrases and keywords to the description. If it overtriggers, be more specific or add negative triggers.
+- Triggers on obvious and paraphrased tasks.
+- Does not trigger on unrelated tasks.
+- Works beside other skills.
+- Procedure has decision criteria.
+- Description has specific triggers.
+- No volatile state or stale refs.
+- Concrete verbs.
+- Reference material loads only when needed.
+- Works across Claude.ai, Claude Code, API.
+
+Undertriggers: add trigger phrases. Overtriggers: narrow description or add negative triggers.
 
 ## Outputs
 
-- A new or revised SKILL.md.
-- Optional supporting files in the same skill directory.
-- Updated AGENTS.md skill table entry if applicable.
+- New/revised `SKILL.md`.
+- Optional support files in same skill dir.
+- Updated `AGENTS.md` skill table when needed.

@@ -1,143 +1,136 @@
 ---
 name: creative-writing
-description: Draft, structure, and edit nonfiction writing using Gladwell-style craft techniques. Use when writing blog posts, articles, profiles, essays, or longform nonfiction where story structure, reader engagement, and character depth matter.
-when_to_use: Invoke when the user asks to write an article, draft a blog post, profile a person, structure a nonfiction piece, edit for narrative quality, or improve storytelling in any written content.
+description: Draft, structure, and edit nonfiction with Gladwell-style craft. Use for blog posts, articles, profiles, essays, or longform nonfiction where story structure, reader engagement, and character depth matter.
+when_to_use: Invoke when user asks to write an article, draft a blog post, profile a person, structure nonfiction, edit for narrative quality, or improve storytelling.
 ---
 
 # Creative Writing
 
-Procedural skill for drafting and editing nonfiction writing with strong narrative craft. Based on Malcolm Gladwell's MasterClass framework. Applies to blog posts, articles, profiles, essays, reports, and any prose where reader engagement matters.
+Draft/edit nonfiction with narrative craft. Use for blogs, articles, profiles, essays, reports, and engagement-heavy prose.
 
 ## Inputs
 
-- The subject, topic, or draft to work with.
-- Audience and publication context (blog, newsletter, magazine, internal doc).
-- Length target if known.
-- Any research, interviews, or source material available.
+- Subject/topic/draft.
+- Audience and venue.
+- Length target, if known.
+- Research/interviews/sources.
 
 ## Procedure
 
-### Step 1: Find the Puzzle
+### Step 1: Find Puzzle
 
-Identify what makes this subject interesting. Not what it is, but what question it raises.
+Find question subject raises:
 
-Decision criteria:
-- What doesn't the reader expect?
-- What can't be fully explained? Imperfect puzzles hold attention better than resolved ones.
-- What would make someone tell a friend about this?
+- What surprises reader?
+- What stays partly unresolved?
+- What gets retold?
 
-Write down: the central question, and one thing that remains unanswered.
+Write central question plus one unresolved thing.
 
-### Step 2: Choose an Ending First
+### Step 2: Pick Ending First
 
-Work backward. The ending determines the structure.
+Work backward. Ending controls structure.
 
-Decision criteria:
-- What is the most powerful moment, insight, or image in the material?
-- Does the reader end up somewhere different from where they started?
-- If the ending doesn't transport the reader, the piece fails. Find a better ending before continuing.
+- Strongest moment, insight, image?
+- Reader ends somewhere new?
+- If not, find better ending before drafting.
 
-### Step 3: Map the Structure
+### Step 3: Map Sections
 
-Number the sections. Each section stands alone. Transitions happen through the structure, not through clumsy bridging sentences.
+Number sections. Each stands alone. Structure creates transitions.
 
-For each section, classify:
-- **Meal**: intellectual substance, argument, data, analysis.
-- **Candy**: memorable digressions, surprising facts, vivid anecdotes.
+Classify:
 
-Balance rule: never go more than two sections of pure meal without dropping candy. Candy is what readers share, quote, and remember.
+- **Meal:** argument, data, analysis.
+- **Candy:** anecdote, vivid fact, memorable detour.
+
+No more than two pure-meal sections without candy.
 
 ### Step 4: Build Characters Through World
 
-When writing about people:
-- Describe their environment, not their face. A bedroom, desk, or office says more than hair color.
-- Use dialogue and interaction to reveal personality. Show banter, disagreements, quirks.
-- Tie physical description to narrative moments so it becomes consequential, not decorative.
-- Establish character quickly: 2-3 vivid details that reveal who someone is, not what they look like.
+For people:
 
-### Step 5: Control Information Flow
+- Environment, not face.
+- Dialogue/interaction for personality.
+- Physical detail tied to plot.
+- 2-3 details reveal who they are.
 
-Choose between two tools for each revelation:
+### Step 5: Control Reveals
 
-| Tool | How it works | Use when |
+| Tool | How | Use when |
 |---|---|---|
-| Suspense | Reader knows info is coming, not when | Building toward a known conclusion |
-| Surprise | Reader had no idea it was coming | Subverting expectations, reframing |
+| Suspense | Reader knows info coming, not when | Known conclusion |
+| Surprise | Reader did not expect it | Reframe/subvert |
 
-Withhold information with purpose. The timing of when you reveal something changes its emotional weight entirely.
+Withhold on purpose. Timing changes weight. Let reader guess before answer.
 
-Invite the reader to guess before you reveal. Give them a framework or jargon term they can apply as they read.
+### Step 6: Jargon And Data
 
-### Step 6: Handle Jargon and Data
+- Explain jargon once, then use.
+- Data in small chunks.
+- Give framework/metaphor/rule to decode complexity.
 
-- Explain jargon once, clearly, then use it freely. Readers feel like insiders.
-- Introduce data in small chunks. Let readers see patterns themselves before stating conclusions.
-- Give the reader a tool (a framework, a metaphor, a rule) to decode complexity. Once they have the tool, they engage with data enthusiastically.
+### Step 7: Analogous Worlds
 
-### Step 7: Find Analogous Worlds
+For pieces over 1,000 words, seek matching patterns elsewhere:
 
-Search for patterns appearing in unrelated domains simultaneously.
+- Behavior mirrors another field?
+- Other world illuminates this one?
 
-- Does your subject's behavior mirror something in a completely different field?
-- Can another universe's story illuminate your universe's story?
+Skip short pieces.
 
-This adds depth and makes arguments feel discovered rather than asserted. Skip this step for short pieces under 1,000 words.
+### Step 8: Tone And Voice
 
-### Step 8: Set Tone and Voice
+- Casual for accessible topics.
+- Formal for serious/institutional topics.
+- Simple language, sophisticated ideas.
+- Short sentences for pace.
+- Read aloud. Fix stumbles.
+- Punctuation sets rhythm.
 
-Match voice to audience and subject:
-- Casual and playful for accessible topics.
-- More formal for serious or institutional subjects.
-- Always: write at 8th-9th grade reading level. Simple language, sophisticated ideas.
+### Step 9: Emotion
 
-Manage rhythm:
-- Short sentences create pace. Long sentences feel like rewards after short ones.
-- Read aloud. If you stumble, the reader will too.
-- Punctuation controls rhythm. Commas slow down, periods speed up.
+- Do not announce humor.
+- Do not overplay sadness.
+- Quote plainly. Reader feels.
+- Restraint creates emotion.
 
-### Step 9: Handle Emotion With Restraint
+### Step 10: Clarity Pass
 
-- Never announce you're being funny. Humor works only when unexpected.
-- Never overplay sadness. If the subject's words are sad, quote them simply. The reader fills in the rest.
-- Restraint in producing real emotion is absolutely essential. The more you push, the less the reader feels.
-
-### Step 10: Edit for Clarity
-
-On each pass:
-1. Cut sentences that restate what the reader already knows.
-2. Simplify complex sentences. If a sentence needs rereading, rewrite it.
-3. Check: does every section earn its place? Remove sections that don't serve the puzzle.
-4. Verify the ending still transports the reader.
-5. Read the whole piece aloud. Fix anything that doesn't sound natural.
+1. Cut restatement.
+2. Simplify sentences needing reread.
+3. Remove sections not serving puzzle.
+4. Verify ending still transports.
+5. Read aloud. Fix unnatural lines.
 
 ### Step 11: Title
 
-Spend real time on titles. The title is an ad.
+Title is ad.
 
-- Powerful titles have emotional connotation or contradiction.
-- Generate 8-10 options. Test: does someone know what the piece is about from the title alone?
-- Avoid generic titles. If the title could apply to a hundred articles, it's wrong.
+- Aim for emotion or contradiction.
+- Generate 8-10 options.
+- Test whether title says what piece is about.
+- Reject generic titles.
 
 ## Quality Checks
 
-Before declaring done:
-- [ ] Central puzzle is clear and not fully resolved (imperfect puzzle).
-- [ ] Ending transports the reader somewhere new.
-- [ ] Meal and candy are balanced throughout.
-- [ ] Characters described through world and action, not just appearance.
-- [ ] Information withheld and revealed with intentional timing.
-- [ ] Jargon explained once, then used freely.
-- [ ] Written at accessible reading level with sophisticated ideas.
-- [ ] Emotion handled with restraint.
-- [ ] Title is specific and has emotional weight.
+- [ ] Central puzzle clear and partly unresolved.
+- [ ] Ending moves reader.
+- [ ] Meal/candy balanced.
+- [ ] Characters shown through world/action.
+- [ ] Reveals timed.
+- [ ] Jargon explained once.
+- [ ] Accessible language, sophisticated ideas.
+- [ ] Emotion restrained.
+- [ ] Title specific with weight.
 - [ ] Reads well aloud.
 
 ## Outputs
 
-- A structured draft with numbered sections.
-- Or: an edit of an existing draft with specific improvements mapped to the steps above.
-- Title options (at least 3).
+- Numbered structured draft.
+- Or edited draft with step-mapped improvements.
+- At least 3 title options.
 
 ## Reference
 
-For extended notes, examples, and Gladwell's recommended reading list, see `wiki/learnings/gladwell-masterclass-writing.md` in the second-brain repo.
+Extended notes/examples/reading list: `wiki/learnings/gladwell-masterclass-writing.md` in second-brain repo.
