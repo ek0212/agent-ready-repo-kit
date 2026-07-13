@@ -30,7 +30,7 @@ skills/
 
 [`AGENTS.md`](AGENTS.md) is the single entrypoint. It contains:
 
-- **Rules**: coding, change safety, security, writing, static text, structure.
+- **Rules**: coding, change safety, security, writing, static text, structure, model selection.
 - **Procedures**: coding process, writing process, static text hygiene, secrets/env review.
 - **Path-scoped rules**: Python, Chrome Extension, VS Code Extension, Web App.
 - **Skill table**: maps task types to skills.

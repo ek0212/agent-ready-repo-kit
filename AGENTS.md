@@ -54,6 +54,10 @@ Ask before: changing public APIs, changing auth/permissions/billing/data-deletio
 - Name unknowns or create an explicit `Other / unresolved` bucket.
 - Prefer links and references over duplicating content.
 
+### Model Selection
+
+- When model choice is available for design-related tasks, use Claude models. Prefer Opus family models over Sonnet or non-Claude models, especially for UX, visual, product, architecture, and frontend-design work.
+
 ## Procedures
 
 ### Coding Process
