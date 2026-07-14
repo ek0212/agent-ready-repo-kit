@@ -4,6 +4,8 @@ Keep under 200 lines. Put real multi-step workflows in `skills/`.
 
 `AGENTS.md` and `SKILL.md` use Caveman-full wording: terse, no filler, fragments OK, technical terms exact, code/commands/errors unchanged.
 
+Merge all worktrees into main after worktree work completes.
+
 ## Rules
 
 ### Coding
@@ -163,6 +165,7 @@ Load from `skills/<name>/SKILL.md` only when task matches.
 |---|---|
 | `skill-authoring` | Create/revise skills, split broad skills, convert repeated prompts, decide AGENTS.md vs skill. |
 | `frontend-design` | Build distinctive web UI where design quality matters. |
+| `newsletter-growth` | Plan/audit newsletters for audience growth, engagement, retention, monetization. |
 | `mermaid-architecture-map` | Prose hides flow/ownership, repo needs GitHub diagrams, boundaries matter. |
 | `excalidraw-system-sketch` | Mermaid too rigid, visual thinking helps, grouping/swimlanes/rough sketching needed. |
 | `creative-writing` | Draft/edit nonfiction where narrative craft, engagement, character depth matter. |

@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade frontend UI. Use when user says "build a landing page", "design a dashboard", "create a component", "make a web app", "build me a UI", or asks for web components, pages, apps, or interfaces.
+description: Create distinctive, production-grade frontend UI. Use when user says "build a landing page", "design a dashboard", "create a component", "make a web app", "build me a UI", "make this feel premium", or asks for delightful, trustworthy web components, pages, apps, or interfaces.
 license: MIT
 ---
 
@@ -12,9 +12,33 @@ Build memorable production UI. Act as studio design lead. Specific point of view
 
 If subject vague, choose concrete subject, audience, page job. State choice. Use user preferences and project context. Pull cues from subject world: materials, tools, artifacts, language, rituals, constraints.
 
+Name emotional target for entry, core action, success, failure. Name trust level. High-stakes flows need calm feedback, visible state, reversible actions, clear confirmation.
+
 Use real content. Placeholder copy feels templated.
 
 ### Step 2: Plan Direction
+
+## Emotional Design
+
+Treat felt experience as behavior, not decoration.
+
+- First useful screen communicates value, quality, and next action without tour.
+- Onboarding motion explains hierarchy or cause/effect. It never blocks progress.
+- Early real success comes before optional setup.
+
+- Important actions get immediate, proportional feedback.
+- Micro-interactions clarify change, confirm input, or direct attention.
+- Timing, easing, and direction stay consistent.
+- Keyboard use, focus visibility, readable status text, and non-motion path remain intact.
+
+- Pending, success, failure, and recovery states are explicit.
+- Spacing, alignment, timing, and response behavior stay consistent.
+- Broken edge states get fixed before flourish.
+
+- Completed steps and milestones get proportional feedback.
+- Celebrations stay brief and skippable.
+- Progress indicators appear only when destination and remaining effort matter.
+- Avoid manufactured urgency, variable rewards, or engagement patterns against user goals.
 
 Before code, create compact plan:
 
@@ -23,6 +47,7 @@ Before code, create compact plan:
 - **Layout:** concept plus ASCII wireframe when useful.
 - **Signature:** one remembered element.
 - **Risk:** one deliberate move, why it fits.
+- **Emotion:** target feeling and trust level.
 
 Reject plan if it fits any similar product.
 

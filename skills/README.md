@@ -8,6 +8,7 @@ Each folder has one standalone `SKILL.md`.
 |---|---|
 | `skill-authoring` | Create, split, or route skills. |
 | `frontend-design` | Build web UI where design quality matters. |
+| `newsletter-growth` | Plan/audit newsletters for growth, engagement, monetization. |
 | `mermaid-architecture-map` | Need GitHub diagrams or explicit boundaries. |
 | `excalidraw-system-sketch` | Need grouping, swimlanes, rough visual thinking. |
 | `creative-writing` | Draft/edit nonfiction with narrative craft. |

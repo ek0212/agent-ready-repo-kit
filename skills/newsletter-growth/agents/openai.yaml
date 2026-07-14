@@ -1,0 +1,4 @@
+interface:
+  display_name: "Newsletter Growth"
+  short_description: "Plan and improve newsletters with proven growth patterns."
+  default_prompt: "Use $newsletter-growth to plan, audit, or improve a newsletter for a specific audience."
