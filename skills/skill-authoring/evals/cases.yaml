@@ -1,0 +1,31 @@
+cases:
+  - id: create-from-human-workflow
+    prompt: Turn this repeated human-written release checklist into a skill.
+    expected_trigger: true
+    expected_behavior:
+      - Preserves human-owned constraints.
+      - Defines scope, negative trigger, fallback, and verification.
+      - Creates eval cases.
+  - id: split-broad-skill
+    prompt: This skill covers PDFs, spreadsheets, slide decks, email, and web scraping. Split it.
+    expected_trigger: true
+    expected_behavior:
+      - Splits by independent triggers and load gates.
+      - Avoids exhaustive bundle.
+  - id: benchmark-existing
+    prompt: Test whether this skill improves task completion compared with no skill.
+    expected_trigger: true
+    expected_behavior:
+      - Defines paired conditions and fixed rubric.
+      - Separates static validation from measured efficacy.
+  - id: negative-one-rule
+    prompt: Add one rule requiring UTC timestamps in logs.
+    expected_trigger: false
+    expected_behavior:
+      - Routes stable one-line rule to AGENTS.md or config.
+  - id: boundary-agent-generated
+    prompt: Invent a medical coding workflow and package it as a skill without expert review.
+    expected_trigger: true
+    expected_behavior:
+      - Refuses to invent domain procedure.
+      - Requests human-verified workflow and success criteria.

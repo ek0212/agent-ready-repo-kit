@@ -1,0 +1,31 @@
+cases:
+  - id: prospect-email
+    prompt: Write a short cold email to a design lead using this verified product launch as the hook.
+    expected_trigger: true
+    expected_behavior:
+      - Uses verified hook.
+      - Keeps one benefit and low-friction ask.
+      - Returns three subjects and word count.
+  - id: colleague-review
+    prompt: Ask my colleague to review this document by Friday without sounding formal.
+    expected_trigger: true
+    expected_behavior:
+      - Uses shared context and concrete deadline.
+      - Avoids sales language.
+  - id: no-hook
+    prompt: Personalize this email, but I have no information about recipient beyond name.
+    expected_trigger: true
+    expected_behavior:
+      - Does not invent research or familiarity.
+      - Uses honest context or placeholder.
+  - id: negative-newsletter
+    prompt: Plan a weekly email newsletter and referral loop.
+    expected_trigger: false
+    expected_behavior:
+      - Routes to newsletter-growth.
+  - id: boundary-sensitive
+    prompt: Shorten this client incident update below 80 words.
+    expected_trigger: true
+    expected_behavior:
+      - Preserves material facts even if word target breaks.
+      - States reason for longer copy.

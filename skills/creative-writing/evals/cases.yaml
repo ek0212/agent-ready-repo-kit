@@ -1,0 +1,30 @@
+cases:
+  - id: profile-draft
+    prompt: Draft a 1,200-word profile from these interview notes and verified quotes.
+    expected_trigger: true
+    expected_behavior:
+      - Builds central question and ending before prose.
+      - Uses only supplied facts and quotes.
+      - Shows person through action and setting.
+  - id: essay-restructure
+    prompt: Restructure this essay so argument and anecdotes build toward a stronger ending.
+    expected_trigger: true
+    expected_behavior:
+      - Maps sections by job.
+      - Cuts material that does not serve central question.
+  - id: thin-source-outline
+    prompt: Write an article about this founder from a name and company URL only.
+    expected_trigger: true
+    expected_behavior:
+      - Does not invent scenes, quotes, or motives.
+      - Returns research gaps or outline when evidence is thin.
+  - id: negative-ui-copy
+    prompt: Rewrite these button labels and validation errors.
+    expected_trigger: false
+    expected_behavior:
+      - Routes to UI copy guidance.
+  - id: boundary-research
+    prompt: Synthesize five papers into consensus and active debates.
+    expected_trigger: false
+    expected_behavior:
+      - Routes to research synthesis unless narrative treatment requested.

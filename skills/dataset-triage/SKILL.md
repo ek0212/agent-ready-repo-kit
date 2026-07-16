@@ -1,171 +1,108 @@
 ---
 name: dataset-triage
-description: Run first-pass sanity checks on tabular data before analysis, joins, reports, or modeling. Works for CSV, TSV, Excel, SQL, Kusto/KQL, or pandas DataFrame. Covers shape, dtypes, missingness, duplicate rows, constant columns, candidate keys, categorical cardinality, numeric ranges, outliers, and format issues. Use when user asks "what's in this dataset", "is this data clean", "what should I check first", or points at an unfamiliar table/query result.
+description: Run read-only first-pass checks on tabular data before analysis, joins, reports, or modeling. Use when user asks "what is in this dataset", "is this data clean", "what should I check first", or provides an unfamiliar CSV, TSV, Excel sheet, SQL/KQL result, or pandas DataFrame.
+license: MIT
 ---
 
-# Dataset Triage
+Find mechanical data risks before downstream work. Report evidence. Do not mutate source data.
 
-Fast first look at tabular data. Catch wrong dtypes, missingness, duplicates, junk columns, broken keys, format issues before downstream work.
+## Scope
 
-Triage only. Report flags. Do not change data.
+Use for row-and-column data. Skip images, free text corpora, audio, and unstructured documents. Triage detects shape, parsing, missingness, duplicates, key, cardinality, range, and format risks. It does not prove domain correctness.
 
-## Use When
+## Inputs
 
-Unfamiliar row/column data appears: file, SQL table, Kusto/KQL table, pandas DataFrame.
+- Source path, query, table, or DataFrame.
+- Expected grain and row meaning, when known.
+- Expected keys, date range, units, and critical fields.
+- Safe sample limits and access constraints.
 
-Skip image, text, audio, non-tabular data.
+Human owner confirms business rules, valid ranges, units, and key meaning.
 
-## Step 1: Load DataFrame
+## Workflow
 
-Pick loader. After DataFrame exists, same checks.
+### Step 1: Acquire Safely
 
-File:
+Use existing loader and dependencies. Record source, sheet/query, row filter, sample method, and load errors.
 
-```python
-import pandas as pd
-df = pd.read_csv(path)            # or sep="\t" for .tsv
-df = pd.read_excel(path, sheet_name=0)
-```
+- File: inspect extension, delimiter, encoding, sheet, header, and totals rows.
+- SQL/KQL: start with bounded recent window when timestamp exists. Avoid full-table pull.
+- In-memory frame: preserve original object; inspect copy when conversion needed.
 
-SQL:
+If sample lacks enough rows or classes, widen deliberately. Never claim sample represents full table without evidence.
 
-```python
-import pandas as pd
-df = pd.read_sql("SELECT * FROM schema.table", conn)
-# Large tables: sample a recent window when a timestamp exists, e.g.
-#   WHERE ts > DATEADD(hour, -2, GETDATE())   -- or LIMIT / TOP for a blind cap.
-```
+### Step 2: Pin Structure
 
-Kusto / KQL:
+Report row count, column count, column names, dtypes, first rows, last rows, and index shape. Flag:
 
-```python
-from azure.kusto.data import KustoClient, KustoConnectionStringBuilder
-client = KustoClient(KustoConnectionStringBuilder.with_az_cli_authentication(cluster))
-resp = client.execute(database, "MyTable | where Timestamp > ago(2h) | take 100000")
-df = dataframe_from_result_table(resp.primary_results[0])  # kusto helper
-```
+- Empty dataset.
+- Duplicate or blank column names.
+- Header or totals row parsed as data.
+- Numbers or dates stored as text.
+- Shifted or malformed rows.
 
-Prefer time window like `ago(2h)` over blind `take`. Recent contiguous slice shows current shape. Widen if too small.
+### Step 3: Run Core Checks
 
-pandas in memory: use directly.
-
-Normalize columns:
-
-```python
-df.columns = [str(c).strip() for c in df.columns]
-```
-
-## Step 2: Structure
-
-```python
-print(df.shape)                    # rows, columns
-print(df.dtypes)                   # wrong types: numbers as text, dates as strings
-print(df.head()); print(df.tail()) # header-as-data, totals rows, shifted columns
-```
-
-## Step 3: Summary Stats
-
-```python
-print(df.describe(include="all").T)
-```
-
-Spot wrong ranges and unexpected values.
-
-## Step 4: Missing Values
-
-```python
-miss = (df.isnull().sum() * 100 / len(df)).sort_values(ascending=False)
-print(miss[miss > 0])
-```
-
-Flag high missingness, start at 20 percent, fully empty columns, fully populated join/aggregate fields.
-
-## Step 5: Duplicates
-
-```python
-dups = int(df.duplicated().sum())
-print(f"duplicate rows: {dups}")
-```
-
-Duplicates inflate counts and bias aggregates.
-
-## Step 6: Constant Columns
-
-```python
-for c in df.columns:
-    if df[c].isnull().all():
-        continue
-    top = df[c].value_counts(normalize=True, dropna=False).iloc[0]
-    if df[c].nunique(dropna=False) <= 1:
-        print(f"constant: {c}")
-    elif top >= 0.99:
-        print(f"near-constant: {c} ({top:.1%})")
-```
-
-Question/drop low-information columns.
-
-## Step 7: Candidate Keys
+For pandas, adapt this compact baseline:
 
 ```python
 n = len(df)
-for c in df.columns:
-    if df[c].nunique(dropna=False) == n:
-        print(f"candidate key: {c}")
+if n == 0:
+    raise ValueError("dataset has no rows")
+
+missing = df.isna().mean().sort_values(ascending=False)
+duplicate_rows = int(df.duplicated().sum())
+unique = df.nunique(dropna=False)
+constant = unique[unique <= 1].index.tolist()
+candidate_keys = [
+    c for c in df.columns
+    if df[c].notna().all() and df[c].nunique(dropna=False) == n
+]
 ```
 
-Confirm assumed join keys unique. Names like id/key/uuid/code are clues, not proof.
+Then inspect:
 
-## Step 8: Categorical Cardinality
+- Missingness by column. Highlight fully empty and critical fields.
+- Exact duplicates. Test domain-key duplicates separately when key known.
+- Constant and near-constant columns. Treat 99% dominance as review threshold, not error.
+- Candidate keys. Names such as `id`, `key`, or `uuid` are clues, not proof.
+- Categorical cardinality and top values.
+- Numeric min, max, quantiles, impossible signs, and unit mismatch.
+- IQR outlier candidates. Do not label outliers as bad data without domain evidence.
+- Whitespace, casing, sentinel strings, mixed formats, and numeric text.
+- Date parse success, timezone consistency, gaps, and future dates when relevant.
 
-```python
-for c in df.select_dtypes(exclude="number").columns:
-    u = df[c].nunique(dropna=False)
-    flag = "  [high: free text or parse issue?]" if u > n * 0.5 else ""
-    print(f"{c}: {u} unique{flag}")
-```
+### Step 4: Check Sample Limits
 
-High cardinality in expected category often means parse issue or free text.
+Run cheap full-table checks when access permits: row count, date span, missingness on critical fields, and key uniqueness. Keep heavy scans bounded. State checks omitted due cost or permissions.
 
-## Step 9: Numeric Range And Outliers
+### Step 5: Report
 
-```python
-for c in df.select_dtypes(include="number").columns:
-    s = df[c].dropna()
-    if s.empty:
-        continue
-    q1, q3 = s.quantile(0.25), s.quantile(0.75)
-    iqr = q3 - q1
-    out = int(((s < q1 - 1.5 * iqr) | (s > q3 + 1.5 * iqr)).sum())
-    print(f"{c}: min={s.min():.4g} max={s.max():.4g} outlier_candidates={out}")
-```
+Group findings:
 
-Outliers are inspect candidates, not automatic errors.
+- **Blocker:** breaks grain, join, count, parse, or required field.
+- **Cleanup:** formatting or low-information issue with known fix.
+- **Review:** plausible anomaly needing domain owner.
+- **Limit:** sample, access, parser, or untested assumption.
 
-## Step 10: Format Consistency
+For each finding, give evidence, downstream effect, and next check. Do not clean data unless user asks in separate step.
 
-```python
-for c in df.select_dtypes(exclude="number").columns:
-    v = df[c].dropna().astype(str)
-    if v.empty:
-        continue
-    if (v != v.str.strip()).any():
-        print(f"whitespace: {c}")
-    if pd.to_numeric(v, errors="coerce").notna().mean() >= 0.9:
-        print(f"numeric stored as text: {c}")
-```
+## Fallbacks
 
-## Report
+- No pandas: use existing SQL/KQL/file tools and report equivalent checks.
+- Large source: sample recent window plus cheap aggregate checks.
+- Unknown grain: report candidate grains; do not assert key.
+- Parse failure: stop, preserve error, propose loader change.
 
-Severity:
+## Verify
 
-- **Blockers:** broken keys, heavy missingness, count-affecting duplicates.
-- **Cleanups:** whitespace, numeric-as-text, constant columns.
-- **Notes:** outlier candidates, high cardinality.
+- Source unchanged.
+- Sample method explicit.
+- Empty data handled.
+- Findings separate evidence from domain judgment.
+- Candidate keys tested, not guessed.
+- Report states omitted checks and limits.
 
-State effect of each flag. Clean triage rules out mechanical issues, not domain errors.
+## Output
 
-## Access Notes
-
-- SQL/Kusto: bounded sample first. With timestamp, prefer recent window, Kusto `where Timestamp > ago(2h)`, SQL `WHERE ts > DATEADD(hour, -2, GETDATE())`, over blind `take` / `TOP` / `LIMIT`. Confirm representativeness. Check row counts and key uniqueness on full table.
-- Excel: check sheet name and header/totals rows.
-- pandas in memory: dtypes reflect prior parsing until converted.
+Return compact triage report plus commands or code used. Include blockers, cleanups, reviews, limits, and recommended next checks.

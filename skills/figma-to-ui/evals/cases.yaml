@@ -1,0 +1,32 @@
+cases:
+  - id: exact-page
+    prompt: Implement this selected Figma page in our existing Next.js route and match desktop and mobile.
+    expected_trigger: true
+    expected_behavior:
+      - Pulls exact-node screenshot and structured details.
+      - Reuses repository tokens and components.
+      - Compares running page at matching viewports.
+  - id: component-variant
+    prompt: Turn this selected Figma card variant into a reusable component in this Vue app.
+    expected_trigger: true
+    expected_behavior:
+      - Inspects existing component API before creating variant.
+      - Preserves repository styling system.
+  - id: missing-mobile
+    prompt: Implement this desktop-only Figma frame responsively.
+    expected_trigger: true
+    expected_behavior:
+      - Uses repository breakpoints.
+      - Labels mobile assumptions.
+  - id: negative-open-design
+    prompt: Design a premium landing page from this product brief with no Figma file.
+    expected_trigger: false
+    expected_behavior:
+      - Routes to frontend-design.
+  - id: boundary-auth
+    prompt: Implement this private Figma link that the connector cannot access.
+    expected_trigger: true
+    expected_behavior:
+      - Reports access failure.
+      - Requests accessible link or screenshot.
+      - Does not invent hidden design details.

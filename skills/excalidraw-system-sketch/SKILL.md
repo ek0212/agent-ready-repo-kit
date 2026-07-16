@@ -1,50 +1,60 @@
 ---
 name: excalidraw-system-sketch
-description: Plan Excalidraw sketches for fuzzy architecture, product flows, or system maps and write a companion Markdown summary.
-when_to_use: Invoke when Mermaid is too rigid, user thinks visually, or system needs grouping, swimlanes, rough sketching, or before/after layout.
+description: Plan or create Excalidraw sketches for fuzzy architecture, product flows, trust boundaries, before-and-after designs, or system maps. Use when user asks for an Excalidraw diagram, rough system sketch, spatial grouping, swimlanes, or visual exploration that Mermaid cannot express well.
+license: MIT
 ---
 
-# Excalidraw System Sketch
+Create one readable spatial sketch plus durable Markdown summary.
 
-## Apply
+## Scope
 
-- `rules/structure-constraints.md`
-- `rules/security-constraints.md` when secrets, trust boundaries, user data appear.
+Use when placement, grouping, swimlanes, or exploration matters. Use Mermaid for exact sequence, state, dependency, or GitHub-rendered architecture.
 
-## Use When
+## Inputs
 
-- User thinks visually.
-- Grouping, swimlanes, or rough sketching needed.
-- Mermaid too rigid.
-- Goal exploration, not final docs.
+- Diagram purpose and audience.
+- Components, actors, systems, and flows.
+- Trust boundaries, secrets, user data, and external services.
+- Existing `.excalidraw` file or visual conventions, if any.
+
+User or repository owns system facts. Mark inferred nodes and unresolved flows.
 
 ## Workflow
 
-1. Identify purpose: architecture, user flow, agent workflow, boundary, before/after design.
-2. List boxes, groups, arrows, annotations.
-3. Decide inside/outside trust boundary.
-4. Create/update `.excalidraw` if tooling exists.
-5. Always write companion `.md` summary.
+1. State one diagram question.
+2. List boxes, groups, arrows, boundaries, and annotations.
+3. Choose layout: left-to-right flow, swimlanes, nested zones, or before/after.
+4. Separate internal, external, trusted, and untrusted areas.
+5. Label secret and user-data entry points without including secret values.
+6. Create or update `.excalidraw` when compatible tooling exists.
+7. Write companion `.md` summary with purpose, components, boundaries, flows, and open questions.
 
-## Companion Summary
+## Drawing Rules
 
-```markdown
-# Diagram Summary
+- One concept per sketch.
+- Short labels. Verb-led arrows.
+- Color encodes one stable meaning or stays decorative-free.
+- Boundaries visible without color alone.
+- Avoid file-level detail unless diagram question requires it.
+- Keep uncertain elements labeled `Assumption` or `Open`.
 
-## Purpose
+## Fallbacks
 
-## Main Components
+- No Excalidraw tooling: return exact sketch plan and companion Markdown. State visual file not created.
+- Flow already precise: route to `mermaid-architecture-map`.
+- Missing system facts: create partial sketch with open questions; do not invent architecture.
 
-## Boundaries
+## Verify
 
-## Flows
+- Diagram answers stated question.
+- Main flow readable without zoom.
+- Trust boundaries and external systems explicit.
+- No secrets or private data embedded.
+- Companion summary matches visual.
+- Open questions named.
 
-## Open Questions
-```
+## Output
 
-## Rules
-
-- Do not rely on visual file alone.
-- Short labels.
-- Color has meaning if used.
-- One sketch per concept.
+- `.excalidraw` file when tooling permits.
+- Companion `.md` summary always.
+- Assumptions and unresolved items.

@@ -1,0 +1,30 @@
+cases:
+  - id: architecture-boundary
+    prompt: Add a Mermaid architecture diagram showing app, API, database, vendor, and trust boundaries.
+    expected_trigger: true
+    expected_behavior:
+      - Uses flowchart with explicit boundaries.
+      - Omits secret values.
+  - id: request-sequence
+    prompt: Show login request flow as a GitHub-rendered sequence diagram.
+    expected_trigger: true
+    expected_behavior:
+      - Uses sequenceDiagram.
+      - Labels actors and ordered messages.
+  - id: lifecycle
+    prompt: Diagram job states from queued through retry, success, and failure.
+    expected_trigger: true
+    expected_behavior:
+      - Uses stateDiagram-v2.
+      - Includes recovery transitions.
+  - id: negative-spatial
+    prompt: Make a rough Excalidraw before-and-after product sketch.
+    expected_trigger: false
+    expected_behavior:
+      - Routes to excalidraw-system-sketch.
+  - id: boundary-unknown
+    prompt: Diagram an architecture where only the client and API are known.
+    expected_trigger: true
+    expected_behavior:
+      - Draws verified subset.
+      - Lists unknown components and edges.

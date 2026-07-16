@@ -1,0 +1,29 @@
+cases:
+  - id: fuzzy-architecture
+    prompt: Sketch our product architecture with internal services, vendors, and trust boundaries in Excalidraw.
+    expected_trigger: true
+    expected_behavior:
+      - Uses spatial groups and explicit boundaries.
+      - Writes companion Markdown.
+  - id: before-after
+    prompt: Make a rough before-and-after sketch for this onboarding redesign.
+    expected_trigger: true
+    expected_behavior:
+      - Uses paired zones and labels changed flows.
+  - id: no-tooling
+    prompt: Plan an Excalidraw system map, but no Excalidraw editor is available.
+    expected_trigger: true
+    expected_behavior:
+      - Returns exact sketch plan and Markdown summary.
+      - States visual file was not created.
+  - id: negative-sequence
+    prompt: Add a GitHub-rendered request sequence diagram to the README.
+    expected_trigger: false
+    expected_behavior:
+      - Routes to Mermaid.
+  - id: boundary-missing-facts
+    prompt: Diagram our unknown payment architecture from this two-sentence idea.
+    expected_trigger: true
+    expected_behavior:
+      - Marks assumptions and open questions.
+      - Does not invent trust boundaries or services.

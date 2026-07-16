@@ -1,0 +1,32 @@
+cases:
+  - id: landing-page
+    prompt: Build a distinctive landing page for a scientific field-notes app in this React repo.
+    expected_trigger: true
+    expected_behavior:
+      - Derives direction from subject world.
+      - Produces working responsive code.
+      - Uses one justified signature element.
+  - id: high-trust-dashboard
+    prompt: Design a premium but calm fraud-review dashboard with clear pending and failure states.
+    expected_trigger: true
+    expected_behavior:
+      - Names trust level.
+      - Favors clarity and reversible action.
+      - Implements lifecycle states.
+  - id: vague-brief
+    prompt: Make this homepage feel less generic.
+    expected_trigger: true
+    expected_behavior:
+      - Grounds audience and page job from repository.
+      - States assumptions.
+      - Removes generic design defaults.
+  - id: negative-figma
+    prompt: Match this exact selected Figma frame pixel for pixel.
+    expected_trigger: false
+    expected_behavior:
+      - Routes to figma-to-ui.
+  - id: boundary-backend
+    prompt: Add a database migration for user preferences.
+    expected_trigger: false
+    expected_behavior:
+      - Does not load visual design workflow.

@@ -1,8 +1,21 @@
 # Agent Instructions
 
-Keep under 200 lines. Put real multi-step workflows in `skills/`.
+Use Full mode for all repo work and communication.
 
-`AGENTS.md` and `SKILL.md` use Caveman-full wording: terse, no filler, fragments OK, technical terms exact, code/commands/errors unchanged.
+## Full Mode
+
+Applies to agent messages, plans, docs, comments, docstrings, skill instructions, commit/PR text, and repo-authored user-facing prose.
+
+- Drop articles when meaning stays clear.
+- Fragments OK.
+- Prefer shortest precise word.
+- No filler, hedging, pleasantries, or decorative transitions.
+- No tool-call narration. Report result, decision, blocker, or next action.
+- No decorative tables or emoji. Use table only when it compresses real comparison or mapping.
+- No long raw error-log dumps unless asked. Quote decisive lines. Preserve exact error text.
+- Standard acronyms OK. No invented abbreviations.
+- Preserve exact technical terms, code, commands, APIs, file paths, identifiers, and user language.
+- Use full sentences for security warnings, irreversible confirmations, and order-sensitive steps. Resume Full mode after clear warning.
 
 Merge all worktrees into main after worktree work completes.
 
@@ -40,6 +53,7 @@ Ask before public APIs, auth, permissions, billing, data deletion, dependencies,
 
 ### Writing
 
+- Follow Full mode.
 - Direct, concise. State assumptions and limits.
 - Plain English.
 - Avoid X-not-Y contrast, self-answering questions, em dashes, three-part alliteration, vague inspirational pivots, unsourced claims, unverified quotes.
@@ -65,13 +79,10 @@ Ask before public APIs, auth, permissions, billing, data deletion, dependencies,
 
 ### Agent Communication
 
-- Agent-to-agent messages use Caveman full mode.
+- Agent-to-agent messages use Full mode.
 - If slash commands work, start with `/caveman full`; else put instruction in prompt.
-- Drop filler, hedging, pleasantries. Fragments OK.
-- Preserve technical terms, code, commands, API names, commit keywords, exact errors, user's language.
 - Do not announce mode. No normal recap.
 - Pattern: `[thing] [action] [reason]. [next step].`
-- Use fuller wording for security warnings, irreversible confirmations, or order-sensitive steps. Resume Caveman after clear part.
 
 ## Procedures
 
@@ -156,24 +167,3 @@ Load only for matching paths.
 - Prevent button/card/nav text overflow.
 - Verify changed flows in browser.
 - Never expose secrets in client bundles.
-
-## Skills
-
-Load from `skills/<name>/SKILL.md` only when task matches.
-
-| Skill | Use when |
-|---|---|
-| `skill-authoring` | Create/revise skills, split broad skills, convert repeated prompts, decide AGENTS.md vs skill. |
-| `frontend-design` | Build distinctive web UI where design quality matters. |
-| `newsletter-growth` | Plan/audit newsletters for audience growth, engagement, retention, monetization. |
-| `mermaid-architecture-map` | Prose hides flow/ownership, repo needs GitHub diagrams, boundaries matter. |
-| `excalidraw-system-sketch` | Mermaid too rigid, visual thinking helps, grouping/swimlanes/rough sketching needed. |
-| `creative-writing` | Draft/edit nonfiction where narrative craft, engagement, character depth matter. |
-| `dataset-triage` | First-pass checks on tabular data before analysis, joins, reports, modeling. |
-| `stanford-research` | Synthesize papers into claims, contradictions, gaps, methods, assumptions, maps, takeaways. |
-
-### Skill Loading Rules
-
-- Default zero skills.
-- Load at most one skill per pass unless task spans domains.
-- Prefer code/docs over more instructions.

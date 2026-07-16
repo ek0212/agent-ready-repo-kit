@@ -1,136 +1,81 @@
 ---
 name: creative-writing
-description: Draft, structure, and edit nonfiction with Gladwell-style craft. Use for blog posts, articles, profiles, essays, or longform nonfiction where story structure, reader engagement, and character depth matter.
-when_to_use: Invoke when user asks to write an article, draft a blog post, profile a person, structure nonfiction, edit for narrative quality, or improve storytelling.
+description: Draft, structure, or edit narrative nonfiction with strong questions, scenes, characters, reveals, and endings. Use when user asks for a blog post, article, profile, essay, narrative report, story-driven rewrite, title options, or stronger nonfiction storytelling.
+license: MIT
 ---
 
-# Creative Writing
+Write narrative nonfiction from verified material. Build reader movement, not ornamental prose.
 
-Draft/edit nonfiction with narrative craft. Use for blogs, articles, profiles, essays, reports, and engagement-heavy prose.
+## Scope
+
+Use for articles, profiles, essays, blogs, and narrative reports. Do not use for fiction, product microcopy, straight technical docs, or research synthesis unless user asks for narrative treatment.
 
 ## Inputs
 
-- Subject/topic/draft.
-- Audience and venue.
-- Length target, if known.
-- Research/interviews/sources.
+- Topic or draft.
+- Audience, venue, length, and voice.
+- Notes, interviews, quotes, data, and sources.
+- Required claims, exclusions, and call to action.
 
-## Procedure
+User owns facts and voice. Never invent quotes, scenes, motives, credentials, or data. Mark missing evidence with clear placeholders.
 
-### Step 1: Find Puzzle
+## Workflow
 
-Find question subject raises:
+### Step 1: Pin Question And Ending
 
-- What surprises reader?
-- What stays partly unresolved?
-- What gets retold?
+Write one central question. Name what stays unresolved. Choose ending image, fact, decision, or insight before drafting. If ending only repeats thesis, find stronger destination.
 
-Write central question plus one unresolved thing.
+### Step 2: Map Sections
 
-### Step 2: Pick Ending First
+Give each section one job. Alternate:
 
-Work backward. Ending controls structure.
+- **Argument:** claim, evidence, analysis.
+- **Story:** scene, person, vivid fact, useful detour.
 
-- Strongest moment, insight, image?
-- Reader ends somewhere new?
-- If not, find better ending before drafting.
+Avoid more than two argument-heavy sections without concrete relief. Short piece may use simple hook, claim, evidence, close.
 
-### Step 3: Map Sections
+### Step 3: Build People Through Evidence
 
-Number sections. Each stands alone. Structure creates transitions.
+Show character through action, setting, dialogue, constraint, and choice. Pick two or three details that affect story. Remove decorative description.
 
-Classify:
+### Step 4: Control Reveals
 
-- **Meal:** argument, data, analysis.
-- **Candy:** anecdote, vivid fact, memorable detour.
+Use suspense when reader knows answer is coming. Use surprise when new fact changes frame. Withhold only when delayed fact improves meaning without misleading reader.
 
-No more than two pure-meal sections without candy.
+### Step 5: Translate Complexity
 
-### Step 4: Build Characters Through World
+Explain jargon once. Break data into small units. Use analogy only when mapping is accurate and clarifies mechanism. For long pieces, test one analogous world; drop it if it adds detour without insight.
 
-For people:
+### Step 6: Match Voice And Emotion
 
-- Environment, not face.
-- Dialogue/interaction for personality.
-- Physical detail tied to plot.
-- 2-3 details reveal who they are.
+Match source voice, audience, and stakes. Use simple language for complex ideas. Let quotes and observed detail carry emotion. Avoid announcing humor, overstating sadness, or manufacturing certainty.
 
-### Step 5: Control Reveals
+### Step 7: Tighten And Title
 
-| Tool | How | Use when |
-|---|---|---|
-| Suspense | Reader knows info coming, not when | Known conclusion |
-| Surprise | Reader did not expect it | Reframe/subvert |
+1. Cut repeated claims and throat-clearing.
+2. Delete sections that do not serve central question.
+3. Fix sentence rhythm by reading aloud.
+4. Verify each factual statement against source material.
+5. Confirm ending changes reader position.
+6. Draft at least three specific title options.
 
-Withhold on purpose. Timing changes weight. Let reader guess before answer.
+## Fallbacks
 
-### Step 6: Jargon And Data
+- Thin evidence: produce outline or questions, not invented draft.
+- Short format: skip characters and analogous world unless essential.
+- Institutional stakes: favor clarity, attribution, and restraint over suspense.
 
-- Explain jargon once, then use.
-- Data in small chunks.
-- Give framework/metaphor/rule to decode complexity.
+## Verify
 
-### Step 7: Analogous Worlds
+- Central question clear.
+- Structure moves toward ending.
+- Every scene and quote sourced.
+- Claims traceable.
+- Jargon decoded.
+- Voice fits audience.
+- Title names real tension or value.
+- Draft reads naturally aloud.
 
-For pieces over 1,000 words, seek matching patterns elsewhere:
+## Output
 
-- Behavior mirrors another field?
-- Other world illuminates this one?
-
-Skip short pieces.
-
-### Step 8: Tone And Voice
-
-- Casual for accessible topics.
-- Formal for serious/institutional topics.
-- Simple language, sophisticated ideas.
-- Short sentences for pace.
-- Read aloud. Fix stumbles.
-- Punctuation sets rhythm.
-
-### Step 9: Emotion
-
-- Do not announce humor.
-- Do not overplay sadness.
-- Quote plainly. Reader feels.
-- Restraint creates emotion.
-
-### Step 10: Clarity Pass
-
-1. Cut restatement.
-2. Simplify sentences needing reread.
-3. Remove sections not serving puzzle.
-4. Verify ending still transports.
-5. Read aloud. Fix unnatural lines.
-
-### Step 11: Title
-
-Title is ad.
-
-- Aim for emotion or contradiction.
-- Generate 8-10 options.
-- Test whether title says what piece is about.
-- Reject generic titles.
-
-## Quality Checks
-
-- [ ] Central puzzle clear and partly unresolved.
-- [ ] Ending moves reader.
-- [ ] Meal/candy balanced.
-- [ ] Characters shown through world/action.
-- [ ] Reveals timed.
-- [ ] Jargon explained once.
-- [ ] Accessible language, sophisticated ideas.
-- [ ] Emotion restrained.
-- [ ] Title specific with weight.
-- [ ] Reads well aloud.
-
-## Outputs
-
-- Numbered structured draft.
-- Or edited draft with step-mapped improvements.
-- At least 3 title options.
-
-## Reference
-
-Extended notes/examples/reading list: `wiki/learnings/gladwell-masterclass-writing.md` in second-brain repo.
+Return requested draft or edit. Include title options. State placeholders, assumptions, and source gaps.

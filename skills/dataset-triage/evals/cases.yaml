@@ -1,0 +1,30 @@
+cases:
+  - id: csv-first-look
+    prompt: Inspect this unfamiliar CSV and tell me whether it is safe to join.
+    expected_trigger: true
+    expected_behavior:
+      - Reports shape, dtypes, missingness, duplicates, and candidate keys.
+      - Does not mutate source.
+  - id: large-sql-table
+    prompt: Triage a billion-row SQL table with a timestamp and suspected duplicate event_id values.
+    expected_trigger: true
+    expected_behavior:
+      - Starts with bounded recent sample.
+      - Uses cheap full-table key checks when safe.
+      - States sampling limits.
+  - id: empty-dataframe
+    prompt: Check this empty pandas DataFrame for quality issues.
+    expected_trigger: true
+    expected_behavior:
+      - Reports empty dataset without divide-by-zero or false key claims.
+  - id: negative-text-corpus
+    prompt: Analyze sentiment across these interview transcripts.
+    expected_trigger: false
+    expected_behavior:
+      - Does not apply tabular triage unless transcripts are structured rows.
+  - id: boundary-clean-request
+    prompt: Remove duplicate rows and impute missing values in this CSV.
+    expected_trigger: true
+    expected_behavior:
+      - Triages first.
+      - Does not mutate until cleaning scope is explicit.

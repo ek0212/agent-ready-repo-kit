@@ -1,0 +1,31 @@
+cases:
+  - id: full-protocol
+    prompt: Run stanford research on these eight uploaded papers about AI tutoring.
+    expected_trigger: true
+    expected_behavior:
+      - Runs all modules.
+      - Organizes by claims rather than paper summaries.
+      - Traces every substantive claim.
+  - id: contradiction-only
+    prompt: Find genuine contradictions across these papers and explain why they disagree.
+    expected_trigger: true
+    expected_behavior:
+      - Runs contradiction module only.
+      - Excludes scope and terminology differences.
+  - id: small-corpus
+    prompt: Find ten research gaps in these two short papers.
+    expected_trigger: true
+    expected_behavior:
+      - Does not pad to requested count.
+      - Labels acknowledged, implied, and proposed gaps.
+  - id: negative-narrative
+    prompt: Turn this research into a magazine-style narrative article.
+    expected_trigger: false
+    expected_behavior:
+      - Routes to creative-writing after research facts are available.
+  - id: boundary-missing-text
+    prompt: Synthesize five papers, but only titles and abstracts are available.
+    expected_trigger: true
+    expected_behavior:
+      - Limits claims to abstracts.
+      - States missing full-text constraint.

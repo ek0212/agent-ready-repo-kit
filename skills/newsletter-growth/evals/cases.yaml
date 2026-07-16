@@ -1,0 +1,32 @@
+cases:
+  - id: new-newsletter
+    prompt: Design a weekly newsletter for security leaders who need practical AI risk updates.
+    expected_trigger: true
+    expected_behavior:
+      - Defines reader, promise, exclusions, lane, and repeatable format.
+      - Sets sustainable cadence and feedback loop.
+  - id: dashboard-newsletter
+    prompt: Design a Gmail-safe weekly KPI dashboard newsletter with six metrics, two alerts, and a link to the live dashboard.
+    expected_trigger: true
+    expected_behavior:
+      - Loads dashboard email reference.
+      - Leads with one takeaway and primary metric.
+      - Uses at most three desktop columns that stack on mobile.
+      - Keeps meaning when images are blocked.
+      - Includes one primary CTA and client-test plan.
+  - id: small-list
+    prompt: Grow this 120-person newsletter without enough volume for A/B tests.
+    expected_trigger: true
+    expected_behavior:
+      - Uses replies and interviews as fallback.
+      - Avoids unsupported benchmark promises.
+  - id: negative-outreach
+    prompt: Write a cold email to one prospective client.
+    expected_trigger: false
+    expected_behavior:
+      - Routes to outreach-email.
+  - id: boundary-monetization
+    prompt: Add sponsors to a newsletter with irregular sends and unclear audience.
+    expected_trigger: true
+    expected_behavior:
+      - Stabilizes promise and cadence before monetization.

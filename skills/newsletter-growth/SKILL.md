@@ -1,130 +1,119 @@
 ---
 name: newsletter-growth
-description: Plan, audit, or improve newsletters for audience growth, engagement, retention, and monetization. Use when user asks to start a newsletter, grow a newsletter, improve open/click rates, design newsletter strategy, audit subject lines or CTAs, create an editorial cadence, segment readers, build referral/community loops, or turn social/content assets into an owned email audience.
+description: Plan, audit, design, or improve newsletters for audience growth, engagement, retention, and monetization. Use when user asks to start or grow a newsletter, create a dashboard or metric digest, improve issue format, subject lines, calls to action, cadence, segmentation, referrals, reader feedback, distribution, or newsletter business model.
 license: MIT
 ---
 
-Build newsletter strategy from durable growth patterns.
+Build repeatable newsletter system around one reader promise and measurable feedback.
 
-Source pattern: successful newsletters pick a clear lane, publish on a predictable cadence, use a repeatable format, write with human voice, invite reader interaction, and improve through analytics, tests, segmentation, and community feedback.
+## Scope
+
+Use for recurring newsletters and owned email audiences. Use `outreach-email` for one-to-one prospect, colleague, or client messages. Do not promise growth, open, click, or revenue outcomes.
+
+## Inputs
+
+- Reader, topic boundary, and newsletter goal.
+- Existing issues, list size, acquisition sources, and cadence.
+- Available analytics, segments, platform features, and production capacity.
+- Business model, voice, constraints, and current offers.
+
+User owns audience facts, analytics, and business constraints. Cite current source for benchmark claims. Treat platform metrics as diagnostic, not universal truth.
 
 ## Workflow
 
-### Step 1: Pin Audience
+### Step 1: Pin Reader And Promise
 
 Name:
 
-- **Reader:** specific person, role, context, media habits.
-- **Job:** why reader opens this newsletter instead of scrolling, searching, or reading a publication.
-- **Promise:** one sentence, outcome plus topic boundary.
-- **Format fit:** length, density, sections, and reading time matched to audience behavior.
+- Reader: specific person, role, context, and media habit.
+- Job: why reader opens instead of scrolling, searching, or reading another source.
+- Promise: one-sentence outcome plus topic boundary.
+- Exclusions: topics and offers newsletter will reject.
 
-If audience is vague, infer one concrete reader from the user's existing channel, product, or topic. State assumption.
+If audience vague, infer one reader from existing channel or product. State assumption.
 
-### Step 2: Choose Lane
+### Step 2: Pick One Lane
 
-Pick one primary lane:
+Choose primary format:
 
-| Lane | Use when | Pattern |
-|---|---|---|
-| Curated briefing | Topic moves fast | Short summaries, links, clear editorial judgment |
-| Expert essay | Trust comes from author | One thesis, evidence, practical takeaways |
-| Framework digest | Readers want repeatable advice | Fixed sections, examples, reflection prompt |
-| Community signal | Audience creates insight | Replies, polls, submissions, member wins |
-| Product education | Newsletter supports business | Use cases, objections, demos, customer proof |
+- Curated briefing for fast-moving topic.
+- Expert essay for author-led trust.
+- Framework digest for repeatable advice.
+- Community signal for reader-generated insight.
+- Product education for use cases and objections.
+- Metric dashboard for recurring KPI, status, or briefing data.
 
-Blend lanes only when each has a distinct section. Do not let blend blur promise.
+Blend only when each lane owns distinct recurring section.
 
-### Step 3: Design Issue Format
+### Step 3: Build Repeatable Issue
 
-Create a repeatable structure readers can recognize.
+Every issue needs:
 
-Required:
+1. Hook: reason to read now.
+2. Core value: curation, analysis, tutorial, or decision support.
+3. One reader action: reply, click, save, share, vote, or try.
+4. Close: next issue, reflection, or specific call to action.
 
-- Opening hook: one clear reason to keep reading.
-- Core value: analysis, curation, tutorial, or decision support.
-- Reader action: reply, click, save, share, vote, or try.
-- Close: reflection, next issue teaser, or specific CTA.
+Reject format requiring full reinvention each send.
 
-Optional:
+### Step 4: Design Dashboard Issues When Needed
 
-- 3-2-1 pattern: three ideas, two references, one question.
-- Recurring departments: news, teardown, tool, quote, reader question.
-- Cross-channel extension: podcast, video, social thread, or article.
+For metric dashboard lane, load [dashboard email reference](references/dashboard-email.md). Build issue around:
 
-Reject formats that require too much custom invention for every issue.
+1. Header: newsletter name, date, one-line summary.
+2. Lead: most important takeaway and primary metric.
+3. Cards: related metrics grouped by reader decision.
+4. Exceptions: material changes, risks, or urgent callouts.
+5. One primary CTA: live dashboard or next action.
 
-### Step 4: Set Cadence
+Dashboard must remain useful with images blocked and columns stacked. Do not turn every newsletter into dashboard.
 
-Pick cadence from reader need and production capacity:
+### Step 5: Set Sustainable Cadence
 
-- Daily: fast-moving briefings, strong operations needed.
-- Weekly: analysis, creator newsletters, most sustainable default.
-- Monthly: deep research, premium updates, slow topics.
+Match frequency to reader need and production capacity. Name owner, production steps, send window, and fallback issue format. Avoid cadence supported only during launch effort.
 
-Name the send day/time when useful. Consistent schedule builds habit. Avoid only sending when selling.
+### Step 6: Build Growth And Retention Loops
 
-### Step 5: Improve Subject And CTA
+- Acquisition: existing channels, partnerships, search, referrals, events, or product.
+- Activation: welcome sequence and first useful issue.
+- Retention: consistent promise, recognizable format, reader feedback, and clear value.
+- Referral: reason, mechanism, and reward aligned with audience trust.
+- Segmentation: interest, source, behavior, customer stage, or paid/free status only when treatment differs.
 
-Subject line:
+### Step 7: Measure And Test
 
-- Keep main meaning visible on mobile.
-- Lead with topic, payoff, tension, or useful curiosity.
-- Avoid vague cleverness, clickbait, and overloaded punctuation.
-- Test variants when list size or tooling supports a real decision.
+Track only metrics tied to decision: delivery, opens where reliable, clicks, replies, unsubscribes, referrals, conversion, and paid retention when relevant.
 
-CTA:
+- Test one variable at time.
+- Define expected decision before test.
+- Use enough sends or audience volume for meaningful read.
+- Combine quantitative signal with replies, polls, and interviews.
+- Stop tactic that raises metric while hurting trust or promise.
 
+### Step 8: Monetize After Product Fit
+
+Choose model matching reader intent: sponsorship, paid subscription, product/service, or transparent affiliate offer. Define value, placement, frequency, and conflict rules. Delay monetization when promise, cadence, or reader value remains unstable.
+
+## Fallbacks
+
+- No analytics: audit promise, format, consistency, and qualitative reader evidence.
+- Small list: use replies/interviews before A/B tests.
+- Low production capacity: reduce cadence or use lighter recurring format.
+- Mixed audience: choose primary reader or create explicit segments.
+- Limited email editor: use single-column text-first dashboard and link to live dashboard.
+
+## Verify
+
+- Reader and promise specific.
+- Format repeatable.
+- Dashboard hierarchy works with images off and on mobile when used.
+- Cadence resourced.
 - One primary action per issue.
-- Match action to relationship stage: reply or poll early, share after value is proven, buy only when trust exists.
-- Use same action language in link, button, and surrounding copy.
+- Growth loop names channel and mechanism.
+- Metrics map to decisions.
+- Monetization fits trust and reader intent.
+- Benchmarks sourced or omitted.
 
-### Step 6: Build Feedback Loop
+## Output
 
-Use available tools to learn without overfitting.
-
-- Analytics: track opens, clicks, growth, unsubscribes, replies, paid conversion when relevant.
-- A/B tests: test one variable at a time, usually subject, hook, CTA, or section order.
-- Segmentation: group by interest, behavior, source, engagement, customer stage, or paid/free status.
-- Community: ask polls, surveys, replies, and submission prompts.
-- Referral loop: give readers a reason and mechanism to share.
-
-Treat metrics as diagnostic signals, not goals that override reader trust.
-
-### Step 7: Monetize After Trust
-
-Choose monetization that fits reader intent:
-
-- Sponsorships or ads: broad audience, trusted curation, clear placement.
-- Paid subscription: differentiated expertise, consistency, clear member value.
-- Products or services: newsletter educates demand and handles objections.
-- Affiliate or partner offers: relevant tools, transparent relationship.
-
-Do not add monetization before promise, cadence, and value are stable.
-
-## Audit Checklist
-
-- Audience specific enough to predict subject lines.
-- Promise clear enough to reject off-topic ideas.
-- Format repeatable without draining quality.
-- Cadence realistic for creator capacity.
-- Subject lines readable on mobile.
-- CTA singular and stage-appropriate.
-- Reader feedback captured through replies, polls, surveys, or clicks.
-- Segments map to different reader needs.
-- Monetization aligns with trust level.
-- Claims and benchmark numbers cite current primary or reputable sources.
-
-## Outputs
-
-When asked to produce strategy, return:
-
-- Newsletter promise.
-- Target reader.
-- Lane and format.
-- First 5 issue ideas.
-- Cadence.
-- Subject-line patterns.
-- CTA and feedback loop.
-- Growth channels.
-- Monetization path, if relevant.
+Return promise, reader, lane, issue format, cadence, first five issue ideas, subject/CTA patterns, growth loop, measurement plan, and monetization path when relevant. For dashboard lane, include hierarchy, card plan, mobile stack, image fallbacks, and client-test plan. State assumptions and missing data.

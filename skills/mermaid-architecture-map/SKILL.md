@@ -1,53 +1,55 @@
 ---
 name: mermaid-architecture-map
-description: Create concise Mermaid diagrams for architecture, data flow, sequences, state, or system boundaries in Markdown.
-when_to_use: Invoke when prose hides flow or ownership, repo needs a GitHub-renderable diagram, or boundary should be explicit.
+description: Create concise Mermaid diagrams for architecture, data flow, request sequence, lifecycle state, dependencies, or trust boundaries in Markdown. Use when prose hides flow or ownership, user asks for Mermaid, repository needs GitHub-rendered diagram, or system boundary must be explicit.
+license: MIT
 ---
 
-# Mermaid Architecture Map
+Create smallest diagram that makes one relationship clear.
 
-## Apply
+## Scope
 
-- `rules/structure-constraints.md`
-- `rules/security-constraints.md` when secrets, trust boundaries, user data appear.
+Use for exact flow, sequence, state, dependency, and boundary diagrams. Use `excalidraw-system-sketch` for fuzzy spatial exploration, swimlanes, or rough before-and-after thinking.
 
-## Use When
+## Inputs
 
-- Multiple components/external services.
-- Flow hard in prose.
-- GitHub-renderable diagrams needed.
-- Tool/trust/system boundary matters.
+- Diagram question and audience.
+- Verified components, actors, states, and edges.
+- External systems, trust boundaries, secrets, and user-data paths.
+- Target Markdown file or standalone `.mmd` path.
 
-## Diagram Types
+User or repository owns architecture facts. Label inference and unknowns.
 
-Simplest useful diagram:
+## Workflow
 
-- `flowchart LR` for architecture/boundaries.
-- `sequenceDiagram` for request/agent flows.
-- `stateDiagram-v2` for lifecycle.
-- `graph TD` for dependencies.
+1. State one question diagram answers.
+2. Pick simplest type:
+   - `flowchart LR`: architecture, ownership, boundaries.
+   - `sequenceDiagram`: ordered request or agent flow.
+   - `stateDiagram-v2`: lifecycle and transitions.
+   - `graph TD`: dependency hierarchy.
+3. Include only nodes needed for question.
+4. Group system and trust boundaries.
+5. Label external services and secret/user-data entry points. Never include secret values.
+6. Use short node labels and verb-led edges.
+7. Save `.mmd`; embed in Markdown when requested.
 
-## Rules
+## Fallbacks
 
-- Boundaries, not every file.
-- Label external systems.
-- Label trust boundaries.
-- Label secret/user-data entry points.
-- Small enough for PR review.
-
-## Output
-
-Create `.mmd`. Optional preview:
-
-```mermaid
-flowchart LR
-  User --> App
-  App --> API
-  API --> Store
-```
+- Missing facts: draw verified subset and list unknown edges.
+- Diagram becomes dense: split by question, not arbitrary file count.
+- Spatial grouping matters more than exact flow: route to Excalidraw.
+- Renderer lacks feature: use simpler supported syntax.
 
 ## Verify
 
-- Balanced brackets/quotes.
-- No unsupported Markdown inside labels.
-- Readable node names.
+- Mermaid syntax renders.
+- Brackets and quotes balanced.
+- Labels avoid unsupported Markdown.
+- Direction and edge labels readable.
+- Boundaries and external systems explicit.
+- Diagram fits PR review without excessive detail.
+- No secrets or private values present.
+
+## Output
+
+Return `.mmd` or embedded Mermaid block plus short assumptions/open-questions note when needed.

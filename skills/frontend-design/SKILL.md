@@ -1,159 +1,96 @@
 ---
 name: frontend-design
-description: Create distinctive, production-grade frontend UI. Use when user says "build a landing page", "design a dashboard", "create a component", "make a web app", "build me a UI", "make this feel premium", or asks for delightful, trustworthy web components, pages, apps, or interfaces.
+description: Create distinctive production frontend UI with clear visual direction, emotional intent, responsive behavior, and accessible interaction states. Use when user says "build a landing page", "design a dashboard", "create a component", "make a web app", "build me a UI", "make this feel premium", or asks for polished web design without exact Figma source.
 license: MIT
 ---
 
-Build memorable production UI. Act as studio design lead. Specific point of view. One justified aesthetic risk. Working code.
+Build working UI with specific point of view, one justified signature move, and disciplined polish.
+
+## Scope
+
+Use for design-led web pages, components, apps, dashboards, and redesigns. Use `figma-to-ui` when exact Figma selection defines target. Skip backend-only work and tiny visual bug fixes with no design judgment.
+
+## Inputs
+
+- Product, audience, page job, and primary action.
+- Existing repository, components, tokens, content, and constraints.
+- Brand cues, references, accessibility needs, and supported viewports.
+- Required states, data, routing, and interactions.
+
+User and repository own product facts. Use real supplied content. Mark invented sample content.
 
 ## Workflow
 
 ### Step 1: Ground Brief
 
-If subject vague, choose concrete subject, audience, page job. State choice. Use user preferences and project context. Pull cues from subject world: materials, tools, artifacts, language, rituals, constraints.
+If brief vague, choose concrete audience and page job from repository context. State assumption. Pull cues from subject world: materials, tools, artifacts, language, rituals, and constraints.
 
-Name emotional target for entry, core action, success, failure. Name trust level. High-stakes flows need calm feedback, visible state, reversible actions, clear confirmation.
+Name target feeling at entry, core action, success, and failure. Name trust level. High-stakes flows favor calm feedback, visible state, reversible action, and clear confirmation.
 
-Use real content. Placeholder copy feels templated.
+### Step 2: Set Direction
 
-### Step 2: Plan Direction
+Before code, define:
 
-## Emotional Design
+- Palette: four to six colors with roles.
+- Type: display, body, optional utility.
+- Layout: composition and responsive rule.
+- Signature: one remembered element.
+- Risk: one deliberate move and why it fits.
+- Emotion: target feeling and trust requirement.
 
-Treat felt experience as behavior, not decoration.
+Reject direction that fits any similar product. Avoid default purple gradients, generic SaaS cards, ornamental numbering, and copied trend palettes unless brief supports them.
 
-- First useful screen communicates value, quality, and next action without tour.
-- Onboarding motion explains hierarchy or cause/effect. It never blocks progress.
-- Early real success comes before optional setup.
+### Step 3: Design Behavior
 
-- Important actions get immediate, proportional feedback.
-- Micro-interactions clarify change, confirm input, or direct attention.
-- Timing, easing, and direction stay consistent.
-- Keyboard use, focus visibility, readable status text, and non-motion path remain intact.
+- First useful screen shows value and next action.
+- Early real success precedes optional setup.
+- Pending, success, failure, empty, disabled, and recovery states stay explicit.
+- Feedback is immediate and proportional.
+- Motion explains hierarchy, state, or cause. It never blocks progress.
+- Milestone feedback stays brief and skippable.
+- No manufactured urgency or engagement pattern against user goal.
 
-- Pending, success, failure, and recovery states are explicit.
-- Spacing, alignment, timing, and response behavior stay consistent.
-- Broken edge states get fixed before flourish.
+### Step 4: Build In Existing Stack
 
-- Completed steps and milestones get proportional feedback.
-- Celebrations stay brief and skippable.
-- Progress indicators appear only when destination and remaining effort matter.
-- Avoid manufactured urgency, variable rewards, or engagement patterns against user goals.
+Reuse repository framework, components, tokens, icons, routing, and styling. Ask before new dependency or styling system.
 
-Before code, create compact plan:
+- Derive type, color, layout, texture, and motion from direction.
+- Let structure encode meaning.
+- Spend boldness in one place; keep rest quiet.
+- Keep UI copy active, task-led, and consistent across control and state.
+- Explain errors with cause and recovery.
+- Preserve semantic HTML, keyboard access, focus, contrast, alt text, and reduced motion.
 
-- **Palette:** 4-6 named hex values with roles.
-- **Type:** display face, body face, optional utility face.
-- **Layout:** concept plus ASCII wireframe when useful.
-- **Signature:** one remembered element.
-- **Risk:** one deliberate move, why it fits.
-- **Emotion:** target feeling and trust level.
+### Step 5: Refine In Browser
 
-Reject plan if it fits any similar product.
+Run page. Check representative desktop and mobile widths. Fix in order:
 
-### Step 3: Kill Defaults
+1. Information hierarchy and primary action.
+2. Layout, overflow, and responsive behavior.
+3. Type, spacing, alignment, and component states.
+4. Color, border, shadow, texture, and motion.
 
-Use defaults only when brief asks:
+Cut decoration that does not support subject, hierarchy, trust, or feedback.
 
-- Warm cream near `#F4F1EA`, contrast serif, terracotta.
-- Near-black plus acid green/vermilion.
-- Broadsheet, hairline rules, zero radius, dense columns.
-- Big number, small label, stats, gradient accent.
-- 01 / 02 / 03 markers when content not sequence.
-- Purple gradient, SaaS cards, overused fonts.
+## Fallbacks
 
-Generic choice found. Revise and say why.
+- No brand system: derive one restrained direction from product context; state choices.
+- High-stakes or enterprise flow: favor familiar patterns and clarity over aesthetic risk.
+- No browser access: implement static pass and mark visual verification incomplete.
+- Existing design system conflicts with concept: preserve system unless user approves broader change.
 
-### Step 4: Build
+## Verify
 
-Use existing stack: HTML/CSS/JS, React, Vue, or repo framework.
-
-- Derive color, type, layout, motion from plan.
-- Hero is thesis. Lead with subject's most characteristic thing.
-- Structure is information. Labels/dividers/numbering/sections encode meaning.
-- Motion serves subject. One orchestrated moment beats scattered effects.
-- Complexity matches vision. Maximalist needs depth. Minimalist needs precision.
-- Watch CSS specificity. Avoid generic class vs element selector collisions.
-
-### Step 5: Refine
-
-Spend boldness in one place. Keep rest disciplined. Cut decoration not serving brief.
-
-Quality floor:
-
-- Mobile responsive.
-- Visible keyboard focus.
+- UI works, not mock-only.
+- Primary action clear.
+- Direction specific to subject.
+- Desktop and mobile work.
+- No text or navigation overflow.
+- Keyboard focus visible.
 - Reduced motion respected.
-- Button/card/nav text no overflow.
-- Screenshot/browser check when possible.
+- All lifecycle states in scope handled.
+- Browser comparison completed or named as limit.
 
-## Aesthetics
+## Output
 
-- **Typography:** type carries personality. Avoid Arial, Inter, Roboto, Space Grotesk, generic system stacks unless constrained. Make type memorable.
-- **Color:** cohesive CSS variables. Dominant, secondary, accent weighting.
-- **Motion:** page-load, scroll reveal, hover, or ambient motion only when useful.
-- **Layout:** asymmetry, overlap, diagonal flow, broken grids, or deliberate calm.
-- **Texture:** gradient mesh, noise, pattern, transparency, shadow, grain, tactile detail when fit.
-- **Restraint:** one signature element, not many decorations.
-
-## Copy In UI
-
-Words are design material. Help users understand and act.
-
-- Write from user's side.
-- Name controls by user task, not implementation.
-- Active voice, sentence case.
-- Action name consistent across button, toast, state.
-- Failures explain cause and fix. No apology. No vague error.
-- Empty states invite action.
-- Each text element one job: label, hint, example, error, action.
-
-## Color
-
-Use color for emotional fit.
-
-| Color | Associations |
-|---|---|
-| Red | passion, anger, danger, warning |
-| Orange | warmth, energy, enthusiasm |
-| Yellow | joy, intellect, caution |
-| Green | nature, growth, health, money |
-| Blue | calm, trust, wisdom, mystery |
-| Purple | royalty, luxury, creativity |
-| Pink | innocence, compassion, love |
-| Black | power, sophistication, mystery |
-| White | purity, cleanliness, peace |
-| Brown | earth, reliability, friendliness |
-| Silver | modern, industrial, cold |
-| Gold | luxury, wealth, prestige |
-
-## 60/30/10 Rule
-
-| Weight | Use |
-|---|---|
-| 60% dominant | Backgrounds, large surfaces |
-| 30% secondary | Headlines, cards, graphics |
-| 10% accent | CTAs, highlights, key controls |
-
-## CTA Color
-
-| Color | Effect | Use |
-|---|---|---|
-| Yellow | optimistic, attention-grabbing | browsing |
-| Red | urgent, energetic | time-sensitive actions |
-| Blue | trusted, secure | sign-ups, finance |
-| Green | easy, relaxing | stores, money |
-| Orange | action-driving | subscribe, buy, sell |
-| Pink | soft, youthful | lifestyle, beauty |
-| Black | powerful, sleek | luxury |
-| Purple | calm, soothing | beauty, wellness |
-
-## UX Laws
-
-| Area | Laws |
-|---|---|
-| Perception | Proximity groups nearby items. Similarity groups similar items. Common Region groups bounded items. Uniform Connectedness links connected items. Pragnanz favors simplest interpretation. |
-| Cognition | Minimize cognitive load. Account for bias. Hick's Law: more choices slow decisions. Miller's Law: chunk memory. Selective Attention: guide focus. |
-| Interaction | Fitts's Law: key targets large and close. Goal-Gradient: show progress. Doherty Threshold: keep interactions under 400ms. Active User: design for immediate use. Flow: reduce interruption. |
-| Strategy | Aesthetic-Usability: beauty improves perceived usability. Jakob's Law: reuse familiar patterns. Chunking helps processing. Occam: prefer fewer assumptions. Pareto: focus on highest impact. Tesler: place irreducible complexity deliberately. Postel: accept varied input, produce consistent output. |
-| Memory | Mental Model: match expectations. Peak-End: nail high point and finish. Von Restorff: make key items distinctive. |
+Return working code. Report direction, files changed, route, checks, viewports, assumptions, and known limits.
