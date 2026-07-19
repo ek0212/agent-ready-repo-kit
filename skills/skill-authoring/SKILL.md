@@ -126,11 +126,37 @@ Follow [Anthropic authoring guide](https://platform.claude.com/docs/en/agents-an
 
 For multi-skill tasks, test relevant subset. Do not load full library by default. [Generative Skill Composition](https://arxiv.org/abs/2606.32025) found selected sets beat full-library injection with lower prompt-token cost in tested setup.
 
-Use deterministic verifier when practical. For containerized benchmark work, use [SkillsBench harness](https://github.com/benchflow-ai/skillsbench). Store cases, rubric, commands, and results under `evals/`. Use `evals/paired-run-template.md` when repo has no stronger harness.
+Use deterministic verifier when practical. For containerized benchmark work, use [SkillsBench harness](https://github.com/benchflow-ai/skillsbench). Store cases, rubric, commands, and results under the relevant skill `evals/` folder.
+
+When no stronger harness exists, write one compact paired-run result file with:
+
+- Skill, case id, date, model, harness, tools, attempts, source inputs, and skill commit.
+- Prompt, no-skill context, candidate-skill context, and fixed rubric.
+- Scores for task success, discovery, constraint compliance, evidence handling, usability, and efficiency.
+- Failure notes, keep/revise/remove decision, follow-up changes, and unmeasured limits.
+
+Do not claim efficacy from static validation, trigger cases, or self-review.
 
 ### Step 8: Place And Register
 
 This repo uses `skills/<skill-name>/SKILL.md`. Add skill to repo catalogs when new. Preserve unrelated edits.
+
+## Fallbacks
+
+- No human-verified workflow: request workflow and success criteria; do not invent domain procedure.
+- One stable rule: put it in `AGENTS.md` or config.
+- No eval harness: add cases, validate statically, and mark efficacy unmeasured.
+- Unknown target validator: validate locally and state target-runtime limit.
+
+## Verify
+
+- Trigger and negative trigger are distinct.
+- Skill boundary excludes nearby jobs.
+- Human-owned facts stay outside generated procedure.
+- Steps are concrete enough to change behavior.
+- Support files load only on demand.
+- Eval cases cover representative, negative, and boundary tasks.
+- Paired results exist before efficacy claim.
 
 ## Output
 
@@ -139,4 +165,4 @@ This repo uses `skills/<skill-name>/SKILL.md`. Add skill to repo catalogs when n
 - Eval cases and result summary when run.
 - Catalog updates for new skill.
 - Static validation result and unmeasured limits.
-- Paired-run report path before claiming efficacy.
+- Paired-run result path before claiming efficacy.

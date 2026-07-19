@@ -30,4 +30,3 @@ Each folder has one standalone `SKILL.md` and `evals/cases.yaml`.
 - One should-not-trigger case.
 - One boundary case.
 - Paired no-skill and candidate-skill runs required before efficacy claim.
-- Store measured runs with [`../evals/paired-run-template.md`](../evals/paired-run-template.md).

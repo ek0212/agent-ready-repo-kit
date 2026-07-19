@@ -18,7 +18,7 @@ cases:
     expected_behavior:
       - Defines paired conditions and fixed rubric.
       - Separates static validation from measured efficacy.
-      - Stores results with paired-run report path.
+      - Stores result under the relevant skill evals folder.
   - id: negative-one-rule
     prompt: Add one rule requiring UTC timestamps in logs.
     expected_trigger: false

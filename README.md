@@ -2,7 +2,7 @@
 
 Small rule and skill kit for coding agents in real repos.
 
-Copy `AGENTS.md` and the `skills/` you need into the target repo. Copy `evals/` when measuring skill efficacy.
+Copy `AGENTS.md` and the `skills/` you need into the target repo.
 
 ## Writing Contract
 
@@ -17,14 +17,12 @@ All repo-authored prose follows [Full mode](AGENTS.md#full-mode), now and in fut
 
 - One self-contained [`AGENTS.md`](AGENTS.md): rules, procedures, path-scoped rules.
 - Focused skills and eval cases in [`skills/`](skills/).
-- Paired-run evidence templates in [`evals/`](evals/).
 
 ## Quick Start
 
 1. Copy [`AGENTS.md`](AGENTS.md) into the target repo root.
 2. Copy [`skills/`](skills/) into the target repo. Remove skills you do not need.
-3. Copy [`evals/`](evals/) when paired skill evaluation is in scope.
-4. Keep project facts in the target repo, not this kit.
+3. Keep project facts in the target repo, not this kit.
 
 ## Structure
 
@@ -42,8 +40,6 @@ skills/
   dataset-triage/SKILL.md           # Tabular data sanity checks
   stanford-research/SKILL.md        # Literature synthesis
   */evals/cases.yaml                # Trigger and behavior cases
-evals/
-  paired-run-template.md            # Evidence report format
 ```
 
 ## AGENTS.md
@@ -79,7 +75,7 @@ evals/
 
 Each skill includes five cases: three representative tasks, one should-not-trigger task, one boundary case. Cases define expected behavior. They do not prove skill improves outcomes.
 
-Measure efficacy with paired runs: same task, model, harness, tools, attempts, and rubric; one run without skill, one with candidate skill. Store result with [`paired-run-template.md`](evals/paired-run-template.md). See [`skill-authoring`](skills/skill-authoring/SKILL.md#step-7-paired-evaluate).
+Measure efficacy with paired runs: same task, model, harness, tools, attempts, and rubric; one run without skill, one with candidate skill. See [`skill-authoring`](skills/skill-authoring/SKILL.md#step-7-paired-evaluate).
 
 ## Extend
 

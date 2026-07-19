@@ -75,7 +75,7 @@ Correct in order:
 
 Reload after material changes. Stop only when visible differences are resolved or named.
 
-### Step 6: Verify
+## Verify
 
 - Reference layout closely matches screenshot.
 - Mobile has no clipping, overflow, or unreadable density.

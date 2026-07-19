@@ -6,13 +6,14 @@ cases:
       - Defines reader, promise, exclusions, lane, and repeatable format.
       - Sets sustainable cadence and feedback loop.
   - id: dashboard-newsletter
-    prompt: Design a Gmail-safe weekly KPI dashboard newsletter with six metrics, two alerts, and a link to the live dashboard.
+    prompt: Design a Gmail-safe weekly KPI dashboard newsletter with six metrics, two alerts, a link to the live dashboard, and a supplied high-energy reference issue.
     expected_trigger: true
     expected_behavior:
       - Loads dashboard email reference.
       - Leads with one takeaway and primary metric.
       - Uses at most three desktop columns that stack on mobile.
       - Keeps meaning when images are blocked.
+      - Preserves reference issue rhythm and personality unless redesign requested.
       - Includes one primary CTA and client-test plan.
   - id: small-list
     prompt: Grow this 120-person newsletter without enough volume for A/B tests.
