@@ -126,7 +126,7 @@ Follow [Anthropic authoring guide](https://platform.claude.com/docs/en/agents-an
 
 For multi-skill tasks, test relevant subset. Do not load full library by default. [Generative Skill Composition](https://arxiv.org/abs/2606.32025) found selected sets beat full-library injection with lower prompt-token cost in tested setup.
 
-Use deterministic verifier when practical. For containerized benchmark work, use [SkillsBench harness](https://github.com/benchflow-ai/skillsbench). Store cases, rubric, commands, and results under `evals/`.
+Use deterministic verifier when practical. For containerized benchmark work, use [SkillsBench harness](https://github.com/benchflow-ai/skillsbench). Store cases, rubric, commands, and results under `evals/`. Use `evals/paired-run-template.md` when repo has no stronger harness.
 
 ### Step 8: Place And Register
 
@@ -139,3 +139,4 @@ This repo uses `skills/<skill-name>/SKILL.md`. Add skill to repo catalogs when n
 - Eval cases and result summary when run.
 - Catalog updates for new skill.
 - Static validation result and unmeasured limits.
+- Paired-run report path before claiming efficacy.

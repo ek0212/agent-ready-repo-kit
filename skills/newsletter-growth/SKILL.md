@@ -19,6 +19,10 @@ Use for recurring newsletters and owned email audiences. Use `outreach-email` fo
 
 User owns audience facts, analytics, and business constraints. Cite current source for benchmark claims. Treat platform metrics as diagnostic, not universal truth.
 
+When user provides a preferred prior issue or reference issue, preserve its
+section order, density, CTA weight, and visual rhythm unless they explicitly ask
+to redesign it.
+
 ## Workflow
 
 ### Step 1: Pin Reader And Promise
@@ -65,6 +69,12 @@ For metric dashboard lane, load [dashboard email reference](references/dashboard
 3. Cards: related metrics grouped by reader decision.
 4. Exceptions: material changes, risks, or urgent callouts.
 5. One primary CTA: live dashboard or next action.
+
+Dashboard means skimmable hierarchy, not bland styling. Preserve existing
+newsletter personality, including brand colors, emoji section cues, playful
+labels, and high-energy CTA treatment when the audience expects it. Use
+restrained styling only when the newsletter is operational, regulated, or
+executive-facing.
 
 Dashboard must remain useful with images blocked and columns stacked. Do not turn every newsletter into dashboard.
 

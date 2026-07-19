@@ -2,6 +2,10 @@
 
 Use only for newsletters whose main job is summarizing metrics, status, alerts, or recurring briefing data.
 
+If user supplies a prior issue as target format, match that issue before adding
+new dashboard elements. Do not force extra buttons, color blocks, or images when
+reference issue is tighter and more text/table driven.
+
 ## Hierarchy
 
 - Design for skimming. Put most important takeaway at top.
@@ -26,10 +30,17 @@ Do not assume every reader follows same scan path. F-pattern, inverted pyramid, 
 ## Color And Meaning
 
 - Use neutral background, strong text, one brand accent.
+- For consumer, creator, lifestyle, or personality-led newsletters, preserve the
+  existing visual voice. Multiple controlled accent colors, emoji cues, and
+  playful section labels are appropriate when they improve scanning and match
+  the brand.
 - Reserve red for real exception, decline, risk, or urgency. Reserve green for positive state only when meaning fits.
 - Pair color with label, sign, arrow, or icon. Never encode trend by color alone.
 - Keep text contrast at least 4.5:1; large text at least 3:1.
-- Avoid neon semantic colors and decorative gradients that weaken reading.
+- Avoid decorative gradients or low-contrast color combinations that weaken reading.
+
+Do not strip personality from a pre-existing template just because the issue has
+dashboard structure.
 
 ## Metrics And Charts
 
@@ -44,6 +55,9 @@ Do not assume every reader follows same scan path. F-pattern, inverted pyramid, 
 
 - One primary CTA per issue.
 - Use high-contrast button with descriptive label.
+- Add secondary CTA buttons or links when they help the reader reply, jump to a
+  section, save, share, or open a useful source. Keep the primary CTA visually
+  dominant.
 - Aim for at least 44px button height and enough space from nearby links.
 - Keep secondary links visually quiet and limited.
 
