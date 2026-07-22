@@ -9,6 +9,7 @@ Each folder has one standalone `SKILL.md` and `evals/cases.yaml`.
 | `skill-authoring` | Create, split, or route skills. |
 | `figma-to-ui` | Implement an exact Figma selection and refine it through browser comparison. |
 | `frontend-design` | Build web UI where design quality matters. |
+| `clear-explanation` | Explain complex ideas clearly for a specific audience. |
 | `newsletter-growth` | Plan/audit newsletters for growth, engagement, monetization. |
 | `outreach-email` | Draft concise one-to-one emails and value-adding follow-up sequences. |
 | `mermaid-architecture-map` | Need GitHub diagrams or explicit boundaries. |

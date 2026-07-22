@@ -1,0 +1,35 @@
+cases:
+  - id: technical-stakeholders
+    prompt: Explain our token refresh flow to non-technical stakeholders before a launch review.
+    expected_trigger: true
+    expected_behavior:
+      - Calibrates for non-technical audience.
+      - Uses plain language and one useful analogy.
+      - Preserves security-relevant caveats.
+      - Ends with one-line takeaway.
+  - id: beginner-concept
+    prompt: Explain vector embeddings to a beginner in simple terms.
+    expected_trigger: true
+    expected_behavior:
+      - Avoids unexplained jargon.
+      - Links concept to familiar comparison.
+      - Uses small model or steps only if helpful.
+  - id: rewrite-dense
+    prompt: Rewrite this dense explanation so a busy VP can understand it in one minute.
+    expected_trigger: true
+    expected_behavior:
+      - Returns rewritten explanation first.
+      - Keeps decision-relevant facts and caveats.
+      - Removes nonessential complexity.
+  - id: negative-narrative
+    prompt: Turn this profile into a compelling longform essay with a better ending.
+    expected_trigger: false
+    expected_behavior:
+      - Routes to creative-writing.
+  - id: boundary-specialists
+    prompt: Explain this database isolation bug to senior backend engineers.
+    expected_trigger: true
+    expected_behavior:
+      - Keeps specialist terms needed for accuracy.
+      - Removes needless complexity without dumbing down.
+      - States assumptions if context missing.
