@@ -50,6 +50,10 @@ User or repository owns architecture facts. Label inference and unknowns.
 - Diagram fits PR review without excessive detail.
 - No secrets or private values present.
 
+## Writing
+
+Use direct simple sentences. Skip rhetorical flourishes. Avoid X-not-Y contrasts, self-answering rhetorical questions, em dashes, alliterative three-part phrases, vague inspirational pivots, unsourced claims, and unverified quotes.
+
 ## Output
 
 Return `.mmd` or embedded Mermaid block plus short assumptions/open-questions note when needed.

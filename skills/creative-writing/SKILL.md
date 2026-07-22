@@ -76,6 +76,10 @@ Match source voice, audience, and stakes. Use simple language for complex ideas.
 - Title names real tension or value.
 - Draft reads naturally aloud.
 
+## Writing
+
+Use direct simple sentences. Skip rhetorical flourishes. Avoid X-not-Y contrasts, self-answering rhetorical questions, em dashes, alliterative three-part phrases, vague inspirational pivots, unsourced claims, and unverified quotes.
+
 ## Output
 
 Return requested draft or edit. Include title options. State placeholders, assumptions, and source gaps.

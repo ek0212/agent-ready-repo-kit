@@ -103,6 +103,10 @@ For each finding, give evidence, downstream effect, and next check. Do not clean
 - Candidate keys tested, not guessed.
 - Report states omitted checks and limits.
 
+## Writing
+
+Use direct simple sentences. Skip rhetorical flourishes. Avoid X-not-Y contrasts, self-answering rhetorical questions, em dashes, alliterative three-part phrases, vague inspirational pivots, unsourced claims, and unverified quotes.
+
 ## Output
 
 Return compact triage report plus commands or code used. Include blockers, cleanups, reviews, limits, and recommended next checks.

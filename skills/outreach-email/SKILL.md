@@ -95,6 +95,10 @@ Stop after decline, opt-out, wrong-recipient signal, or relationship-specific li
 - No unsupported claims or invented detail.
 - Follow-ups add value and include stop condition.
 
+## Writing
+
+Use direct simple sentences. Skip rhetorical flourishes. Avoid X-not-Y contrasts, self-answering rhetorical questions, em dashes, alliterative three-part phrases, vague inspirational pivots, unsourced claims, and unverified quotes.
+
 ## Output
 
 For one email: three subjects, body, word count, placeholders. For sequence: timing, thread instruction, new value, and body per touch. State assumptions.

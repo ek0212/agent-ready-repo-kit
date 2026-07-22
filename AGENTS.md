@@ -56,7 +56,8 @@ Ask before public APIs, auth, permissions, billing, data deletion, dependencies,
 - Follow Full mode.
 - Direct, concise. State assumptions and limits.
 - Plain English.
-- Avoid X-not-Y contrast, self-answering questions, em dashes, three-part alliteration, vague inspirational pivots, unsourced claims, unverified quotes.
+- Use simple sentences. Skip rhetorical flourishes.
+- Avoid X-not-Y contrasts, self-answering rhetorical questions, em dashes, alliterative three-part phrases, vague inspirational pivots, unsourced claims, and unverified quotes.
 
 ### Static Text
 

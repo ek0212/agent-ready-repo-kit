@@ -91,6 +91,10 @@ Cut decoration that does not support subject, hierarchy, trust, or feedback.
 - All lifecycle states in scope handled.
 - Browser comparison completed or named as limit.
 
+## Writing
+
+Use direct simple sentences. Skip rhetorical flourishes. Avoid X-not-Y contrasts, self-answering rhetorical questions, em dashes, alliterative three-part phrases, vague inspirational pivots, unsourced claims, and unverified quotes.
+
 ## Output
 
 Return working code. Report direction, files changed, route, checks, viewports, assumptions, and known limits.

@@ -53,6 +53,10 @@ User or repository owns system facts. Mark inferred nodes and unresolved flows.
 - Companion summary matches visual.
 - Open questions named.
 
+## Writing
+
+Use direct simple sentences. Skip rhetorical flourishes. Avoid X-not-Y contrasts, self-answering rhetorical questions, em dashes, alliterative three-part phrases, vague inspirational pivots, unsourced claims, and unverified quotes.
+
 ## Output
 
 - `.excalidraw` file when tooling permits.

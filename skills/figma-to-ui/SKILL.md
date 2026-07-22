@@ -85,6 +85,10 @@ Reload after material changes. Stop only when visible differences are resolved o
 
 Do not claim pixel-perfect match without direct comparison.
 
+## Writing
+
+Use direct simple sentences. Skip rhetorical flourishes. Avoid X-not-Y contrasts, self-answering rhetorical questions, em dashes, alliterative three-part phrases, vague inspirational pivots, unsourced claims, and unverified quotes.
+
 ## Fallbacks
 
 - Figma auth failure: request accessible selection URL or exported screenshot.

@@ -105,6 +105,10 @@ Use plain language. Keep uncertainty. No jargon or unsupported certainty.
 - Certainty matches design and evidence.
 - Missing evidence and corpus limits explicit.
 
+## Writing
+
+Use direct simple sentences. Skip rhetorical flourishes. Avoid X-not-Y contrasts, self-answering rhetorical questions, em dashes, alliterative three-part phrases, vague inspirational pivots, unsourced claims, and unverified quotes.
+
 ## Output
 
 Return requested module or full protocol. Use compact comparison tables only where they improve cross-paper mapping. Include citations and corpus-limit note.

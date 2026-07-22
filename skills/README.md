@@ -24,6 +24,7 @@ Each folder has one standalone `SKILL.md` and `evals/cases.yaml`.
 - Load at most one skill per pass unless task spans domains.
 - Prefer code/docs over more instructions.
 - Write skill prose in [Full mode](../AGENTS.md#full-mode).
+- Each skill output must use direct simple sentences and avoid banned AI writing patterns from [Writing](../AGENTS.md#writing).
 
 ## Evaluation
 

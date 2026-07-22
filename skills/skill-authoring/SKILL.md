@@ -79,7 +79,7 @@ Preferred shape:
 
 Match freedom to risk. Exact command for fragile path. Bounded heuristic when several approaches work. Heavy pipeline needs applicability boundary and lightweight fallback.
 
-Write Full mode: short precise words, fragments allowed, no filler, tool narration, decorative tables, emoji, long raw logs, or invented abbreviations. Preserve exact terms, code, commands, paths, identifiers, and errors.
+Write Full mode: short precise words, fragments allowed, no filler, tool narration, decorative tables, emoji, long raw logs, or invented abbreviations. Preserve exact terms, code, commands, paths, identifiers, and errors. Use direct simple sentences. Skip rhetorical flourishes. Avoid X-not-Y contrasts, self-answering rhetorical questions, em dashes, alliterative three-part phrases, vague inspirational pivots, unsourced claims, and unverified quotes.
 
 ### Step 5: Use Progressive Disclosure
 
@@ -157,6 +157,10 @@ This repo uses `skills/<skill-name>/SKILL.md`. Add skill to repo catalogs when n
 - Support files load only on demand.
 - Eval cases cover representative, negative, and boundary tasks.
 - Paired results exist before efficacy claim.
+
+## Writing
+
+Use direct simple sentences. Skip rhetorical flourishes. Avoid X-not-Y contrasts, self-answering rhetorical questions, em dashes, alliterative three-part phrases, vague inspirational pivots, unsourced claims, and unverified quotes.
 
 ## Output
 
