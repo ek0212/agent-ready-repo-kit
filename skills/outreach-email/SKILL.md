@@ -8,7 +8,7 @@ Write relevant one-to-one email with one value and one easy next reply. Do not p
 
 ## Scope
 
-Use for prospecting, partnerships, colleague requests, client updates, and follow-ups. Use `newsletter-growth` for recurring broadcasts. Skip support, transactional, legal, and long-form announcement email.
+Use for prospecting, partnerships, colleague requests, client updates, and follow-ups. Use `no-ai-slop` for AI-pattern detection or voice-preserving polish when ask and facts are already set. Use `newsletter-growth` for recurring broadcasts. Skip support, transactional, legal, and long-form announcement email.
 
 ## Inputs
 

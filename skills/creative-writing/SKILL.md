@@ -8,7 +8,7 @@ Write narrative nonfiction from verified material. Build reader movement, not or
 
 ## Scope
 
-Use for articles, profiles, essays, blogs, and narrative reports. Do not use for fiction, product microcopy, straight technical docs, or research synthesis unless user asks for narrative treatment.
+Use for articles, profiles, essays, blogs, and narrative reports. Use `no-ai-slop` for AI-pattern detection or human-voice polish when narrative structure is not main job. Do not use for fiction, product microcopy, straight technical docs, or research synthesis unless user asks for narrative treatment.
 
 ## Inputs
 

@@ -1,6 +1,6 @@
 ---
 name: clear-explanation
-description: Explain complex ideas clearly for a specific audience using the CLEAR filter: Calibrate, Link, Envision, Abstract, Repeat. Use when user asks to "explain this clearly", "simplify this", "translate this for non-technical stakeholders", "make this easier to understand", "explain this to a beginner", or rewrite dense jargon into plain language.
+description: "Explain complex ideas clearly for a specific audience using the CLEAR filter: Calibrate, Link, Envision, Abstract, Repeat. Use when user asks to \"explain this clearly\", \"simplify this\", \"translate this for non-technical stakeholders\", \"make this easier to understand\", \"explain this to a beginner\", or rewrite dense jargon into plain language."
 license: MIT
 ---
 
@@ -12,7 +12,7 @@ Turn complex ideas into audience-fit explanations. Use CLEAR: Calibrate, Link, E
 
 Use for explanations, rewrites, teaching notes, stakeholder summaries, beginner-friendly descriptions, and jargon translation.
 
-Do not use for narrative craft, academic literature synthesis, outreach email, newsletter strategy, or visual UI design unless explanation clarity is main job.
+Do not use for narrative craft, academic literature synthesis, outreach email, newsletter strategy, AI-pattern cleanup, or visual UI design unless explanation clarity is main job.
 
 ## Inputs
 

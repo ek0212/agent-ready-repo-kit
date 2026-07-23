@@ -1,0 +1,36 @@
+cases:
+  - id: de-ai-blog-draft
+    prompt: Make this draft clearer and less AI-sounding without changing my point.
+    expected_trigger: true
+    expected_behavior:
+      - Edits existing draft rather than starting over.
+      - Preserves writer voice and meaning.
+      - Returns edited draft plus What changed section.
+      - Removes named AI-writing patterns without inventing facts.
+  - id: detect-only
+    prompt: Does this read like AI slop? Please audit it but do not rewrite.
+    expected_trigger: true
+    expected_behavior:
+      - Reports pattern names, short quotes, and fix directions.
+      - Does not rewrite, score, or guess authorship.
+      - Offers edit only after findings.
+  - id: preserve-rough-voice
+    prompt: Tighten this draft, but keep my blunt tone and the messy parts that sound like me.
+    expected_trigger: true
+    expected_behavior:
+      - Identifies voice signals internally before editing.
+      - Makes minimum effective edits.
+      - Keeps useful edge, humor, uncertainty, and cadence.
+  - id: negative-first-draft
+    prompt: Write a 1,200-word essay from these notes and make the ending stronger.
+    expected_trigger: false
+    expected_behavior:
+      - Routes to creative-writing.
+      - Does not treat first-draft generation as AI-pattern cleanup.
+  - id: boundary-email-polish
+    prompt: Make this cold email less AI-sounding, but keep the ask and facts exactly as written.
+    expected_trigger: true
+    expected_behavior:
+      - Polishes existing email copy without rebuilding outreach strategy.
+      - Preserves ask, facts, and relationship context.
+      - Cuts generic AI phrasing and reports material changes.

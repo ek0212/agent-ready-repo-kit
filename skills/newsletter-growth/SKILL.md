@@ -8,7 +8,7 @@ Build repeatable newsletter system around one reader promise and measurable feed
 
 ## Scope
 
-Use for recurring newsletters and owned email audiences. Use `outreach-email` for one-to-one prospect, colleague, or client messages. Do not promise growth, open, click, or revenue outcomes.
+Use for recurring newsletters and owned email audiences. Use `no-ai-slop` for AI-pattern detection or voice-preserving polish of existing issue copy. Use `outreach-email` for one-to-one prospect, colleague, or client messages. Do not promise growth, open, click, or revenue outcomes.
 
 ## Inputs
 

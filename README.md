@@ -33,6 +33,7 @@ skills/
   figma-to-ui/SKILL.md              # Figma-to-code implementation
   frontend-design/SKILL.md          # Distinctive web UI
   clear-explanation/SKILL.md        # Plain-language explanation
+  no-ai-slop/SKILL.md               # Human-voice draft editing
   newsletter-growth/SKILL.md        # Newsletter strategy
   outreach-email/SKILL.md           # Concise one-to-one email
   mermaid-architecture-map/SKILL.md # GitHub-renderable diagrams
@@ -59,6 +60,7 @@ skills/
 | [`figma-to-ui`](skills/figma-to-ui/SKILL.md) | Implement an exact Figma selection and verify visual match. |
 | [`frontend-design`](skills/frontend-design/SKILL.md) | Build web UI where design quality matters. |
 | [`clear-explanation`](skills/clear-explanation/SKILL.md) | Explain complex ideas clearly for a specific audience. |
+| [`no-ai-slop`](skills/no-ai-slop/SKILL.md) | Edit drafts to sound sharper and more human, or detect AI-slop patterns. |
 | [`newsletter-growth`](skills/newsletter-growth/SKILL.md) | Plan or audit newsletter growth strategy. |
 | [`outreach-email`](skills/outreach-email/SKILL.md) | Draft concise one-to-one email and follow-up sequences. |
 | [`mermaid-architecture-map`](skills/mermaid-architecture-map/SKILL.md) | Need GitHub-renderable diagrams or explicit boundaries. |
