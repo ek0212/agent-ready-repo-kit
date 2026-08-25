@@ -35,6 +35,7 @@ User or repository owns system facts. Mark inferred nodes and unresolved flows.
 - Short labels. Verb-led arrows.
 - Color encodes one stable meaning or stays decorative-free.
 - Boundaries visible without color alone.
+- When text is enclosed by a shape, bind it when possible: shape `boundElements` includes `{ "type": "text", "id": "<text_id>" }`, and text element points back with `containerId`.
 - Avoid file-level detail unless diagram question requires it.
 - Keep uncertain elements labeled `Assumption` or `Open`.
 
@@ -48,6 +49,7 @@ User or repository owns system facts. Mark inferred nodes and unresolved flows.
 
 - Diagram answers stated question.
 - Main flow readable without zoom.
+- Enclosed labels stay bound to their shape when `.excalidraw` format supports it.
 - Trust boundaries and external systems explicit.
 - No secrets or private data embedded.
 - Companion summary matches visual.

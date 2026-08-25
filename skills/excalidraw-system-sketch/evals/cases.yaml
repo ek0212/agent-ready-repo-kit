@@ -4,6 +4,7 @@ cases:
     expected_trigger: true
     expected_behavior:
       - Uses spatial groups and explicit boundaries.
+      - Binds enclosed text to its parent shape with boundElements when creating Excalidraw JSON.
       - Writes companion Markdown.
   - id: before-after
     prompt: Make a rough before-and-after sketch for this onboarding redesign.
