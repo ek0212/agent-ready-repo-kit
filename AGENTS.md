@@ -19,6 +19,14 @@ Applies to agent messages, plans, docs, comments, docstrings, skill instructions
 
 Merge all worktrees into main after worktree work completes.
 
+## Token Efficiency
+
+- Concise by default. No preamble, no recap of unchanged context, no narration of options not taken.
+- Route mechanical work (rename, format, summarize, scrape, bulk extract, digest logs) to a smaller, cheaper sub-agent model (e.g. Haiku). Reserve the top reasoning model (e.g. Opus) for reasoning and design.
+- Never suggest `/compact` to save cost. `/clear` between unrelated jobs instead.
+- Pick model and effort once per session. No mid-session switch; it invalidates the prompt cache.
+- Use caveman-mode (Full mode above) for AI communications to cut output tokens: drop articles, filler, and narration; keep all technical substance.
+
 ## Rules
 
 ### Coding
@@ -143,6 +151,8 @@ Load only for matching paths.
 - Thin CLI parsing.
 - Do not silently skip failed records.
 - No LLM for deterministic transforms, routing, retries, status-code handling.
+- File order: header, imports, constants, classes, functions, `if __name__`. Imports grouped stdlib, third-party, local; all at top.
+- Test files `test_*.py`, one per module. Names `test_<what>_<condition>_<expected_result>`. Docstring every test. Mock with `unittest.mock.Mock(spec=...)`.
 
 ### Chrome Extension (`manifest.json`, `**/*.{js,ts,jsx,tsx}`)
 
