@@ -25,7 +25,7 @@ Merge all worktrees into main after worktree work completes.
 - Route mechanical work (rename, format, summarize, scrape, bulk extract, digest logs) to a smaller, cheaper sub-agent model (e.g. Haiku). Reserve the top reasoning model (e.g. Opus) for reasoning and design.
 - Never suggest `/compact` to save cost. `/clear` between unrelated jobs instead.
 - Pick model and effort once per session. No mid-session switch; it invalidates the prompt cache.
-- Use caveman-mode (Full mode above) for AI communications to cut output tokens: drop articles, filler, and narration; keep all technical substance.
+- Use Full mode (above) for AI communications to cut output tokens: drop articles, filler, and narration; keep all technical substance.
 
 ## Rules
 
@@ -89,7 +89,7 @@ Ask before public APIs, auth, permissions, billing, data deletion, dependencies,
 ### Agent Communication
 
 - Agent-to-agent messages use Full mode.
-- If slash commands work, start with `/caveman full`; else put instruction in prompt.
+- State the Full-mode instruction in the prompt.
 - Do not announce mode. No normal recap.
 - Pattern: `[thing] [action] [reason]. [next step].`
 
