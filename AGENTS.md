@@ -14,7 +14,7 @@ description: Reference quickly before any coding text to ground yourself.
 - Keep functions small and focused (SOLID principles)
 - Use descriptive variable and function names
 - Follow DRY: prefer reusing existing patterns in the codebase over inventing new solutions
-- Write tests for core logic
+- Write tests for core logic but keep them concise and small. I see too many times that tests take up way too much compute, so TRULY ONLY KEEP THE BARE CORE COVERAGE TESTS.
 - Add comments only when the "why" isn't obvious from the code itself
 - Prioritize functionality over aesthetics in early iterations
 - For any frontend work, follow the skill at https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md
@@ -44,7 +44,7 @@ description: Reference quickly before any coding text to ground yourself.
 - Use Puppeteer or a browser automation tool to screenshot each distinct screen and check for broken layouts, missing assets, theming issues, or placeholder content
 
 **Performance:**
-- Use bigger thinking LLM models to plan and lighter weight LLM models to execute.
+
 - Batch API requests where possible and respect rate limits
 
 ### Writing Style
