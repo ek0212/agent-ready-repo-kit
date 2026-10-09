@@ -36,6 +36,7 @@ skills/
   no-ai-slop/SKILL.md               # Human-voice draft editing
   newsletter-growth/SKILL.md        # Newsletter strategy
   outreach-email/SKILL.md           # Concise one-to-one email
+  resume-helper/SKILL.md            # Evidence-backed resume tailoring
   mermaid-architecture-map/SKILL.md # GitHub-renderable diagrams
   excalidraw-system-sketch/SKILL.md # Freeform system sketches
   creative-writing/SKILL.md         # Narrative nonfiction
@@ -63,6 +64,7 @@ skills/
 | [`no-ai-slop`](skills/no-ai-slop/SKILL.md) | Edit drafts to sound sharper and more human, or detect AI-slop patterns. |
 | [`newsletter-growth`](skills/newsletter-growth/SKILL.md) | Plan or audit newsletter growth strategy. |
 | [`outreach-email`](skills/outreach-email/SKILL.md) | Draft concise one-to-one email and follow-up sequences. |
+| [`resume-helper`](skills/resume-helper/SKILL.md) | Audit, tailor, rewrite, and validate evidence-backed resumes. |
 | [`mermaid-architecture-map`](skills/mermaid-architecture-map/SKILL.md) | Need GitHub-renderable diagrams or explicit boundaries. |
 | [`excalidraw-system-sketch`](skills/excalidraw-system-sketch/SKILL.md) | Need grouping, swimlanes, or rough visual thinking. |
 | [`creative-writing`](skills/creative-writing/SKILL.md) | Draft or edit nonfiction with narrative craft. |

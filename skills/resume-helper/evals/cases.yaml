@@ -1,0 +1,34 @@
+cases:
+  - id: resume-role-match
+    prompt: Tailor my resume to this SWE job description. My verified work reduced API latency from 400 ms to 250 ms. The role requires production retrieval experience, but I have only a retrieval course project.
+    expected_trigger: true
+    expected_behavior:
+      - Models the role and maps evidence before rewriting.
+      - Preserves exact latency values and does not invent ownership or outcomes.
+      - Labels the course project honestly and states the production experience gap.
+  - id: application-set-consistency
+    prompt: Review my PM and TPM resumes together. The PM version says I owned a launch for 12 customers on Team A in 2024. The TPM version says I supported that same launch for 20 customers on Team B in 2023. I have not verified which version is correct.
+    expected_trigger: true
+    expected_behavior:
+      - Creates a shared claim ledger and flags conflicting counts, teams, dates, and ownership.
+      - Requests evidence rather than choosing or merging unsupported values.
+      - Keeps unresolved claims labeled as unverified.
+  - id: exported-pdf-validation
+    prompt: Validate this exported resume PDF, including reading order, page layout, and project links. One link is labeled merged implementation but points to an open proposal.
+    expected_trigger: true
+    expected_behavior:
+      - Inspects extracted text, rendered pages, and embedded hyperlinks when tools permit.
+      - Checks visible link text, exported annotation, and destination separately.
+      - Flags the proposal label as overstating proof and reports any validation limits.
+  - id: negative-cover-letter
+    prompt: Write a standalone cover letter for this job. I do not need resume edits.
+    expected_trigger: false
+    expected_behavior:
+      - Does not load resume-helper for standalone cover-letter writing.
+  - id: boundary-single-bullet
+    prompt: Improve this single resume bullet without a job description or additional metrics, "Supported migration to a new reporting service." Keep the contribution scope unchanged.
+    expected_trigger: true
+    expected_behavior:
+      - Uses the single-bullet mode rather than requiring a full application-set workflow.
+      - Preserves contribution scope and does not invent metrics or strengthen ownership.
+      - States that role-fit analysis needs a job description.
