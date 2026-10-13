@@ -14,6 +14,7 @@ Each folder has one standalone `SKILL.md` and `evals/cases.yaml`.
 | `no-ai-slop` | Edit drafts to sound sharper and more human, or detect AI-slop patterns. |
 | `newsletter-growth` | Plan/audit newsletters for growth, engagement, monetization. |
 | `outreach-email` | Draft concise one-to-one emails and value-adding follow-up sequences. |
+| `resume-helper` | Audit, tailor, rewrite, and validate evidence-backed resumes. |
 | `mermaid-architecture-map` | Need GitHub diagrams or explicit boundaries. |
 | `excalidraw-system-sketch` | Need grouping, swimlanes, rough visual thinking. |
 | `creative-writing` | Draft/edit nonfiction with narrative craft. |
@@ -25,8 +26,8 @@ Each folder has one standalone `SKILL.md` and `evals/cases.yaml`.
 - Default zero skills.
 - Load at most one skill per pass unless task spans domains.
 - Prefer code/docs over more instructions.
-- Write skill prose in [Full mode](../AGENTS.md#full-mode).
-- Each skill output must use direct simple sentences and avoid banned AI writing patterns from [Writing](../AGENTS.md#writing).
+- Write skill prose with [Writing Style](../AGENTS.md#writing-style).
+- Each skill output must use direct simple sentences and avoid banned AI writing patterns from [Writing Style](../AGENTS.md#writing-style).
 
 ## Evaluation
 

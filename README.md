@@ -6,7 +6,7 @@ Copy `AGENTS.md` and the `skills/` you need into the target repo.
 
 ## Writing Contract
 
-All repo-authored prose follows [Full mode](AGENTS.md#full-mode), now and in future edits:
+All repo-authored prose follows [Writing Style](AGENTS.md#writing-style), now and in future edits:
 
 - Drop articles when meaning stays clear. Fragments OK. Use short precise words.
 - No tool-call narration, decorative tables, emoji, or long raw error-log dumps unless asked.
@@ -27,7 +27,7 @@ All repo-authored prose follows [Full mode](AGENTS.md#full-mode), now and in fut
 ## Structure
 
 ```text
-AGENTS.md                           # Rules, procedures, path rules
+AGENTS.md                           # Rules, validation, writing rules
 skills/
   skill-authoring/SKILL.md          # Create or split skills
   verification-loop/SKILL.md        # Build repeatable verification loops
@@ -37,6 +37,7 @@ skills/
   no-ai-slop/SKILL.md               # Human-voice draft editing
   newsletter-growth/SKILL.md        # Newsletter strategy
   outreach-email/SKILL.md           # Concise one-to-one email
+  resume-helper/SKILL.md            # Evidence-backed resume tailoring
   mermaid-architecture-map/SKILL.md # GitHub-renderable diagrams
   excalidraw-system-sketch/SKILL.md # Freeform system sketches
   creative-writing/SKILL.md         # Narrative nonfiction
@@ -49,9 +50,9 @@ skills/
 
 [`AGENTS.md`](AGENTS.md) is the entrypoint. It contains:
 
-- **Rules:** coding, safety, security, writing, static text, structure, model choice, agent communication.
-- **Procedures:** coding, writing, static text hygiene, secrets/env review.
-- **Path rules:** Python, Chrome Extension, VS Code Extension, Web App.
+- **Rules:** core work, development flow, code standards, module structure, testing.
+- **Validation:** build, app, UI, asset, and rate-limit checks.
+- **Safety:** security and writing style.
 
 ## Skills
 
@@ -65,6 +66,7 @@ skills/
 | [`no-ai-slop`](skills/no-ai-slop/SKILL.md) | Edit drafts to sound sharper and more human, or detect AI-slop patterns. |
 | [`newsletter-growth`](skills/newsletter-growth/SKILL.md) | Plan or audit newsletter growth strategy. |
 | [`outreach-email`](skills/outreach-email/SKILL.md) | Draft concise one-to-one email and follow-up sequences. |
+| [`resume-helper`](skills/resume-helper/SKILL.md) | Audit, tailor, rewrite, and validate evidence-backed resumes. |
 | [`mermaid-architecture-map`](skills/mermaid-architecture-map/SKILL.md) | Need GitHub-renderable diagrams or explicit boundaries. |
 | [`excalidraw-system-sketch`](skills/excalidraw-system-sketch/SKILL.md) | Need grouping, swimlanes, or rough visual thinking. |
 | [`creative-writing`](skills/creative-writing/SKILL.md) | Draft or edit nonfiction with narrative craft. |
@@ -87,5 +89,5 @@ Measure efficacy with paired runs: same task, model, harness, tools, attempts, a
 
 1. Add `skills/your-skill/SKILL.md`.
 2. Add catalog rows in this file and `skills/README.md`.
-3. Add path-scoped rules directly to `AGENTS.md`.
+3. Add shared repo rules directly to `AGENTS.md`.
 4. Keep `AGENTS.md` and every `SKILL.md` under 200 lines.
