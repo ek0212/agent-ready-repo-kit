@@ -1,0 +1,34 @@
+cases:
+  - id: standalone-log-hygiene
+    prompt: Create a reusable verification skill that checks error logs include request IDs and never include request bodies.
+    expected_trigger: true
+    expected_behavior:
+      - Chooses standalone mode because check is cross-cutting.
+      - Defines trigger, evidence, pass/fail criteria, fix policy, and report shape.
+      - Adds representative, negative, and boundary eval cases if editing repo.
+  - id: embedded-frontend-check
+    prompt: Add verification to our frontend design skill so every UI change runs a mobile overflow and focus-state check before completion.
+    expected_trigger: true
+    expected_behavior:
+      - Chooses embedded mode because check belongs to one producing skill.
+      - Updates producing skill workflow and verification list.
+      - Adds or updates eval case proving embedded check runs.
+  - id: chained-safe-refactor
+    prompt: I always simplify a refactor, then check that no public API changed. Make that a repeatable skill chain.
+    expected_trigger: true
+    expected_behavior:
+      - Chooses chained mode.
+      - Defines order, handoff artifact, stop rule, and final report shape.
+      - Keeps public API verification explicit.
+  - id: negative-one-off-test
+    prompt: Run the unit tests once for this bug fix and tell me if they pass.
+    expected_trigger: false
+    expected_behavior:
+      - Routes to normal coding verification, not verification-loop.
+  - id: boundary-pr-gate
+    prompt: Put our accessibility verification loop on every PR as a required blocking check.
+    expected_trigger: true
+    expected_behavior:
+      - Treats PR gate as promotion step.
+      - Requires stability, owner, low false-positive rate, bypass path, and staged rollout.
+      - Starts advisory before blocking unless prerequisites are already met.

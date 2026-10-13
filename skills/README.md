@@ -7,6 +7,7 @@ Each folder has one standalone `SKILL.md` and `evals/cases.yaml`.
 | Skill | Use when |
 |---|---|
 | `skill-authoring` | Create, split, or route skills. |
+| `verification-loop` | Turn recurring manual checks into repeatable skill, chain, or PR verification. |
 | `figma-to-ui` | Implement an exact Figma selection and refine it through browser comparison. |
 | `frontend-design` | Build web UI where design quality matters. |
 | `clear-explanation` | Explain complex ideas clearly for a specific audience. |

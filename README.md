@@ -30,6 +30,7 @@ All repo-authored prose follows [Full mode](AGENTS.md#full-mode), now and in fut
 AGENTS.md                           # Rules, procedures, path rules
 skills/
   skill-authoring/SKILL.md          # Create or split skills
+  verification-loop/SKILL.md        # Build repeatable verification loops
   figma-to-ui/SKILL.md              # Figma-to-code implementation
   frontend-design/SKILL.md          # Distinctive web UI
   clear-explanation/SKILL.md        # Plain-language explanation
@@ -57,6 +58,7 @@ skills/
 | Skill | Use when |
 |---|---|
 | [`skill-authoring`](skills/skill-authoring/SKILL.md) | Create, split, or route skills. |
+| [`verification-loop`](skills/verification-loop/SKILL.md) | Turn recurring manual checks into repeatable skill, chain, or PR verification. |
 | [`figma-to-ui`](skills/figma-to-ui/SKILL.md) | Implement an exact Figma selection and verify visual match. |
 | [`frontend-design`](skills/frontend-design/SKILL.md) | Build web UI where design quality matters. |
 | [`clear-explanation`](skills/clear-explanation/SKILL.md) | Explain complex ideas clearly for a specific audience. |
