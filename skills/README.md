@@ -15,6 +15,7 @@ Each folder has one standalone `SKILL.md` and `evals/cases.yaml`.
 | `newsletter-growth` | Plan/audit newsletters for growth, engagement, monetization. |
 | `outreach-email` | Draft concise one-to-one emails and value-adding follow-up sequences. |
 | `resume-helper` | Audit, tailor, rewrite, and validate evidence-backed resumes. |
+| `presentation-builder` | Build spoken-talk PowerPoint decks: timed notes, visual picks, strict template render. |
 | `mermaid-architecture-map` | Need GitHub diagrams or explicit boundaries. |
 | `excalidraw-system-sketch` | Need grouping, swimlanes, rough visual thinking. |
 | `creative-writing` | Draft/edit nonfiction with narrative craft. |

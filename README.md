@@ -38,6 +38,7 @@ skills/
   newsletter-growth/SKILL.md        # Newsletter strategy
   outreach-email/SKILL.md           # Concise one-to-one email
   resume-helper/SKILL.md            # Evidence-backed resume tailoring
+  presentation-builder/SKILL.md     # Spoken-talk PowerPoint decks
   mermaid-architecture-map/SKILL.md # GitHub-renderable diagrams
   excalidraw-system-sketch/SKILL.md # Freeform system sketches
   creative-writing/SKILL.md         # Narrative nonfiction
@@ -67,6 +68,7 @@ skills/
 | [`newsletter-growth`](skills/newsletter-growth/SKILL.md) | Plan or audit newsletter growth strategy. |
 | [`outreach-email`](skills/outreach-email/SKILL.md) | Draft concise one-to-one email and follow-up sequences. |
 | [`resume-helper`](skills/resume-helper/SKILL.md) | Audit, tailor, rewrite, and validate evidence-backed resumes. |
+| [`presentation-builder`](skills/presentation-builder/SKILL.md) | Build spoken-talk PowerPoint decks: timed notes, visual picks, strict template render. |
 | [`mermaid-architecture-map`](skills/mermaid-architecture-map/SKILL.md) | Need GitHub-renderable diagrams or explicit boundaries. |
 | [`excalidraw-system-sketch`](skills/excalidraw-system-sketch/SKILL.md) | Need grouping, swimlanes, or rough visual thinking. |
 | [`creative-writing`](skills/creative-writing/SKILL.md) | Draft or edit nonfiction with narrative craft. |

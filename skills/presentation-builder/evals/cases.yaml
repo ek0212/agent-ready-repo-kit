@@ -1,0 +1,33 @@
+cases:
+  - id: talk-outline-to-script
+    prompt: I have a 10 minute talk on why our team moved to trunk-based development. Here is my outline. Make me a presentation.
+    expected_trigger: true
+    expected_behavior:
+      - Plans 10 slides at about one minute each.
+      - Writes speaker notes of 100 to 160 words per slide and stops for script approval.
+      - Does not build any deck before the script is approved.
+  - id: draft-candidate-visuals
+    prompt: Script is approved. Build the draft deck.
+    expected_trigger: true
+    expected_behavior:
+      - Writes 5 candidate visuals per slide, max 2 sentences each.
+      - Runs deck.py draft to produce a black-and-white deck with heading, visuals body, and notes per slide.
+      - Asks the user to delete unwanted visuals and waits for the edited file.
+  - id: render-in-template
+    prompt: I trimmed the draft to my picks. Here is our company template, render the final deck.
+    expected_trigger: true
+    expected_behavior:
+      - Runs deck.py selections and deck.py inspect.
+      - Builds visuals from template icons and uses only template colors, fonts, sizes, and layouts.
+      - Runs deck.py check until PASS and inspects rendered slides.
+  - id: negative-fix-one-slide
+    prompt: Change the title font on slide 3 of my existing deck to 28pt.
+    expected_trigger: false
+    expected_behavior:
+      - Edits the slide directly without running the presentation-builder workflow.
+  - id: boundary-handout-deck
+    prompt: Make a detailed read-ahead deck with full paragraphs so execs can read it without me presenting.
+    expected_trigger: true
+    expected_behavior:
+      - States that the skill keeps on-slide text minimal for spoken talks.
+      - Asks whether to continue with a spoken-talk deck or handle the handout another way.
