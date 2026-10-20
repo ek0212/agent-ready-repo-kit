@@ -4,8 +4,9 @@ cases:
     expected_trigger: true
     expected_behavior:
       - Asks what the user wants to say, the one takeaway, and must-include facts before writing.
-      - Plans 10 slides at about one minute each, assuming a newcomer audience without asking about familiarity.
-      - Writes 5 to 8 talking points per slide (phrases, not sentences) using CLEAR, bolds key terms, ends with an "In short:" point, and stops for script approval.
+      - Plans 10 slides at about one minute each in the flow Opening Hook, Core Arguments, Supporting Data/Story, Call to Action, assuming smart newcomers without asking about familiarity.
+      - Writes 5 to 8 bullets per slide in a spoken voice (short sentences, transitions, [pause] marks), framed around the audience's benefit, with bolded key terms and no talking down.
+      - Ends with an "In short:" bullet and one specific ask, then stops for script approval.
       - Does not build any deck before the script is approved.
   - id: draft-candidate-visuals
     prompt: Script is approved. Build the draft with candidate visuals.

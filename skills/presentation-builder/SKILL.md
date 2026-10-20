@@ -1,6 +1,6 @@
 ---
 name: presentation-builder
-description: Build spoken presentations as PowerPoint decks through gated steps. Writes talking-point speaker notes with bolded key terms for a newcomer audience using the CLEAR framework, about one minute per slide, drafts a markdown file of headings, candidate visuals, and notes for the user to prune, then renders the final deck strictly in the user's template. Use when user says "make a presentation", "build a slide deck", "turn my talk into slides", "write speaker notes", "PowerPoint for my talk", or "apply my template to this deck".
+description: Build spoken presentations as PowerPoint decks through gated steps. Writes a spoken-voice script in a Hook, Core Arguments, Supporting Data/Story, Call to Action flow, focused on the audience's benefit, as bullet speaker notes with bolded key terms, using the CLEAR framework, about one minute per slide, drafts a markdown file of headings, candidate visuals, and notes for the user to prune, then renders the final deck strictly in the user's template. Use when user says "make a presentation", "build a slide deck", "turn my talk into slides", "write speaker notes", "PowerPoint for my talk", or "apply my template to this deck".
 license: MIT
 ---
 
@@ -19,10 +19,10 @@ Ask only for what is missing:
 - What the user wants to say. Always ask first (Step 1).
 - Talk length in minutes. Slide count equals minutes, at about one minute per slide.
 - Source material: outline, doc, notes, data, or prior deck.
-- Speaking pace if known. Default 5 to 8 talking points per slide.
+- Speaking pace if known. Default 5 to 8 bullets, 100 to 160 words per slide.
 - Output folder. Default `deck/` next to the source material. Do not commit deck files unless asked.
 
-Audience: assume newcomers with no background in the topic. Do not ask about familiarity. Change this only if the user explicitly names a more expert audience.
+Audience: assume smart newcomers with no background in the topic. Do not talk down to them. Do not ask about familiarity. Change this only if the user explicitly names a more expert audience.
 
 User owns the message, facts, visual picks, and template. Do not invent claims or data for notes.
 
@@ -30,7 +30,8 @@ User owns the message, facts, visual picks, and template. Do not invent claims o
 
 - Slide shows a heading of at most 8 words plus visuals. No sentences from the script on the slide.
 - Visuals complement what the speaker says at that moment. They never repeat it as text.
-- Speaker notes are bullet talking points: the points to cover, never full sentences. About one minute per slide.
+- Speaker notes are bullets, one idea each in short spoken sentences, so the speaker can read them word for word if needed. About one minute per slide.
+- Every slide tells the audience what they gain.
 - Bold key terms in the notes with `**term**`.
 - Short labels on a chart or diagram are fine. Paragraphs are not.
 
@@ -48,17 +49,39 @@ Steps 1, 2, 5, and 6 are user gates. Stop and wait at each gate. Do not skip a g
 
 Wait for answers. Use only facts the user gives or source material confirms.
 
-### Step 2: Script With CLEAR
+### Step 2: Script By Section
 
-Outline one slide per minute: proposed heading plus purpose. Then write speaker notes per slide as 5 to 8 talking points, max 12 words each. Each point names what to cover, in phrase form, with no closing period. Example: `**Branch**: private copy of shared code`. Apply CLEAR (same framework as the `clear-explanation` skill) for a newcomer audience:
+Write the script section by section in this flow. Slide count still equals minutes.
 
-- **Calibrate:** audience has no clue about the topic. No jargon. Bold each key term and give it a plain-words definition point the first time it appears.
+1. **Opening Hook** (1 slide): start with what the audience gains or a problem they already feel. Use a question, a user-supplied fact, or a short story.
+2. **Core Arguments** (most slides): one argument per slide, each framed as a benefit to the audience.
+3. **Supporting Data/Story** (1 to 2 slides): user-supplied numbers, examples, or a story that proves the arguments. Never invent data.
+4. **Call to Action** (last slide): restate the core idea in a bullet starting `In short:`, then make one specific ask.
+
+Notes per slide: 5 to 8 bullets, 100 to 160 words. Each bullet holds one idea in 1 or 2 short sentences, so the speaker can read it word for word.
+
+Spoken voice:
+
+- Short sentences, max 20 words. Contractions. Talk to the audience as "you".
+- Conversational transitions between slides and sections. Examples: "So what does that mean for you?", "Here's the proof.", "Which brings me to my ask."
+- Mark natural pauses with `[pause]`: after the hook, after key numbers, before the ask.
+- No essay phrasing: no "furthermore", "in conclusion", or stacked clauses.
+
+Respect the audience:
+
+- Assume no background in the topic and full intelligence. Define a term in a quick clause, then move on.
+- Lead each slide with why it matters to the audience, then how it works.
+- Avoid "simply", "obviously", "basically", "as you know", and "of course".
+
+Apply CLEAR (same framework as the `clear-explanation` skill) inside that flow:
+
+- **Calibrate:** no jargon. Bold each key term with `**term**` and define it in plain words at first use.
 - **Link:** introduce each new concept with one everyday analogy. State where the analogy stops if it could mislead.
 - **Envision:** give each slide one simple shape the listener can hold: 3-step flow, before/after, cause and effect, or named stages. Step 3 visuals should show this shape.
-- **Abstract:** one idea per point. Concrete nouns, active verbs. Cut detail that does not help the audience understand or act. Keep caveats that change decisions. Test: could a newcomer repeat the slide's point after one hearing? If not, simplify.
-- **Repeat:** the last slide ends with a point starting `In short:` that states the core idea, followed by what to remember or do next.
+- **Abstract:** one idea per bullet. Concrete nouns, active verbs. Cut detail that does not help the audience understand or act. Keep caveats that change decisions. Test: could a newcomer repeat the slide's point after one hearing? If not, simplify.
+- **Repeat:** the Call to Action slide restates the core idea before the ask.
 
-Present heading and talking points per slide.
+Present the script grouped by section, with heading and bullet notes per slide.
 
 **Gate:** ask the user to approve or edit the script. Iterate until approved. Accuracy wins over simplicity.
 
@@ -74,12 +97,12 @@ For each approved slide write exactly 5 candidate visuals.
 
 ### Step 4: Markdown Draft
 
-Write `deck/draft.md` in this exact shape, one block per slide:
+Write `deck/draft.md` in this exact shape, one block per slide. Tag each slide with its section in parentheses: `Opening Hook`, `Core Arguments`, `Supporting Data/Story`, or `Call to Action`.
 
 ```markdown
 # Talk Title
 
-## Slide 1: Proposed heading
+## Slide 1 (Opening Hook): Proposed heading
 
 ### Visuals
 - Candidate visual 1, max 2 sentences.
@@ -89,8 +112,8 @@ Write `deck/draft.md` in this exact shape, one block per slide:
 - Candidate visual 5.
 
 ### Speaker notes
-- **Key term**: plain-words definition
-- Next point to cover
+- Ever lost a day to a merge? [pause]
+- A **merge** combines your work with everyone else's. It shouldn't cost you a day.
 ```
 
 Run from repo root:
@@ -99,7 +122,7 @@ Run from repo root:
 uv run skills/presentation-builder/scripts/deck.py validate deck/draft.md
 ```
 
-Fix every `FAIL` line and rerun. Fix `WARN` lines (point count, sentence-style points, missing bold terms) unless the user approved them.
+Fix every `FAIL` line and rerun. `validate` fails on out-of-order or unknown sections. Fix `WARN` lines (bullet count, notes length, missing bold terms, long sentences, talking-down words, no "you") unless the user approved them.
 
 ### Step 5: User Picks Visuals
 

@@ -26,4 +26,18 @@
 - **Decision:** Speaker notes are 5 to 8 talking points per slide, max 12 words each, phrase form, with key terms bolded as `**term**`. `deck.py validate` fails long points and warns on sentence-style points, point counts outside 5 to 8, and slides with no bold term. Replaces the 100 to 160 word, one-sentence-per-bullet rule.
 - **Context:** User asked for points to cover instead of full sentences, with key terms bolded.
 - **Alternatives considered:** Full-sentence bullets (previous rule), rejected by user request.
+- **Status:** BACKTRACKED
+
+## 2026-10-20: presentation-builder notes are one sentence per bullet, with bold key terms
+
+- **Decision:** Speaker notes are 5 to 8 bullets per slide, 100 to 160 words total, each bullet one complete idea sentence, key terms bolded as `**term**`. `deck.py validate` fails bullets with more than one sentence and warns on bullet count, notes length, and slides with no bold term.
+- **Context:** User wants notes readable word for word as a fallback if nervous while presenting.
+- **Alternatives considered:** Short talking-point phrases (max 12 words), rejected because they cannot be read aloud verbatim under stress.
+- **Status:** ACTIVE
+
+## 2026-10-20: presentation-builder script uses a section flow and spoken voice
+
+- **Decision:** Scripts follow Opening Hook, Core Arguments, Supporting Data/Story, Call to Action. Each slide in `draft.md` is tagged with its section, and `deck.py validate` fails unknown or out-of-order sections and requires Hook first and Call to Action last. Notes use a spoken voice: 1 or 2 short sentences per bullet (max 20 words each), `[pause]` marks, and conversational transitions. Scripts frame every slide around the audience's benefit and do not talk down. `validate` warns on long sentences, talking-down words, and slides that never say "you". Bullets can hold up to 2 sentences, which relaxes the earlier one-sentence-per-bullet rule.
+- **Context:** User asked for a benefit-focused script that does not talk down, written section by section in a spoken voice.
+- **Alternatives considered:** Untagged slides with flow left to the agent, rejected because order could not be checked. A hard fail on talking-down words, rejected because words like "basically" can be legitimate in context.
 - **Status:** ACTIVE

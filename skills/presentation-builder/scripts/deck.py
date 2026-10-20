@@ -5,7 +5,7 @@
 """Deck helpers for the presentation-builder skill.
 
 Subcommands:
-  validate DRAFT.md               Check draft has 5 candidate visuals and notes per slide.
+  validate DRAFT.md               Check draft flow, 5 candidate visuals, and spoken notes per slide.
   selections DRAFT.md             Read user-pruned draft into selections JSON.
   inspect TEMPLATE.pptx           Print template fonts, sizes, colors, layouts, and icons.
   check FINAL.pptx TEMPLATE.pptx  Verify final deck uses only template styling and assets.
@@ -27,19 +27,30 @@ import constants as C
 NS = {"a": "http://schemas.openxmlformats.org/drawingml/2006/main"}
 BULLET_PATTERN = re.compile(r"^[-*]\s+")
 BOLD_PATTERN = re.compile(r"\*\*[^*]+\*\*")
+SECTION_PATTERN = re.compile(r"\(([^)]+)\)")
+WORD_PATTERN = re.compile(r"[a-z']+")
 
 
 def count_words(text):
     return len(text.split())
 
 
+def split_sentences(text):
+    return [s for s in re.split(r"(?<=[.!?])\s+", text.strip()) if s]
+
+
 def count_sentences(text):
-    return len([s for s in re.split(r"(?<=[.!?])\s+", text.strip()) if s])
+    return len(split_sentences(text))
+
+
+def spoken_text(point):
+    return point.replace(C.BOLD_MARKER, "").replace(C.PAUSE_MARKER, "").strip()
 
 
 def start_slide(line):
-    heading = line.split(":", 1)[1].strip() if ":" in line else ""
-    return {"heading": heading, "visuals": [], "notes": []}
+    label, _, heading = line.partition(":")
+    section = SECTION_PATTERN.search(label)
+    return {"heading": heading.strip(), "section": section.group(1).strip() if section else "", "visuals": [], "notes": []}
 
 
 def section_for(line):
@@ -88,6 +99,8 @@ def validate_draft(slides):
     for n, slide in enumerate(slides, start=1):
         errors += validate_slide_text(n, slide)
         warnings += notes_warnings(n, note_points(slide["notes"]))
+    flow_errors, flow_warnings = validate_flow([slide["section"] for slide in slides])
+    errors, warnings = errors + flow_errors, warnings + flow_warnings
     if slides and not any(point.startswith(C.TAKEAWAY_PREFIX) for point in note_points(slides[-1]["notes"])):
         errors.append(C.MSG_NO_TAKEAWAY)
     return errors, warnings
@@ -104,9 +117,9 @@ def notes_errors(n, notes):
         return [C.MSG_NOTES_NOT_BULLETS.format(n=n)]
     errors = []
     for p, point in enumerate(note_points(notes), start=1):
-        words = count_words(point.replace(C.BOLD_MARKER, ""))
-        if words > C.MAX_NOTE_POINT_WORDS:
-            errors.append(C.MSG_POINT_TOO_LONG.format(n=n, p=p, count=words, limit=C.MAX_NOTE_POINT_WORDS))
+        sentences = count_sentences(spoken_text(point))
+        if sentences > C.MAX_SENTENCES_PER_NOTE_POINT:
+            errors.append(C.MSG_POINT_SENTENCES.format(n=n, p=p, count=sentences, limit=C.MAX_SENTENCES_PER_NOTE_POINT))
     return errors
 
 
@@ -130,10 +143,43 @@ def notes_warnings(n, points):
     warnings = []
     if not C.NOTE_POINTS_MIN <= len(points) <= C.NOTE_POINTS_MAX:
         warnings.append(C.MSG_POINT_COUNT.format(n=n, count=len(points), low=C.NOTE_POINTS_MIN, high=C.NOTE_POINTS_MAX))
-    warnings += [C.MSG_POINT_SENTENCE.format(n=n, p=p) for p, point in enumerate(points, start=1) if point.endswith(".")]
+    words = sum(count_words(point.replace(C.BOLD_MARKER, "")) for point in points)
+    if not C.NOTES_WORDS_MIN <= words <= C.NOTES_WORDS_MAX:
+        warnings.append(C.MSG_NOTES_LENGTH.format(n=n, count=words, low=C.NOTES_WORDS_MIN, high=C.NOTES_WORDS_MAX))
     if not any(BOLD_PATTERN.search(point) for point in points):
         warnings.append(C.MSG_NO_BOLD.format(n=n))
+    return warnings + spoken_voice_warnings(n, points)
+
+
+def spoken_voice_warnings(n, points):
+    warnings = []
+    for p, point in enumerate(points, start=1):
+        for sentence in split_sentences(spoken_text(point)):
+            if count_words(sentence) > C.MAX_SPOKEN_SENTENCE_WORDS:
+                warnings.append(C.MSG_LONG_SENTENCE.format(n=n, p=p, count=count_words(sentence), limit=C.MAX_SPOKEN_SENTENCE_WORDS))
+    text = " ".join(spoken_text(point) for point in points).lower()
+    padded = f" {' '.join(WORD_PATTERN.findall(text))} "
+    warnings += [C.MSG_TALKING_DOWN.format(n=n, value=phrase) for phrase in C.TALKING_DOWN_PHRASES if f" {phrase} " in padded]
+    if not C.AUDIENCE_WORDS & set(WORD_PATTERN.findall(text.replace("’", "'"))):
+        warnings.append(C.MSG_NO_AUDIENCE.format(n=n))
     return warnings
+
+
+def validate_flow(sections):
+    if not sections:
+        return [], []
+    allowed = " -> ".join(C.SECTIONS)
+    errors = [C.MSG_SECTION_UNKNOWN.format(n=n, value=s, allowed=allowed) for n, s in enumerate(sections, start=1) if s not in C.SECTIONS]
+    if errors:
+        return errors, []
+    order = [C.SECTIONS.index(s) for s in sections]
+    errors += [C.MSG_SECTION_ORDER.format(n=n, value=sections[n - 1], allowed=allowed) for n in range(2, len(order) + 1) if order[n - 1] < order[n - 2]]
+    if sections[0] != C.SECTIONS[0]:
+        errors.append(C.MSG_SECTION_FIRST.format(value=C.SECTIONS[0]))
+    if sections[-1] != C.SECTIONS[-1]:
+        errors.append(C.MSG_SECTION_LAST.format(value=C.SECTIONS[-1]))
+    warnings = [C.MSG_SECTION_MISSING.format(value=s) for s in C.SECTIONS if s not in sections]
+    return errors, warnings
 
 
 def read_selections(slides):
