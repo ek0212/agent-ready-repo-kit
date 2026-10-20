@@ -4,7 +4,7 @@ from pptx.util import Inches
 import deck
 
 VISUALS = "\n".join(f"- Visual {i}. Signals change." for i in range(5))
-NOTES = "\n".join(f"- {'word ' * 20}" for _ in range(6)) + "\n- In short: ship small changes often."
+NOTES = "\n".join(f"- **Branch** {i}: private copy of shared code" for i in range(6)) + "\n- In short: merge small changes daily"
 DRAFT = f"# Talk\n\n## Slide 1: Why trunk-based\n\n### Visuals\n{VISUALS}\n\n### Speaker notes\n{NOTES}\n"
 
 
@@ -22,6 +22,8 @@ def test_validate_rejects_bad_visuals_and_notes():
     bad = deck.parse_draft(DRAFT.replace(VISUALS, "- One. Two. Three.").replace(NOTES, "Prose notes."))
     errors, _ = deck.validate_draft(bad)
     assert len(errors) == 4
+    long_point = deck.parse_draft(DRAFT.replace("private copy", "a full sentence that keeps going well past the limit for a point."))
+    assert any("max 12" in e for e in deck.validate_draft(long_point)[0])
 
 
 def test_check_flags_non_template_font(tmp_path):

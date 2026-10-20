@@ -20,3 +20,10 @@
 - **Context:** User asked for bullet-point scripts using the `clear-explanation` framework and a no-background audience.
 - **Alternatives considered:** Prose notes (previous behavior), rejected by user request. Asking for audience familiarity each time, rejected because the user set newcomers as the default.
 - **Status:** ACTIVE
+
+## 2026-10-20: presentation-builder notes are talking points with bold key terms
+
+- **Decision:** Speaker notes are 5 to 8 talking points per slide, max 12 words each, phrase form, with key terms bolded as `**term**`. `deck.py validate` fails long points and warns on sentence-style points, point counts outside 5 to 8, and slides with no bold term. Replaces the 100 to 160 word, one-sentence-per-bullet rule.
+- **Context:** User asked for points to cover instead of full sentences, with key terms bolded.
+- **Alternatives considered:** Full-sentence bullets (previous rule), rejected by user request.
+- **Status:** ACTIVE

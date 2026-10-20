@@ -26,6 +26,7 @@ import constants as C
 
 NS = {"a": "http://schemas.openxmlformats.org/drawingml/2006/main"}
 BULLET_PATTERN = re.compile(r"^[-*]\s+")
+BOLD_PATTERN = re.compile(r"\*\*[^*]+\*\*")
 
 
 def count_words(text):
@@ -86,10 +87,27 @@ def validate_draft(slides):
     errors, warnings = [], []
     for n, slide in enumerate(slides, start=1):
         errors += validate_slide_text(n, slide)
-        warnings += notes_length_warnings(n, slide["notes"])
-    if slides and not any(strip_bullet(line).startswith(C.TAKEAWAY_PREFIX) for line in note_lines(slides[-1]["notes"])):
+        warnings += notes_warnings(n, note_points(slide["notes"]))
+    if slides and not any(point.startswith(C.TAKEAWAY_PREFIX) for point in note_points(slides[-1]["notes"])):
         errors.append(C.MSG_NO_TAKEAWAY)
     return errors, warnings
+
+
+def note_points(notes):
+    return [strip_bullet(line) for line in note_lines(notes)]
+
+
+def notes_errors(n, notes):
+    if not notes:
+        return [C.MSG_NOTES_EMPTY.format(n=n)]
+    if not all(BULLET_PATTERN.match(line) for line in note_lines(notes)):
+        return [C.MSG_NOTES_NOT_BULLETS.format(n=n)]
+    errors = []
+    for p, point in enumerate(note_points(notes), start=1):
+        words = count_words(point.replace(C.BOLD_MARKER, ""))
+        if words > C.MAX_NOTE_POINT_WORDS:
+            errors.append(C.MSG_POINT_TOO_LONG.format(n=n, p=p, count=words, limit=C.MAX_NOTE_POINT_WORDS))
+    return errors
 
 
 def validate_slide_text(n, slide):
@@ -103,18 +121,19 @@ def validate_slide_text(n, slide):
         sentences = count_sentences(visual)
         if sentences > C.MAX_SENTENCES_PER_VISUAL:
             errors.append(C.MSG_VISUAL_SENTENCES.format(n=n, v=v, count=sentences, limit=C.MAX_SENTENCES_PER_VISUAL))
-    if not slide["notes"]:
-        errors.append(C.MSG_NOTES_EMPTY.format(n=n))
-    elif not all(BULLET_PATTERN.match(line) for line in note_lines(slide["notes"])):
-        errors.append(C.MSG_NOTES_NOT_BULLETS.format(n=n))
-    return errors
+    return errors + notes_errors(n, slide["notes"])
 
 
-def notes_length_warnings(n, notes):
-    words = sum(count_words(strip_bullet(line)) for line in note_lines(notes))
-    if words and not C.NOTES_WORDS_MIN <= words <= C.NOTES_WORDS_MAX:
-        return [C.MSG_NOTES_LENGTH.format(n=n, count=words, low=C.NOTES_WORDS_MIN, high=C.NOTES_WORDS_MAX)]
-    return []
+def notes_warnings(n, points):
+    if not points:
+        return []
+    warnings = []
+    if not C.NOTE_POINTS_MIN <= len(points) <= C.NOTE_POINTS_MAX:
+        warnings.append(C.MSG_POINT_COUNT.format(n=n, count=len(points), low=C.NOTE_POINTS_MIN, high=C.NOTE_POINTS_MAX))
+    warnings += [C.MSG_POINT_SENTENCE.format(n=n, p=p) for p, point in enumerate(points, start=1) if point.endswith(".")]
+    if not any(BOLD_PATTERN.search(point) for point in points):
+        warnings.append(C.MSG_NO_BOLD.format(n=n))
+    return warnings
 
 
 def read_selections(slides):

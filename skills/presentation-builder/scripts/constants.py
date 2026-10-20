@@ -1,7 +1,9 @@
 """Shared limits and labels for deck.py."""
 
-NOTES_WORDS_MIN = 100
-NOTES_WORDS_MAX = 160
+NOTE_POINTS_MIN = 5
+NOTE_POINTS_MAX = 8
+MAX_NOTE_POINT_WORDS = 12
+BOLD_MARKER = "**"
 
 VISUALS_PER_DRAFT_SLIDE = 5
 MAX_SENTENCES_PER_VISUAL = 2
@@ -21,7 +23,10 @@ MSG_HEADING_WORDS = "slide {n}: heading has {count} words, max {limit}"
 MSG_NOTES_EMPTY = "slide {n}: speaker notes are empty"
 MSG_NOTES_NOT_BULLETS = "slide {n}: speaker notes must be bullet points"
 MSG_NO_TAKEAWAY = "last slide: notes need a bullet starting 'In short:'"
-MSG_NOTES_LENGTH = "slide {n}: notes have {count} words, target {low}-{high} for ~1 minute"
+MSG_POINT_COUNT = "slide {n}: {count} talking points, target {low}-{high} for ~1 minute"
+MSG_POINT_TOO_LONG = "slide {n} point {p}: {count} words, max {limit}; write a point to cover, not a sentence"
+MSG_POINT_SENTENCE = "slide {n} point {p}: ends with a period, likely a full sentence"
+MSG_NO_BOLD = "slide {n}: no **bold** key term in notes"
 MSG_NO_SELECTION = "slide {n}: no visual selected"
 MSG_FONT = "slide {n}: font '{value}' not in template"
 MSG_SIZE = "slide {n}: font size {value}pt not in template"

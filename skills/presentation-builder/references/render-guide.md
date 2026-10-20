@@ -61,7 +61,22 @@ Recolor vector icons only with template theme colors. Prefer theme color referen
 - Remove unused placeholders: `ph._element.getparent().remove(ph._element)`.
 - Position icons and native shapes on the layout's placeholder grid and margins.
 - Native charts and shapes are allowed when styled only with template colors, fonts, and sizes.
-- Set notes: `slide.notes_slide.notes_text_frame.text = approved_notes`.
+- Set notes as one paragraph per talking point. Turn `**term**` into bold runs:
+
+```python
+import re
+
+frame = slide.notes_slide.notes_text_frame
+frame.text = ""
+for i, point in enumerate(talking_points):
+    paragraph = frame.paragraphs[0] if i == 0 else frame.add_paragraph()
+    for j, chunk in enumerate(re.split(r"\*\*", point)):
+        if not chunk:
+            continue
+        run = paragraph.add_run()
+        run.text = chunk
+        run.font.bold = j % 2 == 1 or None
+```
 
 ## Drop Sample Slides
 
