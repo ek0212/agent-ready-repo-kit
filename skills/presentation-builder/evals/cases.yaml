@@ -3,16 +3,17 @@ cases:
     prompt: I have a 10 minute talk on why our team moved to trunk-based development. Here is my outline. Make me a presentation.
     expected_trigger: true
     expected_behavior:
-      - Plans 10 slides at about one minute each.
-      - Writes speaker notes of 100 to 160 words per slide and stops for script approval.
+      - Asks what the user wants to say, the one takeaway, and must-include facts before writing.
+      - Plans 10 slides at about one minute each, assuming a newcomer audience without asking about familiarity.
+      - Writes bullet-point notes using CLEAR, with an "In short:" bullet on the last slide, and stops for script approval.
       - Does not build any deck before the script is approved.
   - id: draft-candidate-visuals
-    prompt: Script is approved. Build the draft deck.
+    prompt: Script is approved. Build the draft with candidate visuals.
     expected_trigger: true
     expected_behavior:
       - Writes 5 candidate visuals per slide, max 2 sentences each.
-      - Runs deck.py draft to produce a black-and-white deck with heading, visuals body, and notes per slide.
-      - Asks the user to delete unwanted visuals and waits for the edited file.
+      - Writes deck/draft.md with heading, visuals, and speaker notes per slide, then runs deck.py validate.
+      - Asks the user to delete unwanted visual bullets and waits for the edited file.
   - id: render-in-template
     prompt: I trimmed the draft to my picks. Here is our company template, render the final deck.
     expected_trigger: true

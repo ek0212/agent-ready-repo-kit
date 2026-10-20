@@ -5,8 +5,8 @@
 """Deck helpers for the presentation-builder skill.
 
 Subcommands:
-  draft SPEC.json OUT.pptx        Build black-and-white draft deck from approved script.
-  selections DRAFT.pptx           Read user-edited draft into selections JSON.
+  validate DRAFT.md               Check draft has 5 candidate visuals and notes per slide.
+  selections DRAFT.md             Read user-pruned draft into selections JSON.
   inspect TEMPLATE.pptx           Print template fonts, sizes, colors, layouts, and icons.
   check FINAL.pptx TEMPLATE.pptx  Verify final deck uses only template styling and assets.
 """
@@ -19,14 +19,13 @@ import sys
 
 from lxml import etree
 from pptx import Presentation
-from pptx.dml.color import RGBColor
 from pptx.enum.shapes import MSO_SHAPE_TYPE
 from pptx.opc.constants import RELATIONSHIP_TYPE as RT
-from pptx.util import Inches, Pt
 
 import constants as C
 
 NS = {"a": "http://schemas.openxmlformats.org/drawingml/2006/main"}
+BULLET_PATTERN = re.compile(r"^[-*]\s+")
 
 
 def count_words(text):
@@ -37,97 +36,96 @@ def count_sentences(text):
     return len([s for s in re.split(r"(?<=[.!?])\s+", text.strip()) if s])
 
 
-def validate_spec(spec):
+def start_slide(line):
+    heading = line.split(":", 1)[1].strip() if ":" in line else ""
+    return {"heading": heading, "visuals": [], "notes": []}
+
+
+def section_for(line):
+    lowered = line.lower()
+    if lowered == C.MD_VISUALS_HEADING.lower():
+        return "visuals"
+    if lowered == C.MD_NOTES_HEADING.lower():
+        return "notes"
+    return None
+
+
+def add_line(slide, section, raw_line):
+    line = raw_line.strip()
+    if section == "visuals" and BULLET_PATTERN.match(line):
+        slide["visuals"].append(BULLET_PATTERN.sub("", line).strip())
+    elif section == "notes":
+        slide["notes"].append(raw_line)
+
+
+def parse_draft(text):
+    slides, section = [], None
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+        if line.startswith(C.MD_SLIDE_PREFIX):
+            slides.append(start_slide(line))
+            section = None
+        elif slides and section_for(line):
+            section = section_for(line)
+        elif slides:
+            add_line(slides[-1], section, raw_line)
+    for slide in slides:
+        slide["notes"] = "\n".join(slide["notes"]).strip()
+    return slides
+
+
+def note_lines(notes):
+    return [line.strip() for line in notes.splitlines() if line.strip()]
+
+
+def strip_bullet(line):
+    return BULLET_PATTERN.sub("", line).strip()
+
+
+def validate_draft(slides):
     errors, warnings = [], []
-    for n, slide in enumerate(spec["slides"], start=1):
+    for n, slide in enumerate(slides, start=1):
         errors += validate_slide_text(n, slide)
-        warnings += notes_length_warnings(n, slide.get("notes", ""))
+        warnings += notes_length_warnings(n, slide["notes"])
+    if slides and not any(strip_bullet(line).startswith(C.TAKEAWAY_PREFIX) for line in note_lines(slides[-1]["notes"])):
+        errors.append(C.MSG_NO_TAKEAWAY)
     return errors, warnings
 
 
 def validate_slide_text(n, slide):
     errors = []
-    heading_words = count_words(slide.get("heading", ""))
+    heading_words = count_words(slide["heading"])
     if heading_words > C.MAX_HEADING_WORDS:
         errors.append(C.MSG_HEADING_WORDS.format(n=n, count=heading_words, limit=C.MAX_HEADING_WORDS))
-    visuals = slide.get("visuals", [])
-    if len(visuals) != C.VISUALS_PER_DRAFT_SLIDE:
-        errors.append(C.MSG_VISUAL_COUNT.format(n=n, expected=C.VISUALS_PER_DRAFT_SLIDE, actual=len(visuals)))
-    for v, visual in enumerate(visuals, start=1):
+    if len(slide["visuals"]) != C.VISUALS_PER_DRAFT_SLIDE:
+        errors.append(C.MSG_VISUAL_COUNT.format(n=n, expected=C.VISUALS_PER_DRAFT_SLIDE, actual=len(slide["visuals"])))
+    for v, visual in enumerate(slide["visuals"], start=1):
         sentences = count_sentences(visual)
         if sentences > C.MAX_SENTENCES_PER_VISUAL:
             errors.append(C.MSG_VISUAL_SENTENCES.format(n=n, v=v, count=sentences, limit=C.MAX_SENTENCES_PER_VISUAL))
-    if not slide.get("notes", "").strip():
+    if not slide["notes"]:
         errors.append(C.MSG_NOTES_EMPTY.format(n=n))
+    elif not all(BULLET_PATTERN.match(line) for line in note_lines(slide["notes"])):
+        errors.append(C.MSG_NOTES_NOT_BULLETS.format(n=n))
     return errors
 
 
 def notes_length_warnings(n, notes):
-    words = count_words(notes)
+    words = sum(count_words(strip_bullet(line)) for line in note_lines(notes))
     if words and not C.NOTES_WORDS_MIN <= words <= C.NOTES_WORDS_MAX:
         return [C.MSG_NOTES_LENGTH.format(n=n, count=words, low=C.NOTES_WORDS_MIN, high=C.NOTES_WORDS_MAX)]
     return []
 
 
-def style_run(run, size_pt, bold=False):
-    run.font.name = C.DRAFT_FONT
-    run.font.size = Pt(size_pt)
-    run.font.bold = bold
-    run.font.color.rgb = RGBColor(*C.DRAFT_TEXT_RGB)
+def read_selections(slides):
+    issues = [C.MSG_NO_SELECTION.format(n=n) for n, slide in enumerate(slides, start=1) if not slide["visuals"]]
+    selected = [{"heading": s["heading"], "selected_visuals": s["visuals"], "notes": s["notes"]} for s in slides]
+    return {"slides": selected, "issues": issues}
 
 
-def add_textbox(slide, name, top_in, height_in):
-    width_in = C.SLIDE_WIDTH_IN - 2 * C.MARGIN_IN
-    box = slide.shapes.add_textbox(Inches(C.MARGIN_IN), Inches(top_in), Inches(width_in), Inches(height_in))
-    box.name = name
-    box.text_frame.word_wrap = True
-    return box.text_frame
-
-
-def add_draft_slide(prs, slide_spec):
-    slide = prs.slides.add_slide(prs.slide_layouts[C.BLANK_LAYOUT_INDEX])
-    slide.background.fill.solid()
-    slide.background.fill.fore_color.rgb = RGBColor(*C.DRAFT_BG_RGB)
-    heading_run = add_textbox(slide, C.HEADING_SHAPE_NAME, C.MARGIN_IN, C.HEADING_HEIGHT_IN).paragraphs[0].add_run()
-    heading_run.text = slide_spec["heading"]
-    style_run(heading_run, C.DRAFT_HEADING_PT, bold=True)
-    body_top = C.MARGIN_IN + C.HEADING_HEIGHT_IN
-    body = add_textbox(slide, C.VISUALS_SHAPE_NAME, body_top, C.SLIDE_HEIGHT_IN - body_top - C.MARGIN_IN)
-    for i, visual in enumerate(slide_spec["visuals"]):
-        paragraph = body.paragraphs[0] if i == 0 else body.add_paragraph()
-        run = paragraph.add_run()
-        run.text = C.BULLET_PREFIX + visual
-        style_run(run, C.DRAFT_BODY_PT)
-    slide.notes_slide.notes_text_frame.text = slide_spec["notes"]
-
-
-def build_draft(spec, out_path):
-    prs = Presentation()
-    prs.slide_width, prs.slide_height = Inches(C.SLIDE_WIDTH_IN), Inches(C.SLIDE_HEIGHT_IN)
-    for slide_spec in spec["slides"]:
-        add_draft_slide(prs, slide_spec)
-    prs.save(out_path)
-
-
-def shape_text_by_name(slide, name):
-    for shape in slide.shapes:
-        if shape.name == name and shape.has_text_frame:
-            return shape.text_frame
-    return None
-
-
-def read_selections(path):
-    slides, issues = [], []
-    for n, slide in enumerate(Presentation(path).slides, start=1):
-        heading = shape_text_by_name(slide, C.HEADING_SHAPE_NAME)
-        body = shape_text_by_name(slide, C.VISUALS_SHAPE_NAME)
-        paragraphs = [p.text.strip() for p in body.paragraphs] if body else []
-        visuals = [p.removeprefix(C.BULLET_PREFIX.strip()).strip() for p in paragraphs if p]
-        notes = slide.notes_slide.notes_text_frame.text if slide.has_notes_slide else ""
-        if not visuals:
-            issues.append(C.MSG_NO_SELECTION.format(n=n))
-        slides.append({"heading": heading.text.strip() if heading else "", "selected_visuals": visuals, "notes": notes})
-    return {"slides": slides, "issues": issues}
+def load_draft(path):
+    with open(path, encoding="utf-8") as handle:
+        return parse_draft(handle.read())
 
 
 def theme_xml(prs):
@@ -245,9 +243,7 @@ def report(issues, warnings=()):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="command", required=True)
-    draft = sub.add_parser("draft")
-    draft.add_argument("spec")
-    draft.add_argument("out")
+    sub.add_parser("validate").add_argument("draft")
     sub.add_parser("selections").add_argument("draft")
     sub.add_parser("inspect").add_argument("template")
     check = sub.add_parser("check")
@@ -256,15 +252,14 @@ def main(argv=None):
     check.add_argument("--selections")
     args = parser.parse_args(argv)
 
-    if args.command == "draft":
-        spec = json.load(open(args.spec))
-        errors, warnings = validate_spec(spec)
+    if args.command == "validate":
+        slides = load_draft(args.draft)
+        errors, warnings = validate_draft(slides)
         if not errors:
-            build_draft(spec, args.out)
-            print(f"wrote {args.out} ({len(spec['slides'])} slides)")
+            print(f"PASS {args.draft} ({len(slides)} slides)")
         return report(errors, warnings)
     if args.command == "selections":
-        result = read_selections(args.draft)
+        result = read_selections(load_draft(args.draft))
         print(json.dumps(result, indent=2))
         return report([], result["issues"])
     if args.command == "inspect":

@@ -1,6 +1,6 @@
 # Render Guide
 
-Load at Step 6. Recipes for `python-pptx>=1.0`. Run with `uv run --with python-pptx python render.py`.
+Load at Step 7. Recipes for `python-pptx>=1.0`. Run with `uv run --with python-pptx python render.py`.
 
 ## Start From Template
 
