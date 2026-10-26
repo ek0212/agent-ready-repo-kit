@@ -11,6 +11,7 @@ Each folder has one standalone `SKILL.md` and `evals/cases.yaml`.
 | `figma-to-ui` | Implement an exact Figma selection and refine it through browser comparison. |
 | `frontend-design` | Build web UI where design quality matters. |
 | `clear-explanation` | Explain complex ideas clearly for a specific audience. |
+| `technical-writing` | Draft, revise, structure, and verify reader-centered technical documents. |
 | `no-ai-slop` | Edit drafts to sound sharper and more human, or detect AI-slop patterns. |
 | `newsletter-growth` | Plan/audit newsletters for growth, engagement, monetization. |
 | `outreach-email` | Draft concise one-to-one emails and value-adding follow-up sequences. |

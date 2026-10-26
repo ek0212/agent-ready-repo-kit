@@ -1,0 +1,39 @@
+cases:
+  - id: operational-runbook
+    prompt: Write a production runbook for rotating an API signing key without interrupting active sessions.
+    expected_trigger: true
+    expected_behavior:
+      - Identifies operators, prerequisites, permissions, risks, and the expected end state.
+      - Uses ordered commands with one primary action per step.
+      - Includes verification, rollback, troubleshooting, and escalation.
+      - Does not invent system-specific commands or values.
+  - id: objective-incident-report
+    prompt: Turn these witness notes, timestamps, and screenshots into an internal incident report.
+    expected_trigger: true
+    expected_behavior:
+      - Uses the required organizational format when supplied.
+      - Separates observations, reported statements, and unresolved facts.
+      - Orders events chronologically and avoids blame or speculation.
+      - Identifies missing who, what, when, where, why, or how evidence.
+  - id: executive-recommendation
+    prompt: Create a one-page executive summary from this database migration report and recommend whether leadership should approve phase two.
+    expected_trigger: true
+    expected_behavior:
+      - Leads with the principal finding and decision.
+      - Preserves material costs, risks, evidence, and limitations.
+      - Gives a recommendation justified in terms relevant to leadership.
+      - Does not add claims absent from the source report.
+  - id: negative-explanation-only
+    prompt: Explain OAuth to a beginner with a simple analogy.
+    expected_trigger: false
+    expected_behavior:
+      - Routes to clear-explanation because no technical document is requested.
+  - id: boundary-incomplete-proposal
+    prompt: Draft a project proposal for a sensor deployment. I only know the goal and target location, not the budget, schedule, hardware, or staffing.
+    expected_trigger: true
+    expected_behavior:
+      - Produces a labeled outline or draft with explicit placeholders.
+      - Does not invent costs, dates, equipment, staffing, or expected results.
+      - Identifies the minimum missing decisions needed for a credible proposal.
+      - Keeps the requested authorization and reader benefit visible.
+

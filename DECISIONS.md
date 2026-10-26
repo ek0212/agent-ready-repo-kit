@@ -41,3 +41,10 @@
 - **Context:** User asked for a benefit-focused script that does not talk down, written section by section in a spoken voice.
 - **Alternatives considered:** Untagged slides with flow left to the agent, rejected because order could not be checked. A hard fail on talking-down words, rejected because words like "basically" can be legitimate in context.
 - **Status:** ACTIVE
+
+## 2026-10-26: technical-writing uses a focused core with genre references
+
+- **Decision:** `technical-writing` contains one reader-centered drafting and verification workflow. Document-specific structures live in `references/document-types.md` and load only when the requested genre needs them. The skill and references use CC BY-NC-SA 4.0 with source attribution.
+- **Context:** The human-provided handbook covers grammar, document production, design, visuals, and many workplace genres. Loading all handbook detail for every writing task would make the skill broad and expensive, while relicensing an adaptation as MIT would conflict with the source license.
+- **Alternatives considered:** One exhaustive `SKILL.md`, rejected because it would exceed the repository's 200-line limit and weaken trigger focus. Separate skills for every document genre, rejected because the genres share the same audience, purpose, evidence, design, and verification workflow. MIT licensing, rejected because the source requires noncommercial share-alike terms for adaptations.
+- **Status:** ACTIVE
