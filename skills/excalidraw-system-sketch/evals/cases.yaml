@@ -15,8 +15,30 @@ cases:
     prompt: Plan an Excalidraw system map, but no Excalidraw editor is available.
     expected_trigger: true
     expected_behavior:
-      - Returns exact sketch plan and Markdown summary.
-      - States visual file was not created.
+      - Builds the .excalidraw file with scene.py and runs sketch.py check.
+      - Writes Markdown summary.
+      - States the render check was skipped.
+  - id: bound-text-everywhere
+    prompt: Draw our auth flow in Excalidraw with labeled tenant zones, labeled arrows, and a legend.
+    expected_trigger: true
+    expected_behavior:
+      - Every text element has a containerId; sketch.py check reports zero errors.
+      - Zone titles bind to their zone at the top-left.
+      - Arrow labels bind to their arrow with short lines; the legend is a box.
+      - Renders the file and reviews the PNG before handing over.
+  - id: project-icons
+    prompt: Sketch our AWS Lambda, S3, and GitHub Actions pipeline in Excalidraw with product icons.
+    expected_trigger: true
+    expected_behavior:
+      - Searches icons with sketch.py icons and uses only official icons found.
+      - Lists missing icons as open questions instead of drawing logos.
+      - Records each icon source in the companion summary.
+  - id: full-values
+    prompt: In Excalidraw, show where each tenant ID, client ID, and object ID for our managed identity lives.
+    expected_trigger: true
+    expected_behavior:
+      - Uses full sentences and writes every ID in full with no truncation.
+      - Spells out acronyms on first use and left-aligns box text.
   - id: negative-sequence
     prompt: Add a GitHub-rendered request sequence diagram to the README.
     expected_trigger: false
