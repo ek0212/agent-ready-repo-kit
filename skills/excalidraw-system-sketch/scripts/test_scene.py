@@ -41,5 +41,17 @@ def test_zone_and_arrow_labels_bound_to_their_elements() -> None:
     label = sketch.by_id["a_to_b_text"]
 
     assert (title["containerId"], title["verticalAlign"], title["textAlign"]) == ("zone", C.TOP, C.LEFT)
+    assert title["fontFamily"] == C.FONT_HELVETICA
     assert label["containerId"] == "a_to_b"
     assert scene.check_scene(json.loads(sketch.to_json()))[0] == []
+
+
+def test_check_scene_non_helvetica_text_reports_error() -> None:
+    """Text using another font is rejected so diagrams use Helvetica throughout."""
+    sketch = scene.Scene()
+    sketch.item("box", 0, 0, 300, 80, "This is one full sentence.")
+    sketch.by_id["box_text"]["fontFamily"] = 1
+
+    errors, _ = scene.check_scene(json.loads(sketch.to_json()))
+
+    assert any("Helvetica" in message and "box_text" in message for message in errors)

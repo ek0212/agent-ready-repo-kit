@@ -4,7 +4,10 @@ cases:
     expected_trigger: true
     expected_behavior:
       - Uses spatial groups and explicit boundaries.
+      - Uses a vertical top-to-bottom main flow unless the content requires another direction.
+      - Includes no boxed title, header, footer, legend, summary, key, or decorative annotation.
       - Binds enclosed text to its parent shape with boundElements when creating Excalidraw JSON.
+      - Uses Helvetica for every text element.
       - Writes companion Markdown.
   - id: before-after
     prompt: Make a rough before-and-after sketch for this onboarding redesign.
@@ -19,18 +22,20 @@ cases:
       - Writes Markdown summary.
       - States the render check was skipped.
   - id: bound-text-everywhere
-    prompt: Draw our auth flow in Excalidraw with labeled tenant zones, labeled arrows, and a legend.
+    prompt: Draw our auth flow in Excalidraw with labeled tenant zones and labeled arrows.
     expected_trigger: true
     expected_behavior:
       - Every text element has a containerId; sketch.py check reports zero errors.
       - Zone titles bind to their zone at the top-left.
-      - Arrow labels bind to their arrow with short lines; the legend is a box.
+      - Arrow labels bind to their arrow with short lines.
+      - Line meanings are documented in the companion Markdown rather than a legend box.
       - Renders the file and reviews the PNG before handing over.
   - id: project-icons
     prompt: Sketch our AWS Lambda, S3, and GitHub Actions pipeline in Excalidraw with product icons.
     expected_trigger: true
     expected_behavior:
       - Searches icons with sketch.py icons and uses only official icons found.
+      - Uses official Azure or product icons to clarify appropriate components and boundaries.
       - Lists missing icons as open questions instead of drawing logos.
       - Records each icon source in the companion summary.
   - id: full-values

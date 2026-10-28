@@ -169,7 +169,7 @@ class Scene:
         """
         groups = [f"{element_id}_group"]
         zone = self.rectangle(element_id, x, y, width, height, stroke, fill, dashed, 2 if dashed else 1, groups)
-        self.bind_text(zone, title, C.TITLE_FONT_SIZE, C.FONT_EXCALIFONT, vertical=C.TOP)
+        self.bind_text(zone, title, C.TITLE_FONT_SIZE, C.FONT_HELVETICA, vertical=C.TOP)
         if icon:
             self.image(f"{element_id}_icon", icon, x + width - C.ZONE_ICON_INSET - C.ZONE_ICON_SIZE,
                        y + C.ZONE_ICON_INSET, C.ZONE_ICON_SIZE, groups)
@@ -316,8 +316,6 @@ def text_width(line: str, font_size: int, font_family: int) -> float:
     Returns:
         Estimated width in pixels.
     """
-    if font_family == C.FONT_EXCALIFONT:
-        return len(line) * font_size * 0.62
     narrow, wide = set("iljtfrI.,:;'!|/()[]- "), set("mwMW@")
     units = sum(0.3 if ch in narrow else 0.86 if ch in wide else 0.56 for ch in line)
     return units * font_size * 1.05
@@ -431,6 +429,8 @@ def check_text(text: Element, by_id: Dict[str, Element], errors: List[str], warn
         return
     if {"type": "text", "id": text["id"]} not in (container.get("boundElements") or []):
         errors.append(f"Shape {container['id']} does not list its text {text['id']} in boundElements.")
+    if text.get("fontFamily") != C.FONT_HELVETICA:
+        errors.append(f"Text {text['id']} must use Helvetica (fontFamily 2).")
     if any(marker in text["text"] for marker in C.TRUNCATION_MARKERS):
         warnings.append(f"Text {text['id']} looks truncated. Write values in full.")
     if container["type"] != "ellipse" and text.get("textAlign") != C.LEFT:

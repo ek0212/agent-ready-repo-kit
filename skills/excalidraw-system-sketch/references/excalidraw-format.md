@@ -61,12 +61,7 @@ SVG and PNG both work. `check` fails when an image has no `files` entry.
 
 ## Fonts
 
-| `fontFamily` | Font | Use |
-| --- | --- | --- |
-| 2 | Helvetica | Body text, IDs, URLs |
-| 5 | Excalifont | Zone titles and headers |
-
-The extension does not bundle Excalifont. Excalidraw fetches it at runtime, so offline renders may show a fallback font.
+Use Helvetica (`fontFamily: 2`) for every text element, including body text, IDs, URLs, zone titles, badges, and arrow labels.
 
 ## Render harness
 

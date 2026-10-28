@@ -1,7 +1,6 @@
 """Shared limits, styles, and lookup paths for the excalidraw-system-sketch scripts."""
 
 FONT_HELVETICA = 2
-FONT_EXCALIFONT = 5
 BODY_FONT_SIZE = 16
 TITLE_FONT_SIZE = 20
 BADGE_FONT_SIZE = 14
