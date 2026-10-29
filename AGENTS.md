@@ -1,4 +1,4 @@
-Your responses should always contain what you changed, the core code logic changed verbatim (only the brief essential snippet), why, and a quiz question with answer about the syntax or mechanics in that quoted snippet so the user actively participates in the code and learns from your changes.
+Your responses should always contain what you changed, the three most important core code logic changes verbatim as brief essential snippets, why each change was made, and a quiz question with answer about the syntax or mechanics in those quoted snippets so the user actively participates in the code and learns from your changes. If the task contains fewer than three code logic changes, include every actual change and do not invent additional changes.
 
 ## Core Rules
 - Prioritize working, correct code over perfect process.
