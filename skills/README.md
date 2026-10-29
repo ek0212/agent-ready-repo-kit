@@ -18,7 +18,7 @@ Each folder has one standalone `SKILL.md` and `evals/cases.yaml`.
 | `resume-helper` | Audit, tailor, rewrite, and validate evidence-backed resumes. |
 | `presentation-builder` | Build spoken-talk PowerPoint decks: timed notes, visual picks, strict template render. |
 | `mermaid-architecture-map` | Need GitHub diagrams or explicit boundaries. |
-| `excalidraw-system-sketch` | Need grouping, swimlanes, rough visual thinking. |
+| `excalidraw-system-sketch` | Need grouping, swimlanes, rough visual thinking, product icons; text bound to shapes, render-checked. |
 | `creative-writing` | Draft/edit nonfiction with narrative craft. |
 | `dataset-triage` | Check tabular data before analysis/modeling. |
 | `stanford-research` | Synthesize research papers. |
