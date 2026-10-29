@@ -38,11 +38,36 @@ cases:
       - Uses official Azure or product icons to clarify appropriate components and boundaries.
       - Lists missing icons as open questions instead of drawing logos.
       - Records each icon source in the companion summary.
+  - id: production-multi-region-integration
+    prompt: Diagram our production integration with Contoso Analytics, including everything deployed in every region.
+    expected_trigger: true
+    expected_behavior:
+      - Defaults the deployed inventory to production and does not mix in non-production resources.
+      - Searches live inventory and deployment artifacts such as Ev2 or infrastructure-as-code files.
+      - Builds an evidence matrix covering every discovered region and product-relevant resource.
+      - Shows regional differences and product boundaries explicitly.
+      - Records source paths or cloud-query details and marks drift or incomplete coverage.
+  - id: data-shape-and-io
+    prompt: Draw our ingestion pipeline and make every input, transformation, output, file path, and data shape clear.
+    expected_trigger: true
+    expected_behavior:
+      - Organizes the diagram around the end-to-end movement of data.
+      - Labels every source, input, transformation, output, and sink.
+      - Uses schemas, models, contracts, or metadata to establish data shape without exposing sensitive payloads.
+      - Names formats, paths, and contracts on boundaries when known and marks missing contracts as unknown.
+      - Records detailed fields in the companion data-contract matrix instead of crowding the canvas.
+  - id: conceptual-lightweight
+    prompt: Make a conceptual Excalidraw sketch of a possible event-driven checkout design.
+    expected_trigger: true
+    expected_behavior:
+      - Uses the lighter conceptual path without claiming resources are deployed.
+      - Does not require production inventory when the request is hypothetical.
   - id: full-values
     prompt: In Excalidraw, show where each tenant ID, client ID, and object ID for our managed identity lives.
     expected_trigger: true
     expected_behavior:
       - Uses full sentences and writes every ID in full with no truncation.
+      - Includes only relevant non-secret infrastructure identifiers from authorized sources.
       - Spells out acronyms on first use and left-aligns box text.
   - id: negative-sequence
     prompt: Add a GitHub-rendered request sequence diagram to the README.
@@ -54,4 +79,5 @@ cases:
     expected_trigger: true
     expected_behavior:
       - Marks assumptions and open questions.
+      - Marks deployment coverage incomplete and identifies missing evidence or access.
       - Does not invent trust boundaries or services.
