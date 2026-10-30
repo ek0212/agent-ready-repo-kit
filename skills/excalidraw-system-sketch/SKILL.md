@@ -45,7 +45,7 @@ Scripts live in `scripts/` next to this file. Run them with `uv run <skill-dir>/
 8. Find icons with `sketch.py icons <keywords>`. Confirm each match is the right product.
 9. Write a small build script that imports `scripts/scene.py`. Do not hand-write element JSON. Load [excalidraw-format.md](references/excalidraw-format.md) when writing the build script or debugging a file.
 10. Run `sketch.py check <file>.excalidraw`. Fix every error.
-11. Run `sketch.py render <file>.excalidraw <file>.png`. Read the PNG. Fix clipped, overlapping, or wrapped text, then rebuild and repeat.
+11. Run `sketch.py render <file>.excalidraw <file>.png`. Read the PNG at 100% zoom. Fix clipped, overlapping, wrapped, low-contrast, or undersized text, then rebuild and repeat.
 12. Write the companion `.md` summary with purpose, discovery method, evidence matrix, data contracts, components, icon sources, boundaries, flows, drift, assumptions, omissions, and open questions.
 
 ## Text Rules
@@ -60,6 +60,9 @@ Scripts live in `scripts/` next to this file. Run them with `uv run <skill-dir>/
 - Spell out each acronym on first use.
 - Left-align text in boxes. Center only badge numbers.
 - Use Helvetica (`fontFamily: 2`) for every text element, including titles, zone labels, badges, and arrow labels.
+- Use at least 16 px for box and arrow text and at least 20 px for zone titles. Use 14 px only for short badge numbers. Increase these sizes for projected or large-canvas viewing.
+- Never shrink text to make it fit. Enlarge the box, shorten the canvas label, or move detail to the companion summary.
+- Keep strong contrast between text and its fill so labels remain easy to read at 100% zoom.
 
 ## Icons
 
@@ -82,7 +85,8 @@ Scripts live in `scripts/` next to this file. Run them with `uv run <skill-dir>/
 - Represent regional differences directly. Repeat a regional branch when its deployed resources or connections differ; do not imply identical deployments.
 - Every box must represent a component, actor, data store, or boundary that participates in the flow.
 - Never add boxed diagram titles, headers, footers, legends, summaries, keys, or decorative annotations. Put that information in the companion Markdown. Put essential relationship details on the relevant arrow.
-- Color encodes one stable meaning, such as ownership, or stays decorative-free.
+- Give boxes from different products distinct fill colors. Reuse the same fill for boxes from the same product so product identity remains consistent throughout the sketch.
+- Choose light fills with dark text and enough visual separation between adjacent product colors. Do not rely on color alone for boundaries or status.
 - Boundaries visible without color alone: dashed outlines for trust boundaries.
 - State line meanings in the companion Markdown, for example dashed arrows for identity relationships and solid arrows for calls or grants.
 
@@ -111,6 +115,9 @@ Scripts live in `scripts/` next to this file. Run them with `uv run <skill-dir>/
 - Main flow runs top-to-bottom unless the content requires another direction.
 - Every box participates in the flow; there are no header, footer, title, legend, summary, key, or decorative boxes.
 - Every text element uses Helvetica (`fontFamily: 2`).
+- Box and arrow text is at least 16 px, zone titles are at least 20 px, and 14 px text is limited to short badge numbers.
+- Text is readable at 100% zoom with strong contrast and no size reduction used to force content into a box.
+- Boxes from different products use distinct fill colors, and boxes from the same product reuse one fill consistently.
 - Trust boundaries and external systems explicit.
 - Appropriate Azure and product boundaries use official icons when available.
 - No secret values, credentials, or personal data embedded. Stable infrastructure identifiers appear only when relevant and supported by authorized sources.

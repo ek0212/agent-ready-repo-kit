@@ -8,6 +8,8 @@ cases:
       - Includes no boxed title, header, footer, legend, summary, key, or decorative annotation.
       - Binds enclosed text to its parent shape with boundElements when creating Excalidraw JSON.
       - Uses Helvetica for every text element.
+      - Uses distinct fill colors for different products and reuses one fill consistently within each product.
+      - Keeps box and arrow text at least 16 px, zone titles at least 20 px, and text readable at 100% zoom.
       - Writes companion Markdown.
   - id: before-after
     prompt: Make a rough before-and-after sketch for this onboarding redesign.
@@ -36,6 +38,7 @@ cases:
     expected_behavior:
       - Searches icons with sketch.py icons and uses only official icons found.
       - Uses official Azure or product icons to clarify appropriate components and boundaries.
+      - Uses a different readable fill color for each product's boxes while keeping each product's color consistent.
       - Lists missing icons as open questions instead of drawing logos.
       - Records each icon source in the companion summary.
   - id: production-multi-region-integration
