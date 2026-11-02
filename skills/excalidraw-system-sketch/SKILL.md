@@ -45,7 +45,7 @@ Scripts live in `scripts/` next to this file. Run them with `uv run <skill-dir>/
 8. Find icons with `sketch.py icons <keywords>`. Confirm each match is the right product.
 9. Write a small build script that imports `scripts/scene.py`. Do not hand-write element JSON. Load [excalidraw-format.md](references/excalidraw-format.md) when writing the build script or debugging a file.
 10. Run `sketch.py check <file>.excalidraw`. Fix every error.
-11. Run `sketch.py render <file>.excalidraw <file>.png`. Read the PNG at 100% zoom. Fix clipped, overlapping, wrapped, low-contrast, or undersized text, then rebuild and repeat.
+11. Run `sketch.py render <file>.excalidraw <file>.png`. Read the PNG at 100% zoom and fit-to-screen. Fix clipped, overlapping, wrapped, low-contrast, undersized, crowded, or hard-to-follow content, then rebuild and repeat until the diagram looks clean and is easy to view.
 12. Write the companion `.md` summary with purpose, discovery method, evidence matrix, data contracts, components, icon sources, boundaries, flows, drift, assumptions, omissions, and open questions.
 
 ## Text Rules
@@ -54,10 +54,11 @@ Scripts live in `scripts/` next to this file. Run them with `uv run <skill-dir>/
 - Zone titles bind to their zone with `verticalAlign: "top"` and `textAlign: "left"`.
 - Connector labels bind to their arrow. Excalidraw wraps them at the larger of 70% of the arrow's width or 11 times the font size (176px at 16px), and centers them on the arrow. Break lines short.
 - Long step descriptions in swimlanes go in a message box above the arrow.
-- Write full sentences. Write every value in full: IDs, URLs, names. Never truncate with `...`.
+- Write one or two complete sentences per box in plain language that a college student can understand. Do not use bullet points, fragments, or dense technical notation inside boxes.
+- Write every value in full: IDs, URLs, names. Never truncate with `...`.
 - Show stable non-secret identifiers and paths when they help the reader locate the real deployment.
 - Label arrows with the data moving between components. Keep the canvas label short; put detailed schema or contract fields in the companion summary.
-- Spell out each acronym on first use.
+- Spell out each acronym on first use as `Full Name (ACRONYM)`, for example `Application Programming Interface (API)`.
 - Left-align text in boxes. Center only badge numbers.
 - Use Helvetica (`fontFamily: 2`) for every text element, including titles, zone labels, badges, and arrow labels.
 - Use at least 16 px for box and arrow text and at least 20 px for zone titles. Use 14 px only for short badge numbers. Increase these sizes for projected or large-canvas viewing.
@@ -76,6 +77,8 @@ Scripts live in `scripts/` next to this file. Run them with `uv run <skill-dir>/
 ## Drawing Rules
 
 - One concept per sketch.
+- Prioritize minimal visual clutter. Use the fewest boxes, arrows, colors, labels, and decorative elements needed to explain the main idea.
+- Keep each box focused on one idea. Split or simplify content that needs more than two sentences.
 - Make data flow the dominant visual path. A reader should be able to follow data from each source through transformations and persistence to every output.
 - Show each component's input and output explicitly. Name the data format or contract at boundaries when known.
 - Distinguish transport from transformation. Arrows show movement; component boxes state what changes, validates, enriches, filters, aggregates, or persists the data.
@@ -112,6 +115,9 @@ Scripts live in `scripts/` next to this file. Run them with `uv run <skill-dir>/
 - Companion evidence identifies how and where each deployed resource was found.
 - Live inventory and deployment artifacts are reconciled; drift and incomplete coverage are visible.
 - Main flow readable without zoom.
+- Diagram is clean and easy to view at both 100% zoom and fit-to-screen, with consistent spacing and no unnecessary visual elements.
+- Every box uses one or two complete plain-language sentences, contains one idea, and has no bullet points.
+- Every acronym is expanded on first use as `Full Name (ACRONYM)`.
 - Main flow runs top-to-bottom unless the content requires another direction.
 - Every box participates in the flow; there are no header, footer, title, legend, summary, key, or decorative boxes.
 - Every text element uses Helvetica (`fontFamily: 2`).
