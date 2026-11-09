@@ -57,7 +57,7 @@ Scripts live in `scripts/` next to this file. Run them with `uv run <skill-dir>/
 - Write one or two complete sentences per box in plain language that a college student can understand. Do not use bullet points, fragments, or dense technical notation inside boxes.
 - Write every value in full: IDs, URLs, names. Never truncate with `...`.
 - Show stable non-secret identifiers and paths when they help the reader locate the real deployment.
-- Label arrows with the data moving between components. Keep the canvas label short; put detailed schema or contract fields in the companion summary.
+- Write every transition and arrow label as a concise complete sentence that states what data moves or what change occurs. Do not use fragments or shorthand labels; put detailed schema or contract fields in the companion summary.
 - Spell out each acronym on first use as `Full Name (ACRONYM)`, for example `Application Programming Interface (API)`.
 - Left-align text in boxes. Center only badge numbers.
 - Use Helvetica (`fontFamily: 2`) for every text element, including titles, zone labels, badges, and arrow labels.
@@ -117,6 +117,7 @@ Scripts live in `scripts/` next to this file. Run them with `uv run <skill-dir>/
 - Main flow readable without zoom.
 - Diagram is clean and easy to view at both 100% zoom and fit-to-screen, with consistent spacing and no unnecessary visual elements.
 - Every box uses one or two complete plain-language sentences, contains one idea, and has no bullet points.
+- Every transition and arrow label is a complete sentence that clearly states what moves or changes.
 - Every acronym is expanded on first use as `Full Name (ACRONYM)`.
 - Main flow runs top-to-bottom unless the content requires another direction.
 - Every box participates in the flow; there are no header, footer, title, legend, summary, key, or decorative boxes.
