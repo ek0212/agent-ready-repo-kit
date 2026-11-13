@@ -1,0 +1,50 @@
+cases:
+  - id: toile-clouds
+    prompt: Make the clouds in this zodiac toile image move. It should be a looping movie.
+    expected_trigger: true
+    expected_behavior:
+      - Uses defaults of 12 seconds at 30 fps without asking.
+      - Traces protect polygons at every ring and figure junction before rendering.
+      - Runs masks until it exits 0 and views the overlay and plate.
+      - Renders an MP4 and runs check, which exits 0.
+      - Views the motion range and junction sheets before handing over.
+      - Saves the config JSON next to the video.
+      - Video shows the Eve Kazarian watermark.
+  - id: mist-landscape
+    prompt: Animate the fog in this watercolor valley so it drifts slowly. Make it a 20 second loop.
+    expected_trigger: true
+    expected_behavior:
+      - Sets loop_seconds to 20.
+      - Checks that fog is lighter and less saturated than the background before relying on detection.
+      - Protects tree and hill edges the fog overlaps.
+      - Reports check numbers and the output path.
+  - id: steam-poster
+    prompt: Turn this coffee shop poster into a living wallpaper where only the steam moves.
+    expected_trigger: true
+    expected_behavior:
+      - Limits groups to the steam and leaves other light shapes, such as text or cups, unseeded.
+      - Protects the cup rim where steam rises from it.
+      - Lowers amp_x for small wisps so they do not detach from the cup.
+  - id: negative-text-to-video
+    prompt: Generate a 10 second video of clouds rolling over mountains at sunset.
+    expected_trigger: false
+    expected_behavior:
+      - Does not load this skill, because there is no source image to animate.
+  - id: negative-trim-video
+    prompt: Trim this MP4 to 8 seconds and make it loop smoothly for Instagram.
+    expected_trigger: false
+    expected_behavior:
+      - Uses ffmpeg directly on the existing video.
+  - id: boundary-dark-clouds
+    prompt: Make the storm clouds move in this painting. The clouds are dark gray on a pale yellow sky.
+    expected_trigger: true
+    expected_behavior:
+      - Notices that light-shape detection will select the sky instead of the clouds.
+      - Creates or requests a movable_mask before running masks.
+      - Offers a slow whole-image pan and zoom if the clouds cannot be separated from the art.
+  - id: boundary-character-motion
+    prompt: Animate this illustration so the goat leaps and the clouds move.
+    expected_trigger: true
+    expected_behavior:
+      - States that warping cannot animate the leap because it needs new pixels.
+      - Offers to move only the clouds and keep the goat still.

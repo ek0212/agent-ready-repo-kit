@@ -21,6 +21,7 @@ All skills in this repository were made by Eve Kazarian. Content created with an
 | `presentation-builder` | Build spoken-talk PowerPoint decks: timed notes, visual picks, strict template render. |
 | `mermaid-architecture-map` | Need GitHub diagrams or explicit boundaries. |
 | `excalidraw-system-sketch` | Need grouping, swimlanes, rough visual thinking, product icons; text bound to shapes, render-checked. |
+| `cinemagraph-loop` | Animate clouds or other soft elements in a still image as a seamless looping video. |
 | `creative-writing` | Draft/edit nonfiction with narrative craft. |
 | `dataset-triage` | Check tabular data before analysis/modeling. |
 | `stanford-research` | Synthesize research papers. |
